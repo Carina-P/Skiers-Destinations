@@ -90,3 +90,31 @@ I want the colors to match a day in the skiing slope: White for **snow**, light-
 - **Main background** and if background is dark: **White** #ffffff
 - **Framing** as borders: **Columbia blue** #cae9ff
 - Details to **stick out** as buttons: **Sunglow** #fecf3e
+
+## Features
+In order of importance:
+- **Header**, fixed at the top of viewport, with:
+    - **logo**
+    - **navbar**
+- **Map** with with markers on popular skiing resorts.
+- **Skiing-resort information** matching the marker user has **choosen in map**.
+- **Table with 10-top** skiing resort sorted with the best in the top. Providing possibility to do users own ranking of place and
+interactive update of the list.
+- **Reviews** of ski resorts
+- **Form for wishing** new ski resorts on the site.
+- **Footer** with contacts and social media
+
+<!--
+In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+ 
+### Existing Features
+- Feature 1 - allows users X to achieve Y, by having them fill out Z
+- ...
+
+For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+
+In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+
+### Features Left to Implement
+- Another feature idea
+-->
