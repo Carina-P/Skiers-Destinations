@@ -79,3 +79,14 @@ I have choosen **Oswald**, because i find it very **useful** on different platfo
 to be used freely across the internet by web browsers on desktop computers, laptops and mobile devices." (quote from 
 [Google fonts](https://fonts.google.com/specimen/Oswald#standard-styles). 
 And as the alternative font: Open Sans.
+
+### Icons
+
+### Colors
+I want the colors to match a day in the skiing slope: White for **snow**, light-blue for the **sky** and yellow for the **sun**. 
+<img src="wireframes/colors-skiers-destinations.png" width="75%">
+
+- **Text** to contrast lighter backgrounds: **Raisin black** #262730
+- **Main background** and if background is dark: **White** #ffffff
+- **Framing** as borders: **Columbia blue** #cae9ff
+- Details to **stick out** as buttons: **Sunglow** #fecf3e
