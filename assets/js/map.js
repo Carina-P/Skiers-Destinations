@@ -33,6 +33,18 @@ function initMap(){
         }
     );
 
+    fetch("assets/data/resorts.json")
+    .then((res) => {
+        if (!res.ok){
+            throw new Error("Something went wrong when fetching resorts");
+        }
+        return res.json();
+    })
+    .then((resorts) => {
+        console.log(resorts);
+    }) 
+    .catch((error) => console.error("Error:", error))
+
     var infoWindow = new google.maps.InfoWindow({content: "this is a test"});
 
     var marker = new google.maps.Marker({position:{lat: 63.399043, lng: 13.081506}, map:map, icon: "assets/images/yellow-marker48.gif"});
