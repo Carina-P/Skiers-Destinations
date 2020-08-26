@@ -12,6 +12,13 @@ body{
     color: #262730;
     font-size: 1.6rem;
 }
+
+.border-blue{
+    border: solid .3rem #cae9ff;
+    margin: 1rem;
+    border-radius: 1rem;
+}
+
 /* Header */
 .logo{
     height: 4rem;
@@ -34,4 +41,36 @@ body{
 }
 .navbar-brand:hover, .navbar-toggler:hover{
     transform: scale(1.1);
+}
+
+/* Places */
+#places {
+    min-height: 100vh;
+}
+
+.text-center{
+  text-align: center;
+  padding: 1rem;
+}
+
+#map{
+    min-height : 370px; 
+    height: 70vh;
+    width : 100%;
+}
+
+#place-info{ 
+    max-height: 70vh;
+}
+
+#place-txt{
+    background-color:  #cae9ff;
+    max-height: 100%;
+    overflow: auto;
+}
+.flex-container {
+    display: flex;
+}
+.forecast {
+    padding: .5rem;
 }
