@@ -13,9 +13,10 @@ function initMap(){
         
     marker.addListener("click", function(){
             infoWindow.open(map, marker);
+            $("#place-txt").css("background-color","#ffffff");
+            $("#place-txt").html("<p>Text about Ski resort</p>");
     });
     
-    /*
     let resorts = [
         {lat: 45.297309, lng: 6.579732}, 
         {lat: 46.096081, lng: 7.228551}
@@ -30,5 +31,5 @@ function initMap(){
         });
 
         
-    let markerCluster = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});*/
+    let markerCluster = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
 }
