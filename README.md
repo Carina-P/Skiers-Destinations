@@ -68,7 +68,14 @@ choose the resort.
 I used [Balsamiq Wireframes](https://balsamiq.com/) to build rudimentary wireframes for a basic understanding.
 I have made frames for desktop, tablet and mobile:
 - [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
-- [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-tablet.pdf)
+- [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
 
 ### Major changes compared to above wireframes
+
+## Design Choices
+### Fonts
+I have choosen **Oswald**, because i find it very **useful** on different platforms, **clean** and **easy** to read. "Oswald is designed 
+to be used freely across the internet by web browsers on desktop computers, laptops and mobile devices." (quote from 
+[Google fonts](https://fonts.google.com/specimen/Oswald#standard-styles). 
+And as the alternative font: Open Sans.
