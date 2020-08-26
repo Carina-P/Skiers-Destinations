@@ -1,39 +1,34 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Skiers Paradise
+**UpToDate information about Ski Resorts** for downhill ski lovers who are searching for their next ski trip or just want updated information about skiing conditions and/or weather.
+ 
+## UX
+<!--
+Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-Welcome USER_NAME,
+In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
+- As a user type, I want to perform an action, so that I can achieve a goal.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+-->
+### External users goal
+A place to find **information and up-to-date facts** about the **best downhill ski places in the world**. This is the site where you find **inspiration** if you do not know
+**which ski resort to choose**. And the site to find update information when you are or are going to a ski resort.
 
-## Gitpod Reminders
+### Site owners goal
+To **share information** with other ski lovers and get uptodate information about skiing conditions at the best downhill skiing resorts.
+In the long run **advertisers** will get the opportunity to put adds in the site.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+### Potential features, grouping of the features and in order of prioritize
+- **Header**, fixed at the top of viewport, with:
+    - **logo**
+    - **navbar**
+- **Information**-section with:
+    - **Map** with with labels on skiing resorts.
+    - **Skiing-resort information** matching the label user has **choosen in map**.
+- **Recommendation**-section with:
+    - **Table with 10-top** skiing resort sorted with the best in the top. Providing possibility to do own ranking of place and
+**interactive update** of the list.
+    - **Reviews** of ski resorts
+- Section for **wishes** were you can **mail** a wish for a **ski resort** that you want the site to show information about.
+- **Footer**-section with:
+    - **contact and social media** information
