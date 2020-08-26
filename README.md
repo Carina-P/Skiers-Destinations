@@ -118,3 +118,40 @@ In addition, you may also use this section to discuss plans for additional featu
 ### Features Left to Implement
 - Another feature idea
 -->
+
+## Technologies Used
+
+In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+
+
+### Languages
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) 
+    - The perfect language to build a static site.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
+    - For styling the site
+- [JavaScript](https://www.javascript.com/)
+    - Bringing interactivity to the site.
+### Tools and libraries
+- [Git](https://git-scm.com/)
+    - For version control and storing the code
+- [Bootstrap](https://getbootstrap.com/)
+    - A helpful HTML, CSS (and JS) library that is great for responsive design.
+- [JQuery](https://jquery.com/)
+    - The project uses **JQuery** to simplify DOM manipulation.
+- [JSON](https://www.json.org/json-en.html)
+    - A data-interchange format used when retrieve information from other sources as [Weather Unlocked](http://www.weatherunlocked.com/)
+- [Jasmine](https://jasmine.github.io/)
+    - Supports behavior-driven development, makes it easy to build unit test.
+<!--* [Popper](https://popper.js.org/)
+    * A library to manage poppers in web-applications
+-->
+<!--
+- [Font-Awesome](https://fontawesome.com/icons?d=gallery)
+    * From this library I picked the icons
+-->
+- [Google fonts](https://fonts.google.com/)
+    - For inspiration and fonts
+- [Balsamiq Wireframes](https://balsamiq.com/)
+    - For designing the wireframes
+- [Coolors](https://balsamiq.com/)
+    - To generate color-schemes
