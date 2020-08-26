@@ -1,5 +1,8 @@
-# Skiers Paradise
-**UpToDate information about Ski Resorts** for downhill ski lovers who are searching for their next ski trip or just want updated information about skiing conditions and/or weather.
+# Skiers Destinations
+![Logo](wireframes/logo-skiers-destinations.png)     
+*(Above logo is under construction.)*
+
+**UpToDate information about Ski Resorts** for downhill ski lovers who want inspiration for where their next ski trip goes, or just want updated information about skiing conditions and/or weather.
  
 ## UX
 <!--
