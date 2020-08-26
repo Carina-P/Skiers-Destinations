@@ -7,17 +7,19 @@ function initMap(){
         }
     );
 
-    var marker = new google.maps.Marker({position: {lat: 45.297309, lng: 6.579732}, map: map,
-    icon: "assets/images/yellow-marker48.gif" });
-
-    /*
-    let markers = locations.map(function(location) {
+    let resorts = [
+        {lat: 45.297309, lng: 6.579732}, 
+        {lat: 46.096081, lng: 7.228551},
+        {lat: 63.399043, lng: 13.081506}
+    ];
+    
+    let markers = resorts.map(function(resort) {
           return new google.maps.Marker({
-            position: location,
+            position: resort,
             icon:"assets/images/yellow-marker48.gif"
           });
         });
-    console.log(markers);
+
         
-    let markerCluster = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});*/
+    let markerCluster = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
 }
