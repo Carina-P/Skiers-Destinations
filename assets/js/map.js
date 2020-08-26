@@ -8,8 +8,20 @@ function getResortInfo(){
         return snowRes.json();
     })
     .then ((snowReport) => {
-        console.log(snowReport);
+        console.log(snowReport)
+        return (fetch(`https://api.weatherunlocked.com/api/resortforecast/${resortId}?hourly_interval=6&app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`))
     })
+    .then( (weatherRes) => {
+        if (!weatherRes.ok){
+            throw new Error("Something is wrong fetching weather forecast");
+        }
+        return weatherRes.json();
+    })
+    .then ((weather) => {
+        console.log(weather);
+    })
+    .catch((error) => {console.error("error: ", error) });
+ 
 }
 
 function initMap(){
