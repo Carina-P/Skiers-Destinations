@@ -20,29 +20,29 @@ function txtInfoWindowToHTML(resort){
 * @returns {string} A string literal with HTML code
 * 
 */
-function txtResortToHTML(resort){
+function txtResortToHTML(resort){ 
+    let forecastTxt = 
+        `<h2>${resort.name}</h2>
+        <p>${resort.info}</p>
+        <div>
+            <h3>Forecast at top: ${resort.forecast[1].date}</h3>
+            <div class = "flex-container">`;
     
-    let forecastTxt = `<h2>${resort.name}</h2>
-            <p>${resort.info}</p>
-            <div>
-                <h3>Forecast at top: ${resort.forecast[i].date}</h3>`;
-    
-    /* Do not want item 0 but the next 3. 
-    for (let i = 1; i < 4 ; i++){
-        console.log(i);
+    /* Do not want item 0 but the next 3. */
+    for (let i = 1; i < 4 ; i++){ 
         forecastTxt += 
-                `<div class = "flex-container">
-                    <div class = "forecast"> 
-                        ${resort.forecast[i].time}<br>
-                        <img src="assets/images/weather/${resort.forecast[i].upper.wx_icon}"> <br>
-                        ${resort.forecast[i].upper.temp_avg_c}&#8451<br>
-                        ${resort.forecast[i].upper.windspd_avg_ms}m/s
-                    </div>    
+                `<div class = "forecast"> 
+                    ${resort.forecast[i].time}<br>
+                    <img src="assets/images/weather/${resort.forecast[i].upper.wx_icon}"> <br>
+                    ${resort.forecast[i].upper.temp_avg_c}&#8451<br>
+                    ${resort.forecast[i].upper.windspd_avg_ms}m/s
                 </div>`;
     }
 
-    forecastTxt += `</div>
-            <div>
+    forecastTxt += 
+            `</div>
+        </div>
+        <div>
                 <h3>Snow Report</h3>
                 <p><small>New snow:</small> ${resort.snowReport.newsnow_cm}<br>
                 <small>Last snow:</small> ${resort.snowReport.lastsnow}<br>
@@ -50,8 +50,8 @@ function txtResortToHTML(resort){
                 <small>Snow report:</small> ${resort.snowReport.conditions} </p>
             </div>
             <div><br><a href=${resort.homePage} target="_blank">More info</a></div>`;
-    */
-    console.log(forecastTxt);
+
+    
     return forecastTxt;           
 }
 
@@ -122,7 +122,7 @@ function getResortInfo(resort) {
 *
 */
 function makeMarkersCluster(){ 
-    fetch("assets/data/resorts.json")
+    fetch("assets/data/test.json")
     .then((res) => {
         if (!res.ok){
             throw new Error("Something went wrong when fetching resorts");
