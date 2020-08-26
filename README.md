@@ -188,3 +188,62 @@ If this section grows too long, you may want to split it off into a separate fil
 ### Scenarios
 ### Validation with W3S
 ### Some of the bugs
+
+## Deployment
+***To myself: Look this over!!!!!!***
+
+Skiers Destinations was developed on GitPod, using git and GitHub to host the repository.
+
+When deploying Skiers Destinations using GitHub Pages the following steps were made:
+
+* Opened up **GitHub** in the browser.
+* Signed in using username and password.
+* Selected my **repositories**.
+* Navigated to **'/Carina-P/Skiers-Destinations'**.
+* In the top navigation clicked **'settings'**.
+* Scrolled down to the **GitHub Pages** area. 
+* Selected **'Master Branch'** from the **'Source'** dropdown menu.
+* Clicked to confirm my selection.
+* Skiers Paradise now live on GitHub Pages:
+ [Skiers Destinations](https://ffae6810-1c47-4d0d-b67b-2450376d2788.ws-eu01.gitpod.io/)
+
+### Running Skiers Paradise locally
+
+Cloning Skiers Destinations from GitHub:
+
+* Navigate to **https://github.com/Carina-P/Skiers-Destinations**.
+* Click the green **'Clone or Download'** button.
+* Copy the **url** in the dropdown box.
+* Using your favourite **IDE** open up your preferred **terminal**.
+* Navigate to your desired file location. 
+* Copy the following **code** and input it into your terminal to clone Skiers Paradise.
+ ```git
+  git clone https://github.com/Carina-P/skiers-destinations.git
+   ```
+
+<!--
+This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+
+In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
+- Different values for environment variables (Heroku Config Vars)?
+- Different configuration files?
+- Separate git branch?
+
+In addition, if it is not obvious, you should also describe how to run your code locally.
+-->
+
+## Credits
+
+### Content
+<!--
+- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+-->
+### Media
+<!--
+- The photos used in this site were obtained from ...
+-->
+### Acknowledgements
+
+<!--
+- I received inspiration for this project from X
+-->
