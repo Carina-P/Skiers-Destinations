@@ -1,5 +1,5 @@
 let map;
-
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 /**
 * Build a string of HTML code to be shown in infoMarker.
 *
@@ -91,7 +91,7 @@ function getResortInfo(resort) {
     fetch(`https://api.weatherunlocked.com/api/snowreport/${resort.id}?app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`)
     .then((snowRes) => {
         if (!snowRes.ok){
-            throw new Error("Something is wrong fetching snowreport");
+            throw new Error("Something is wrong fetching snowreport"+resort.name);
         }
         return snowRes.json();
     })
@@ -122,7 +122,7 @@ function getResortInfo(resort) {
 *
 */
 function makeMarkersCluster(){ 
-    fetch("assets/data/test.json")
+    fetch("assets/data/resorts.json")
     .then((res) => {
         if (!res.ok){
             throw new Error("Something went wrong when fetching resorts");
