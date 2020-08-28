@@ -191,6 +191,11 @@ If this section grows too long, you may want to split it off into a separate fil
 ### Scenarios
 ### Validation with W3S
 ### Some of the bugs
+CORS: There is a CORS-problem when fetching information from Weather Unlocked. Code Institute support looked at the problem but 
+could not understand how to solve it. But they said I should use jQuery Ajax for my requests instead of fetch, since it seems to be working better with the API and
+the problem appears a little less frequently. And this is why I use fetch when fetching information from local file and JQuery ajax when fetching information
+from Weahter Unlockeds API. The bug appears in that way that you do not get any information for one or more of the resorts (The InfoWindow in map
+is still showing but not the text beside/under the map).
 
 ## Deployment
 ***To myself: Look this over!!!!!!***

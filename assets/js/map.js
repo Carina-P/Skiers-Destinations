@@ -1,5 +1,7 @@
 let map;
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
+/* const proxyurl = "https://cors-anywhere.herokuapp.com/";*/
+
+
 /**
 * Build a string of HTML code to be shown in infoMarker.
 *
@@ -88,29 +90,16 @@ function getResortInfo(resort) {
     /* let snowRep;
     let weatherRep;
     */ 
-    fetch(`https://api.weatherunlocked.com/api/snowreport/${resort.id}?app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`)
-    .then((snowRes) => {
-        if (!snowRes.ok){
-            throw new Error("Something is wrong fetching snowreport"+resort.name);
-        }
-        return snowRes.json();
-    })
-    .then ((snowReport) => {
-            /* snowRep = snowReport; */
-        resort.snowReport = snowReport;
-        return (fetch(`https://api.weatherunlocked.com/api/resortforecast/${resort.id}?hourly_interval=6&app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`))
-    })
-    .then( (weatherRes) => {
-        if (!weatherRes.ok){
-            throw new Error("Something is wrong fetching weather forecast");
-        }
-        return weatherRes.json();
-    })
-    .then ((weather) => {
-        /* weatherRep = weather */
-        resort.forecast = weather.forecast;
-    })
-    .catch((error) => {console.error("error: ", error) });
+       $.ajax(`https://cors-anywhere.herokuapp.com/https://api.weatherunlocked.com/api/snowreport/${resort.id}?app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`)
+        .done(function (snowData) {
+            resort.snowReport = snowData;
+            $.ajax(`https://cors-anywhere.herokuapp.com/https://api.weatherunlocked.com/api/resortforecast/${resort.id}?hourly_interval=6&app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`)
+                .done(function (forecastData) {
+                    resort.forecast = forecastData.forecast;
+                })
+                .fail((xhr, status) => console.log('error:', xhr));
+        })
+        .fail((xhr, status) => console.log('error:', xhr));
 
     
     return buildMarker(resort);
@@ -134,6 +123,7 @@ function makeMarkersCluster(){
     }) 
     .then ((markers) => {
         new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
+        $("#loader").remove();
     }) 
     .catch((error) => console.error("Error:", error))
 }
@@ -150,5 +140,9 @@ function initMap(){
             center: {lat: 45.297309, lng: 6.579732}
         }
     );
+
+    $("#loader").html(`<img src="assets/css/loader.gif" alt="loading..." /> <span>loading markers...</span>`);
+
     makeMarkersCluster();
+
 }
