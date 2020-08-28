@@ -1,7 +1,5 @@
 let map;
-/* const proxyurl = "https://cors-anywhere.herokuapp.com/";*/
-
-
+ 
 /**
 * Build a string of HTML code to be shown in infoMarker.
 *
@@ -26,11 +24,10 @@ function txtResortToHTML(resort){
     let forecastTxt = 
         `<h2>${resort.name}</h2>
         <p>${resort.info}</p>
-        <div>
+        <div class = "border-blue">
             <h3>Forecast at top: ${resort.forecast[1].date}</h3>
             <div class = "flex-container">`;
-    
-    /* Do not want item 0 but the next 3. */
+     
     for (let i = 1; i < 4 ; i++){ 
         forecastTxt += 
                 `<div class = "forecast"> 
@@ -44,7 +41,7 @@ function txtResortToHTML(resort){
     forecastTxt += 
             `</div>
         </div>
-        <div>
+        <div class = "border-blue">
                 <h3>Snow Report</h3>
                 <p><small>New snow:</small> ${resort.snowReport.newsnow_cm}<br>
                 <small>Last snow:</small> ${resort.snowReport.lastsnow}<br>
@@ -58,8 +55,10 @@ function txtResortToHTML(resort){
 }
 
 /**
-* Put a marker at a certain position in the map. It also connects an InfoWindow to the marker. When user clicks on marker the 
-* InfoWindow is shown and text besides the map is changet to represent the current resort.
+* Put a marker at a certain position in the map. It also connects an InfoWindow
+* to the marker. When user clicks on marker the 
+* InfoWindow is shown and text besides the map is changet to represent the 
+* current resort.
 *
 * @param {Object}   resort  Information of the ski resort
 * @returns {Object} The marker
@@ -80,21 +79,25 @@ function buildMarker(resort){
 }
 
 /**
-* Fetches snowreport and forecast for a ski resort, from Wheather unlockeds API.
+* Fetches snowreport and forecast for a ski resort, from Wheather Unlocked API.
 *
 * @param {Object}   resort  Information of the ski resort.
 * @returns {Object} A map marker
 * 
 */
 function getResortInfo(resort) {
-    /* let snowRep;
-    let weatherRep;
-    */ 
-       $.ajax(`https://cors-anywhere.herokuapp.com/https://api.weatherunlocked.com/api/snowreport/${resort.id}?app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`)
-        .done(function (snowData) {
+   
+    let urlUW1 = `https://api.weatherunlocked.com/api/`;
+    let urlUW2 =  `/${resort.id}?`;
+    let urlUW3 = `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`;
+    let snowReport;
+    let forecast;
+
+    $.ajax(urlUW1 + `snowreport` + urlUW2 + urlUW3)
+        .done( snowData => {
             resort.snowReport = snowData;
-            $.ajax(`https://cors-anywhere.herokuapp.com/https://api.weatherunlocked.com/api/resortforecast/${resort.id}?hourly_interval=6&app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`)
-                .done(function (forecastData) {
+            $.ajax(urlUW1 + `resortforecast` + urlUW2 + `hourly_interval=6&` + urlUW3)
+                .done( forecastData => {
                     resort.forecast = forecastData.forecast;
                 })
                 .fail((xhr, status) => console.log('error:', xhr));
@@ -102,8 +105,7 @@ function getResortInfo(resort) {
         .fail((xhr, status) => console.log('error:', xhr));
 
     
-    return buildMarker(resort);
-    /*return buildMarker(resort, snowRep, weatherRep); */
+    return buildMarker(resort); 
 } 
 
 /**
@@ -112,16 +114,11 @@ function getResortInfo(resort) {
 */
 function makeMarkersCluster(){ 
     fetch("assets/data/resorts.json")
-    .then((res) => {
-        if (!res.ok){
-            throw new Error("Something went wrong when fetching resorts");
-        }
-        return res.json();
-    })
-    .then((resorts) => {
-        return Promise.all( resorts.map( getResortInfo));
-    }) 
-    .then ((markers) => {
+    .then( (res) => {return res.json();}
+    )
+    .then( (resorts) => {return resorts.map(getResortInfo);
+    })  
+    .then ( (markers) => {
         new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
         $("#loader").remove();
     }) 
@@ -129,7 +126,7 @@ function makeMarkersCluster(){
 }
 
 /**
-* Inits an puts a map with markers, in MarkersCluster, in the page. 
+* Inits and puts a map with markers, in MarkersCluster, in the page. 
 *
 */
 function initMap(){
