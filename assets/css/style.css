@@ -16,6 +16,7 @@ body{
 .border-blue{
     border: solid .3rem #cae9ff;
     margin: 1rem;
+    padding: .5rem;
     border-radius: 1rem;
 }
 
@@ -85,7 +86,7 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
-.btn-yellow{
+.bgr-yellow{
     background-color: #fecf3e;
 }
 .hero-img{
