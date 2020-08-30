@@ -20,7 +20,7 @@ function initTable(){
 
     ratingTable.forEach( resort => {
         resort.rating = 0.0;
-        resort.noOfVotes = 0; 
+        resort.nrOfVotes = 0; 
     })
 
     return ratingTable;
@@ -51,15 +51,21 @@ function ratingToLocalStorage(ratingTable){
     console.log("ratingToLocalStorage");
 }
 /**
-* Update rating of a row and return row with new values.
+* Update rating of a row with the new grade and return row with new values.
 *
 * @param {Object} tableRow Contains information of Ski Resort and its rating.
-* @param {number} grade The value of a new Vote to be added to the rating.
+* @param {number} grade The value of a new vote to be added to the rating.
 *
 * @returns {Object} The updated row with new rating information.
 */
 function calcNewRating(tableRow, grade) {
-    console.log("calculateNewRating");
+    tableRow.nrOfVotes++;
+    tableRow.rating = (tableRow.rating + grade)/tableRow.nrOfVotes;
+    tableRow.myVote = grade;
+
+    console.log(tableRow);
+
+    return tableRow;
 }
 
 /**
