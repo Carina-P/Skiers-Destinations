@@ -1,3 +1,4 @@
+
 /** 
 * Use if no rating information is available in local storage. Initial 
 * information consists of Ski resorts but no rating information.
@@ -19,21 +20,13 @@ function initTable(){
 
     ratingTable.forEach( resort => {
         resort.rating = 0.0;
-        resort.noOfVotes = 0;
-        resort.myVote = 0;
+        resort.noOfVotes = 0; 
     })
 
     return ratingTable;
-} 
+}  
  
-/**
-* Users can cast a vote for each resort every session. This value is not saved in local storage.
-* Thus the vote is set to 0 every time a new browser session starts. 
-*/
-function initMyVote(row){
-    console.log("initMyVote"); 
-} 
-/*
+/* 
 * Update/fill document with rating information.
 */
 function fillDocuTable(){
@@ -41,13 +34,51 @@ function fillDocuTable(){
 }
 /** 
 * Fetch information about rating and then fill document with the information.
-* User can cast new votes every session.
+* User can cast new votes every session, thus myVote is initiated to 0.
 */
 function fetchTableData(){
-    let ratingTable = localStorage.getItem("ratingTable") || initTable();
-    console.log(ratingTable);
-    ratingTable.forEach(initMyVote);
+    let ratingTable = localStorage.getItem("ratingTable") || initTable(); 
+    ratingTable.forEach( row => {row.myVote = 0;});
+    console.log(ratingTable); 
     fillDocuTable();
 } 
 
+/** 
+* Put current table with current rating in local storage. Then if user ends session 
+* the rating is saved to next session.
+*/
+function ratingToLocalStorage(ratingTable){
+    console.log("ratingToLocalStorage");
+}
+/**
+* Update rating of a row and return row with new values.
+*
+* @param {Object} tableRow Contains information of Ski Resort and its rating.
+* @param {number} grade The value of a new Vote to be added to the rating.
+*
+* @returns {Object} The updated row with new rating information.
+*/
+function calcNewRating(tableRow, grade) {
+    console.log("calculateNewRating");
+}
+
+/**
+* When a resort is graded the information for that resort needs to be updated.
+* The new grading may affect order of Ski resort. Table is sorted and the updated
+* information is stored in local storage and rating table in document is updated.
+*
+* @param {Object} event Contains data with the index of the row that was 
+*                       updated by user.
+*/
+function updateTable(event) { 
+    
+    ratingTable[event.data.index]= calcNewRating( ratingTable[event.data.index], this.value);
+    
+    ratingTable.sort( (a,b) => {return b.rating-a.rating;})
+
+    ratingToLocalStorage();
+    fillDocuTable();
+}
+
 $(document).ready(fetchTableData); 
+$("#gradesRow1").change({index : 0} , updateTable ); 
