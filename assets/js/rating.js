@@ -3,16 +3,26 @@
 * information consists of Ski resorts but no rating information.
 */
 function initTable(){ 
-    console.log("initTable");
-    ratingTable = [
-        {
-            name: "Val Thorens",
-            rating: 0.0,
-            nrOfVotes: 0 
-        }
-    ];
 
-    console.log(ratingTable);
+    ratingTable = [
+        {name: "Bad Gastein"},
+        {name: "Chamonix"},
+        {name: "Cortina d'Apesso"},
+        {name: "Trysil"},
+        {name: "Val d'Isere"},
+        {name: "Val Thorens"},
+        {name: "Verbier"},
+        {name: "Zermatt"},
+        {name: "Zugspitze"},
+        {name: "Åre"}
+    ]
+
+    ratingTable.forEach( resort => {
+        resort.rating = 0.0;
+        resort.noOfVotes = 0;
+        resort.myVote = 0;
+    })
+
     return ratingTable;
 } 
  
@@ -35,6 +45,7 @@ function fillDocuTable(){
 */
 function fetchTableData(){
     let ratingTable = localStorage.getItem("ratingTable") || initTable();
+    console.log(ratingTable);
     ratingTable.forEach(initMyVote);
     fillDocuTable();
 } 
