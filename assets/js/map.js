@@ -21,6 +21,13 @@ function txtInfoWindowToHTML(resort){
 * 
 */
 function txtResortToHTML(resort){ 
+ 
+    if ((resort.forecast==undefined) || (resort.snowReport==undefined)){
+        return(`At the moment our providor of snow and weather information can not
+        give information about ${resort.name}. Please pick another reasort by clicking on
+        marker in the map! <br> You can also try to reload the page.`);
+    }
+
     let forecastTxt = 
         `<h2>${resort.name}</h2>
         <p>${resort.info}</p>
@@ -102,7 +109,9 @@ function getResortInfo(resort) {
                 })
                 .fail((xhr, status) => console.log('error:', xhr));
         })
-        .fail((xhr, status) => console.log('error:', xhr));
+        .fail((xhr, status) => {
+            console.log('error:', xhr);
+        });
 
     
     return buildMarker(resort); 
