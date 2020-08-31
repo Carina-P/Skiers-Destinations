@@ -25,12 +25,19 @@ function initTable(){
 
     return ratingTable;
 }  
+function rowInfoHTML(ratingRow, i){
+    return `test rownr: ${i}`;
+}
  
 /* 
 * Update/fill document with rating information.
 */
 function fillDocuTable(){
-    console.log("fillDocuTable");
+    ratingTable.forEach((ratingRow, i) => {
+        let id = "row"+i;
+       /* $(id).html(rowInfoHTML(ratingRow, i));*/
+        console.log(rowInfoHTML(ratingRow, i))
+    });
 }
 /** 
 * Fetch information about rating and then fill document with the information.
