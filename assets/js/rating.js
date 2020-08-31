@@ -1,10 +1,11 @@
+let ratingTable;
 
 /** 
 * Use if no rating information is available in local storage. Initial 
 * information consists of Ski resorts but no rating information.
 */
 function initTable(){ 
-
+    console.log("initTable");
     ratingTable = [
         {name: "Bad Gastein"},
         {name: "Chamonix"},
@@ -131,25 +132,7 @@ function fillDocuTable(){
         }
     }); 
 }
-
-/** 
-* Fetch information about rating and then fill document with the information.
-* User can cast new votes every session, thus myVote is initiated to 0.
-*/
-function fetchTableData(){
-    let ratingTable = localStorage.getItem("ratingTable") || initTable(); 
-    ratingTable.forEach( row => {row.myVote = 0;});
-    console.log(ratingTable); 
-    fillDocuTable(); 
-} 
-
-/** 
-* Put current table with current rating in local storage. Then if user ends session 
-* the rating is saved to next session.
-*/
-function ratingToLocalStorage(ratingTable){
-    console.log("ratingToLocalStorage");
-}
+ 
 /**
 * Update rating of a row with the new grade and return row with new values.
 *
@@ -168,6 +151,18 @@ function calcNewRating(tableRow, grade) {
     return tableRow;
 }
 
+/** 
+* Put current table with current rating in local storage. Then if user ends session 
+* the rating is saved to next session.
+*/
+function ratingToLocalStorage(){
+    let table = [];
+    ratingTable.forEach( (row) => {
+        table.push({ name: row.name, rating: row.rating, nrOfVotes: row.nrOfVotes});
+    })
+    localStorage.setItem("ratingTable", JSON.stringify(table));
+}
+
 /**
 * When a resort is graded the information for that resort needs to be updated.
 * The new grading may affect order of Ski resort. Table is sorted and the updated
@@ -181,9 +176,19 @@ function updateTable(event) {
     ratingTable[event.data.index]= calcNewRating( ratingTable[event.data.index], parseInt(this.value));
     
     ratingTable.sort( (a,b) => {return b.rating-a.rating;})
-    console.log (ratingTable);
-    ratingToLocalStorage();
+
+    ratingToLocalStorage(); 
     fillDocuTable();
+}
+
+/** 
+* Fetch information about rating and then fill document with the information.
+* User can cast new votes every session, thus myVote is initiated to 0.
+*/
+function fetchTableData(){
+    ratingTable = JSON.parse(localStorage.getItem("ratingTable")) || initTable(); 
+    ratingTable.forEach( row => {row.myVote = 0;}); 
+    fillDocuTable(); 
 }
 
 $(document).ready(fetchTableData);  
