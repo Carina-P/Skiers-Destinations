@@ -31,9 +31,35 @@ function initTable(){
 *
 * @param {number} rating A grade from 1 to 5. 
 */
-function ratingStarsHTML(rating) {
-    console.log("ratingStarsHTML");
-    return (`rating: ${rating}`);
+function ratingStarsHTML(rating) { 
+    let starsHTML =``;
+    let fullStars = 0;
+    let rest = rating%1;
+ 
+    if (rest > 0.7){
+        fullStars = Math.ceil(rating);
+    }
+    else fullStars = Math.floor(rating);
+
+    console.log("fullstars efter :" + fullStars);
+
+    for (let i=0; i<fullStars; i++){
+        starsHTML += `<span class="fas fa-star yellow"></span>`;
+    }
+    
+    if ((rest > 0.2) && (rest < 0.8)){
+        starsHTML +=`<span class="fas fa-star-half-alt yellow"></span>`;
+        fullStars++;
+    }
+
+    console.log("fullstars: "+ fullStars);
+    for (let i=fullStars; i<5; i++){
+        starsHTML += `<span class="far fa-star yellow"></span>`;
+    }
+
+    starsHTML += `<span> ${rating}</span>`;
+
+    return starsHTML;    
 }
 
 /**
@@ -67,7 +93,7 @@ function rowInfoHTML(row, i){
                         <td>`
 
     rowDataHTML += ratingStarsHTML(row.rating);
-    
+
     let id = "gradeIndex" + i;
     rowDataHTML += `</td> 
                      <td> 
@@ -92,10 +118,8 @@ function rowInfoHTML(row, i){
 function fillDocuTable(){
     ratingTable.forEach((ratingRow, i) => {
         let id = "#index"+i;
-        /*$(id).html(rowInfoHTML(ratingRow, i));*/
-    });
-
-    console.log(rowInfoHTML(ratingTable[0],0));
+        $(id).html(rowInfoHTML(ratingRow, i));
+    }); 
 }
 
 /** 
