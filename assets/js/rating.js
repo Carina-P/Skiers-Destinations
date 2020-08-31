@@ -59,12 +59,12 @@ function ratingToLocalStorage(ratingTable){
 * @returns {Object} The updated row with new rating information.
 */
 function calcNewRating(tableRow, grade) {
+    
+    tableRow.rating = (tableRow.rating*tableRow.nrOfVotes+grade)/(tableRow.nrOfVotes+1);
     tableRow.nrOfVotes++;
-    tableRow.rating = (tableRow.rating + grade)/tableRow.nrOfVotes;
-    tableRow.myVote = grade;
-
-    console.log(tableRow);
-
+ 
+    tableRow.myVote = grade; 
+ 
     return tableRow;
 }
 
@@ -78,13 +78,16 @@ function calcNewRating(tableRow, grade) {
 */
 function updateTable(event) { 
     
-    ratingTable[event.data.index]= calcNewRating( ratingTable[event.data.index], this.value);
+    ratingTable[event.data.index]= calcNewRating( ratingTable[event.data.index], parseInt(this.value));
     
     ratingTable.sort( (a,b) => {return b.rating-a.rating;})
-
+    console.log (ratingTable);
     ratingToLocalStorage();
     fillDocuTable();
 }
 
 $(document).ready(fetchTableData); 
+
 $("#gradesRow1").change({index : 0} , updateTable ); 
+$("#gradesRow3").change({index : 2} , updateTable ); 
+$("#gradesRow4").change({index : 3} , updateTable ); 
