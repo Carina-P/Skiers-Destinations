@@ -4,8 +4,7 @@ let ratingTable;
 * Use if no rating information is available in local storage. Initial 
 * information consists of Ski resorts but no rating information.
 */
-function initTable(){ 
-    console.log("initTable");
+function initTable(){  
     ratingTable = [
         {name: "Bad Gastein"},
         {name: "Chamonix"},
@@ -37,16 +36,18 @@ function ratingStarsHTML(rating) {
     let fullStars = 0;
     let rest = rating%1;
  
-    if (rest > 0.7){
+    if (rest >= 0.75){
         fullStars = Math.ceil(rating);
     }
-    else fullStars = Math.floor(rating); 
+    else {
+        fullStars = Math.floor(rating);
+    } 
  
     for (let i=0; i<fullStars; i++){
         starsHTML += `<span class="fas fa-star yellow"></span>`;
     }
     
-    if ((rest > 0.2) && (rest < 0.8)){
+    if ((rest > 0.25) && (rest < 0.75)){
         starsHTML +=`<span class="fas fa-star-half-alt yellow"></span>`;
         fullStars++;
     }
@@ -54,9 +55,7 @@ function ratingStarsHTML(rating) {
     for (let i=fullStars; i<5; i++){
         starsHTML += `<span class="far fa-star yellow"></span>`;
     }
-
-    starsHTML += `<span> ${rating}</span>`;
-
+ 
     return starsHTML;    
 }
 
@@ -91,6 +90,8 @@ function rowInfoHTML(row, i){
                         <td>`;
 
     rowDataHTML += ratingStarsHTML(row.rating);
+    rowDataHTML += `<span> ${row.rating.toFixed(2)}</span>`;
+
  
     rowDataHTML += `</td> 
                      <td> 
@@ -102,6 +103,7 @@ function rowInfoHTML(row, i){
     }
     else {
         rowDataHTML += ratingStarsHTML(row.myVote);
+        rowDataHTML += `<span> ${row.myVote}</span>`;
     }
 
     rowDataHTML += `   </div>
