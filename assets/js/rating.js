@@ -25,8 +25,17 @@ function initTable(){
 
     return ratingTable;
 }  
+
+/**
+* Makes rating information to HTML.
+*
+* @param {Object} ratingRow with information about resort and its rating
+* @param {number} i The index of current row in table
+*/
 function rowInfoHTML(ratingRow, i){
-    return `test rownr: ${i}`;
+     let rowItemsHTML = `<td>${i}</td>
+                        <td>${ratingRow.name}</td>`
+    return rowItemsHTML;
 }
  
 /* 
@@ -34,9 +43,8 @@ function rowInfoHTML(ratingRow, i){
 */
 function fillDocuTable(){
     ratingTable.forEach((ratingRow, i) => {
-        let id = "row"+i;
-       /* $(id).html(rowInfoHTML(ratingRow, i));*/
-        console.log(rowInfoHTML(ratingRow, i))
+        let id = "#index"+i;
+        $(id).html(rowInfoHTML(ratingRow, i));
     });
 }
 /** 
