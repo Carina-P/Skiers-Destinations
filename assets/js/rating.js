@@ -67,7 +67,7 @@ function ratingStarsHTML(rating) {
  * @returns {literal} HTML code
  */
 function noVoteHTML(id){
-   let txtHTML = `<label for = ${id}>Your grade:</label>
+   let txtHTML = `<label for = ${id}>My grade:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;
         for (let i=5; i>0; i--){
@@ -85,7 +85,7 @@ function noVoteHTML(id){
 * @param {number} i The index of current row in table
 */
 function rowInfoHTML(row, i){
-    let rowDataHTML = `<td>${i}</td>
+    let rowDataHTML = `<td>${i+1}</td>
                         <td>${row.name}</td>
                         <td>`;
 
@@ -108,7 +108,16 @@ function rowInfoHTML(row, i){
     
     return rowDataHTML;
 }
- 
+
+/**
+ * Add handler to id, which should act on users change of vote. 
+ *
+ * @param {string} id Id that handler is connected to.
+ * @param {number} i Index of the row in table.  
+ */
+function addHandler(id, i){
+    $(id).change({index : i} , updateTable ); 
+}
 /* 
 * Update/fill the table in document with resorts and rating information.
 */
@@ -116,6 +125,10 @@ function fillDocuTable(){
     ratingTable.forEach((ratingRow, i) => {
         let id = "#index"+i;
         $(id).html(rowInfoHTML(ratingRow, i));
+        
+        if (ratingRow.myVote == 0) {
+            addHandler(`#gradeIndex${i}`, i);
+        }
     }); 
 }
 
@@ -127,10 +140,7 @@ function fetchTableData(){
     let ratingTable = localStorage.getItem("ratingTable") || initTable(); 
     ratingTable.forEach( row => {row.myVote = 0;});
     console.log(ratingTable); 
-    fillDocuTable();
-    $("#gradeIndex0").change({index : 0} , updateTable ); 
-    $("#gradeIndex1").change({index : 1} , updateTable ); 
-    $("#gradeIndex2").change({index : 2} , updateTable ); 
+    fillDocuTable(); 
 } 
 
 /** 
@@ -177,3 +187,4 @@ function updateTable(event) {
 }
 
 $(document).ready(fetchTableData);  
+ 
