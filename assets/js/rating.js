@@ -39,10 +39,8 @@ function ratingStarsHTML(rating) {
     if (rest > 0.7){
         fullStars = Math.ceil(rating);
     }
-    else fullStars = Math.floor(rating);
-
-    console.log("fullstars efter :" + fullStars);
-
+    else fullStars = Math.floor(rating); 
+ 
     for (let i=0; i<fullStars; i++){
         starsHTML += `<span class="fas fa-star yellow"></span>`;
     }
@@ -51,8 +49,7 @@ function ratingStarsHTML(rating) {
         starsHTML +=`<span class="fas fa-star-half-alt yellow"></span>`;
         fullStars++;
     }
-
-    console.log("fullstars: "+ fullStars);
+ 
     for (let i=fullStars; i<5; i++){
         starsHTML += `<span class="far fa-star yellow"></span>`;
     }
@@ -70,15 +67,15 @@ function ratingStarsHTML(rating) {
  * @returns {literal} HTML code
  */
 function noVoteHTML(id){
-   /* let txtHTML = `<label for = ${id}>Your grade:</label>
+   let txtHTML = `<label for = ${id}>Your grade:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;
         for (let i=5; i>0; i--){
             txtHTML += `<option value=${i}>${i}</option>`;
         }    
 
-        txtHTML += `</select>`; */
-    return  `from no Votes with id ${id}` ;
+        txtHTML += `</select>`;
+    return  txtHTML;
 }
 
 /**
@@ -90,16 +87,16 @@ function noVoteHTML(id){
 function rowInfoHTML(row, i){
     let rowDataHTML = `<td>${i}</td>
                         <td>${row.name}</td>
-                        <td>`
+                        <td>`;
 
     rowDataHTML += ratingStarsHTML(row.rating);
-
-    let id = "gradeIndex" + i;
+ 
     rowDataHTML += `</td> 
                      <td> 
                         <div>`;
 
     if (row.myVote == 0) {
+        let id = "gradeIndex" + i;
         rowDataHTML += noVoteHTML(id);  
     }
     else {
@@ -131,6 +128,9 @@ function fetchTableData(){
     ratingTable.forEach( row => {row.myVote = 0;});
     console.log(ratingTable); 
     fillDocuTable();
+    $("#gradeIndex0").change({index : 0} , updateTable ); 
+    $("#gradeIndex1").change({index : 1} , updateTable ); 
+    $("#gradeIndex2").change({index : 2} , updateTable ); 
 } 
 
 /** 
@@ -174,9 +174,6 @@ function updateTable(event) {
     console.log (ratingTable);
     ratingToLocalStorage();
     fillDocuTable();
-    $("#gradeIndex0").change({index : 0} , updateTable ); 
-    $("#gradeIndex2").change({index : 2} , updateTable ); 
-    $("#gradeIndex3").change({index : 3} , updateTable ); 
 }
 
 $(document).ready(fetchTableData);  
