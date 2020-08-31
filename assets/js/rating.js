@@ -26,27 +26,78 @@ function initTable(){
     return ratingTable;
 }  
 
+/** 
+* Returns a rating as number of stars in HTML.
+*
+* @param {number} rating A grade from 1 to 5. 
+*/
+function ratingStarsHTML(rating) {
+    console.log("ratingStarsHTML");
+    return (`rating: ${rating}`);
+}
+
+/**
+ * Returns scrolldown with numbers 1 to 5 in HTML. 
+ * 
+ * @param {string} id Place in DOM to insert the HTML code.
+ * 
+ * @returns {literal} HTML code
+ */
+function noVoteHTML(id){
+   /* let txtHTML = `<label for = ${id}>Your grade:</label>
+                    <select name = ${id} id=${id}>
+                        <option value=0></option>`;
+        for (let i=5; i>0; i--){
+            txtHTML += `<option value=${i}>${i}</option>`;
+        }    
+
+        txtHTML += `</select>`; */
+    return  `from no Votes with id ${id}` ;
+}
+
 /**
 * Makes rating information to HTML.
 *
 * @param {Object} ratingRow with information about resort and its rating
 * @param {number} i The index of current row in table
 */
-function rowInfoHTML(ratingRow, i){
-     let rowItemsHTML = `<td>${i}</td>
-                        <td>${ratingRow.name}</td>`
-    return rowItemsHTML;
+function rowInfoHTML(row, i){
+    let rowDataHTML = `<td>${i}</td>
+                        <td>${row.name}</td>
+                        <td>`
+
+    rowDataHTML += ratingStarsHTML(row.rating);
+    
+    let id = "gradeIndex" + i;
+    rowDataHTML += `</td> 
+                     <td> 
+                        <div>`;
+
+    if (row.myVote == 0) {
+        rowDataHTML += noVoteHTML(id);  
+    }
+    else {
+        rowDataHTML += ratingStarsHTML(row.myVote);
+    }
+
+    rowDataHTML += `   </div>
+                    </td>`;
+    
+    return rowDataHTML;
 }
  
 /* 
-* Update/fill document with rating information.
+* Update/fill the table in document with resorts and rating information.
 */
 function fillDocuTable(){
     ratingTable.forEach((ratingRow, i) => {
         let id = "#index"+i;
-        $(id).html(rowInfoHTML(ratingRow, i));
+        /*$(id).html(rowInfoHTML(ratingRow, i));*/
     });
+
+    console.log(rowInfoHTML(ratingTable[0],0));
 }
+
 /** 
 * Fetch information about rating and then fill document with the information.
 * User can cast new votes every session, thus myVote is initiated to 0.
@@ -99,10 +150,9 @@ function updateTable(event) {
     console.log (ratingTable);
     ratingToLocalStorage();
     fillDocuTable();
+    $("#gradeIndex0").change({index : 0} , updateTable ); 
+    $("#gradeIndex2").change({index : 2} , updateTable ); 
+    $("#gradeIndex3").change({index : 3} , updateTable ); 
 }
 
-$(document).ready(fetchTableData); 
-
-$("#gradesRow1").change({index : 0} , updateTable ); 
-$("#gradesRow3").change({index : 2} , updateTable ); 
-$("#gradesRow4").change({index : 3} , updateTable ); 
+$(document).ready(fetchTableData);  
