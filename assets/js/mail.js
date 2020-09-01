@@ -7,6 +7,7 @@ function sendMail(contactForm){
     })
     .then( (response) => {
             $("#mailOK").modal();
+            $("#mailForm").trigger("reset");
         },
         (error) => {
             $("mailFail").modal();

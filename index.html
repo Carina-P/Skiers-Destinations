@@ -98,7 +98,7 @@
             <div class="bgr-blue p-3 rounded-corners">
                 <h4 class="center">What resort do you want us to add?</h4>
                 <p class="center"><small>(and if you give a reason there is a bigger chance that we add the resort)</small></p>
-                <form onsubmit="return sendMail(this);" method="POST">
+                <form id="mailForm" onsubmit="return sendMail(this);" method="POST">
                     <div class="form-group">
                         <label class="control-label" for="resort">Resort:</label>
                         <input type="text" class="form-control" id="resort" name="resort" placeholder="Enter resort name" required>
