@@ -97,17 +97,28 @@
         </div>
         <div class="bgr-blue p-3">
             <h4 class="center">What resort do you want us to add?</h4>
-            <p class="center"><small>(and if you give a reason there is a bigger chance that we add the resort)</small><p>
+            <p class="center"><small>(and if you give a reason there is a bigger chance that we add the resort)</small></p>
             <form>
-                <label for="resort">Resort:</label>
-                <input type="text" id="resort" name="resort" required>
-                <label for="reason">Reason:</lable>
-                <textarea rows="3" id="reason" name="reason"></textarea><br>
-                <label for="name">Your name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email adress:</label>
-                <input type="email" id="email" name="email" required><br>
-                <small>We'll never share your email with anyone else.</small>
+                <div class="form-group">
+                    <label class="control-label" for="resort">Resort:</label>
+                    <input type="text" class="form-control" id="resort" name="resort" placeholder="Enter resort name" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="reason">Reason:</label>
+                    <textarea class="form-control" rows="3" id="reason" name="reason" placeholder="Enter reason for adding resort"></textarea><br>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Your name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="email">Email adress:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email adress" required>
+                    <small>We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group center">
+                    <button type="submit" class="btn bgr-yellow">Submit</button>
+                </div>
             </form>
         </div>  
         </div>
