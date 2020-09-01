@@ -6,10 +6,11 @@ function sendMail(contactForm){
         "email": contactForm.email.value
     })
     .then( (response) => {
-            console.log("OK", response);
+            $("#mailOK").modal();
         },
         (error) => {
-            console.log("Failed", error);
+            $("mailFail").modal();
+            console.log(error);
         }
     );
     return false;

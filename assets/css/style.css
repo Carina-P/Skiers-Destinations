@@ -14,17 +14,13 @@ body{
 }
 
 .border-blue{
-    border: solid .3rem #cae9ff;
-    margin: 1rem;
-    padding: .5rem;
+    border: solid .3rem #cae9ff; 
     border-radius: 1rem;
 }
-.block-divider {
-    height: 0.3rem;
-    border: 0;
-    background-color:  #cae9ff;
-    width: 12rem;
+.rounded-corners{
+    border-radius: 1rem;
 }
+
 .text-center{
   text-align: center;
   padding: 1rem;
@@ -70,12 +66,17 @@ body{
 
 #place-info{ 
     max-height: 70vh;
-}
-
+} 
 #place-txt{
     background-color:  #cae9ff;
     max-height: 100%;
     overflow: auto;
+}
+.block-divider {
+    height: 0.3rem;
+    border: 0;
+    background-color:  #cae9ff;
+    width: 12rem;
 }
 .flex-container {
     display: flex;
