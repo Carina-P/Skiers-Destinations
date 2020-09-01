@@ -29,6 +29,9 @@ body{
   text-align: center;
   padding: 1rem;
 } 
+.center{
+    text-align: center;
+}
 
 /* Header */
 .logo{
@@ -83,10 +86,7 @@ body{
 /* recommend-section */
 .yellow{
   color: #fecf3e;
-}
-.center{
-    text-align: center;
-}
+} 
 .table{
     margin-left: auto;
     margin-right: auto;
@@ -100,4 +100,9 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* mail-section */
+.bgr-blue{
+    background-color: #cae9ff;
 }
