@@ -20,7 +20,7 @@
 <body>
 <!-- Navigation-------------------------------------------------------->
     <header>
-        <nav class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-md fixed-top bgr-white">
             <a href ="#" class="navbar-brand" aria-label="Navigate to top">
                 <img src="assets/images/logo-skiers-destinations.png" class="logo d-inline-block align-top" alt="logo">
             </a>
@@ -39,7 +39,10 @@
                 </ul>
             </div>
         </nav>
-        <h1 class="border-blue text-center m-3">Downhill Skiing Destinations in Europe</h1>
+        <div class="banner"></div>
+        <div id="top">
+            <h1 class="border-blue text-center m-3">Downhill Skiing Destinations in Europe</h1>
+        </div>
     </header>
    
 <!-- Skiing resorts in map ------------------------ ------------------->
@@ -60,6 +63,7 @@
     </section>
 <!-- 10-Top-places with reviews --------------------------------------->
     <section id="recommend">
+        <div class="banner"></div>
         <div class = "row border-blue m-2 p-1">
             <div class = "col-3 d-none d-sm-block hero-img rounded-corners"></div>
             <div class = "col-12 col-md-9 table-responsive center">
@@ -90,7 +94,8 @@
     </section>
 
 <!-- Send in a wish--------- ------------------------------------------->
-    <section id="wish">
+    <section id="wish" class="top-marg">
+        <div class="banner"></div>
         <div class="container border-blue p-1">
             <div>
                 <h3 class="center p-3">Information about other ski resort on this page?</h3>

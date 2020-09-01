@@ -28,6 +28,9 @@ body{
 .center{
     text-align: center;
 }
+.banner{
+    height: 6rem;
+}
 
 /* Header */
 .logo{
@@ -51,6 +54,9 @@ body{
 }
 .navbar-brand:hover, .navbar-toggler:hover{
     transform: scale(1.1);
+}
+.bgr-white{
+    background-color: #ffffff;
 }
 
 /* Places */
