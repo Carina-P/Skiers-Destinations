@@ -45,10 +45,10 @@
 <!-- Skiing resorts in map ------------------------ ------------------->
     <section id="places" class = "container-fluid">
         <div class ="row border-blue m-2 p-1">
-            <div id="map" class = "col-12 col-md-8"></div>
+            <div id="map" class = "col-12 col-md-8 rounded-corners"></div>
             <div id = "loader"></div>
             <div id="place-info" class ="col-12 col-md-4 d-flex p-5">
-                <div id ="place-txt" class="align-self-center p-2">
+                <div id ="place-txt" class="align-self-center p-2 rounded-corners">
                     <h3><strong>Click</strong> on a <img src="assets/images/yellow-marker48.gif" alt="yellow marker"> in the map!</h3> 
                     <p><small>And information about a Ski Resort will appear here and also close to the marker.</small></p>
                     <p><small><u>Symbols in the map:</u><br>
@@ -61,7 +61,7 @@
 <!-- 10-Top-places with reviews --------------------------------------->
     <section id="recommend">
         <div class = "row border-blue m-2 p-1">
-            <div class = "col-3 d-none d-sm-block hero-img"></div>
+            <div class = "col-3 d-none d-sm-block hero-img rounded-corners"></div>
             <div class = "col-12 col-md-9 table-responsive center">
                 <h2>Rating of Ski Resorts</h2>
                 <p>Affect the rating by submitting your opinion to the right!<br>
@@ -95,10 +95,10 @@
         <div>
             <h3 class="center p-3">Information about other ski resort on this page?</h3>
         </div>
-        <div class="bgr-blue p-3">
+        <div class="bgr-blue p-3 rounded-corners">
             <h4 class="center">What resort do you want us to add?</h4>
             <p class="center"><small>(and if you give a reason there is a bigger chance that we add the resort)</small></p>
-            <form>
+            <form onsubmit="return sendMail(this);" method="POST">
                 <div class="form-group">
                     <label class="control-label" for="resort">Resort:</label>
                     <input type="text" class="form-control" id="resort" name="resort" placeholder="Enter resort name" required>
@@ -134,5 +134,6 @@
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX-O_fvMaggssq6tug8mVsSWNsaOrVNkE&callback=initMap"></script>
     <script src="assets/js/map.js"></script>
     <script src="assets/js/rating.js"></script>
+    <script src="assets/js/mail.js"></script>
 </body>
 </html>
