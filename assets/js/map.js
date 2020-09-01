@@ -29,10 +29,11 @@ function txtResortToHTML(resort){
     }
 
     let forecastTxt = 
-        `<h2>${resort.name}</h2>
+        `<h2 class = "text-center">${resort.name}</h2>
         <p>${resort.info}</p>
-        <div class = "border-blue">
-            <h3>Forecast at top: ${resort.forecast[1].date}</h3>
+        <hr class="block-divider"> 
+        <div>
+            <h3 class="text-center">Forecast at top: ${resort.forecast[1].date}</h3>
             <div class = "flex-container">`;
      
     for (let i = 1; i < 4 ; i++){ 
@@ -48,8 +49,9 @@ function txtResortToHTML(resort){
     forecastTxt += 
             `</div>
         </div>
-        <div class = "border-blue">
-                <h3>Snow Report</h3>
+        <hr class="block-divider"> 
+        <div>
+                <h3 class="text-center">Snow Report</h3>
                 <p><small>New snow:</small> ${resort.snowReport.newsnow_cm}<br>
                 <small>Last snow:</small> ${resort.snowReport.lastsnow}<br>
                 <small>Runs open:</small> ${resort.snowReport.pctopen}%<br>

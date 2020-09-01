@@ -24,6 +24,10 @@ body{
     border: 0;
     background-color:  #cae9ff;
     width: 12rem;
+}
+.text-center{
+  text-align: center;
+  padding: 1rem;
 } 
 
 /* Header */
@@ -53,13 +57,8 @@ body{
 /* Places */
 #places {
     min-height: 100vh;
-}
-
-.text-center{
-  text-align: center;
-  padding: 1rem;
-}
-
+} 
+ 
 #map{
     min-height : 370px; 
     height: 70vh;
