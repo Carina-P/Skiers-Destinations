@@ -107,3 +107,13 @@ body{
 .bgr-blue{
     background-color: #cae9ff;
 }
+
+/* footer */
+.icon{
+    color: #262730;
+    background-color: #cae9ff;
+}
+ .hover-lg:hover{
+    background-color: #fecf3e;
+    transform: scale(1.5);
+}
