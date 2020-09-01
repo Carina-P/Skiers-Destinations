@@ -19,6 +19,12 @@ body{
     padding: .5rem;
     border-radius: 1rem;
 }
+.block-divider {
+    height: 0.3rem;
+    border: 0;
+    background-color:  #cae9ff;
+    width: 12rem;
+} 
 
 /* Header */
 .logo{
