@@ -1,11 +1,9 @@
-let ratingTable;
-
-/** 
+/**  
 * Use if no rating information is available in local storage. Initial 
 * information consists of Ski resorts but no rating information.
 */
 function initTable(){  
-    ratingTable = [
+    let ratingTable = [
         {name: "Bad Gastein"},
         {name: "Chamonix"},
         {name: "Cortina d'Apesso"},
@@ -124,7 +122,7 @@ function addHandler(id, i){
 /* 
 * Update/fill the table in document with resorts and rating information.
 */
-function fillDocuTable(){
+function fillDocuTable(ratingTable){
     ratingTable.forEach((ratingRow, i) => {
         let id = "#index"+i;
         $(id).html(rowInfoHTML(ratingRow, i));
@@ -175,12 +173,15 @@ function ratingToLocalStorage(){
 */
 function updateTable(event) { 
     
+    let ratingTable = JSON.parse(sessionStorage.getItem("ratingTable"));
+
     ratingTable[event.data.index]= calcNewRating( ratingTable[event.data.index], parseInt(this.value));
     
     ratingTable.sort( (a,b) => {return b.rating-a.rating;})
 
-    ratingToLocalStorage(); 
-    fillDocuTable();
+    sessionStorage.setItem("ratingTable", JSON.stringify(ratingTable));
+    ratingToLocalStorage(ratingTable); 
+    fillDocuTable(ratingTable);
 }
 
 /** 
@@ -190,7 +191,8 @@ function updateTable(event) {
 function fetchTableData(){
     ratingTable = JSON.parse(localStorage.getItem("ratingTable")) || initTable(); 
     ratingTable.forEach( row => {row.myVote = 0;}); 
-    fillDocuTable(); 
+    fillDocuTable(ratingTable); 
+    sessionStorage.setItem("ratingTable", JSON.stringify(ratingTable));
 }
 
 $(document).ready(fetchTableData);  
