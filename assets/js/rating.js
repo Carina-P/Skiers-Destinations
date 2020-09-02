@@ -155,7 +155,7 @@ function calcNewRating(tableRow, grade) {
 * Put current table with current rating in local storage. Then if user ends session 
 * the rating is saved to next session.
 */
-function ratingToLocalStorage(){
+function ratingToLocalStorage(ratingTable){
     let table = [];
     ratingTable.forEach( (row) => {
         table.push({ name: row.name, rating: row.rating, nrOfVotes: row.nrOfVotes});
