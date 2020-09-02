@@ -106,10 +106,9 @@ body{
 
 /* footer */
 .icon{
-    color: #262730;
-    background-color: #cae9ff;
+    color: #262730; 
 }
  .hover-lg:hover{
-    background-color: #fecf3e;
+    background-color: #cae9ff;
     transform: scale(1.5);
 }
