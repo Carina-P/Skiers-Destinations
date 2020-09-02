@@ -1,0 +1,9 @@
+function calcNewRating(tableRow, grade) {
+    
+    tableRow.rating = (tableRow.rating*tableRow.nrOfVotes+grade)/(tableRow.nrOfVotes+1);
+    tableRow.nrOfVotes++;
+ 
+    tableRow.myVote = grade; 
+ 
+    return tableRow;
+}
