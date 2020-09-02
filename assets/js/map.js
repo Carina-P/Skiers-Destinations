@@ -98,9 +98,7 @@ function getResortInfo(resort) {
    
     let urlUW1 = `https://api.weatherunlocked.com/api/`;
     let urlUW2 =  `/${resort.id}?`;
-    let urlUW3 = `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`;
-    let snowReport;
-    let forecast;
+    let urlUW3 = `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`; 
 
     $.ajax(urlUW1 + `snowreport` + urlUW2 + urlUW3)
         .done( snowData => {
@@ -109,10 +107,10 @@ function getResortInfo(resort) {
                 .done( forecastData => {
                     resort.forecast = forecastData.forecast;
                 })
-                .fail((xhr, status) => console.log('error:', xhr));
+                .fail((xhr, status) => console.log('error:', xhr, `status:`,status));
         })
         .fail((xhr, status) => {
-            console.log('error:', xhr);
+            console.log('error:', xhr, `status:`, status);
         });
 
     
