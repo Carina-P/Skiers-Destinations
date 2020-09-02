@@ -1,4 +1,12 @@
 describe("calcNewRating function", function() {
+        it("should return Error if tableRow contains anything but numbers or grade is not a number", function() {
+            expect(calcNewRating({rating: "this", nrOfVotes: "is", myVote: 0}, "wrong")
+            ).toEqual("Error");
+        });
+        it("should return Error if object tableRow is missing a value", function() {
+            expect(calcNewRating({rating: 1, myVote: 0}, 5)
+            ).toEqual("Error");
+        });
         it("should return {rating: 0, nrOfVotes: 1, myVote: 0}", function() {
             expect(calcNewRating({rating: 0, nrOfVotes: 0, myVote: 0}, 0)
             ).toEqual({rating: 0, nrOfVotes: 1, myVote: 0});
