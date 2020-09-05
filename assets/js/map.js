@@ -199,8 +199,8 @@ function putResortMarkersInMap(){
     fetchResortInfo(resortsURL)
     .then( allResorts => {  
         resorts = allResorts;
-        return Promise.all( 
-                            [
+        return Promise.all( resorts.map(resort => Promise.all([fetchSnowInfo(resort), fetchForecastInfo(resort)])));
+                           /* [
                                 Promise.all([fetchSnowInfo(resorts[0]), fetchForecastInfo(resorts[0])]),
                                 Promise.all([fetchSnowInfo(resorts[1]), fetchForecastInfo(resorts[1])]),
                                 Promise.all([fetchSnowInfo(resorts[2]), fetchForecastInfo(resorts[2])]),
@@ -212,7 +212,7 @@ function putResortMarkersInMap(){
                                 Promise.all([fetchSnowInfo(resorts[8]), fetchForecastInfo(resorts[8])]),
                                 Promise.all([fetchSnowInfo(resorts[9]), fetchForecastInfo(resorts[9])])
                             ] 
-                        );
+                        );*/
     })
     .then( resortsInfo => resortsInfo.map(resortMarker))
     .then( markers =>  {clustersOfMarkers = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});})
