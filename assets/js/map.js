@@ -1,32 +1,60 @@
+/* A google map */
 let map;
+/* Googles MarkerClusterer */
 let clustersOfMarkers;
+/* Will contain information of all resorts shown in map */
 let resorts;
-
-
+ 
+/* url to file with information about resorts */
 const resortsURL = "assets/data/resorts.json";
+/* the beginning part of url used both for fetching snowreport but also
+forecast from Wheather Unlocked */
 const weatherFrontURL = `https://api.weatherunlocked.com/api/`;
+/* the end part of url fetching information from Weather Unlocked */
 const weatherEndURL = `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`; 
 
-const fetchResortInfo = (url) => {
+/**
+ * Fetches information from json file.
+ * 
+ * @param {sting literal} url the files url
+ * 
+ * @returns {Promis}
+ */
+function fetchResortInfo(url){
     return fetch(url)
         .then( res => res.json())
         .catch( error => console.log("Error!", error));
 };
  
-const fetchSnowInfo = (resort) => {
-    let snowReportURL = weatherFrontURL+`snowreport/${resort.id}?`+weatherEndURL;
+/**
+ * Fetches snowreport for a specific resort from Weahter Unlocked
+ * 
+ * @param {number} resortId Resorts id in Weather Unlocked API
+ * 
+ * @returns {Promise} 
+ */
+function fetchSnowInfo(resortId){
+    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+weatherEndURL;
     return fetchResortInfo(snowReportURL);
 }
 
-const fetchForecastInfo = (resort) => {
-    let forecastURL = weatherFrontURL+`resortforecast/${resort.id}?hourly_interval=6&`+weatherEndURL;
+/**
+ * Fetches forecast for a specific resort from Wheather unlocked
+ * 
+ * @param {number} resortId Resorts id in Weather Unlocked API
+ * 
+ * @returns {Promise} 
+ */
+function fetchForecastInfo(resortId){
+    let forecastURL = weatherFrontURL+`resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
     return fetchResortInfo(forecastURL);
 }
 
 /**
-* Build a string of HTML code to be shown in infoMarker.
+* Build a string literal of HTML code for the content of a infoMarker, that is 
+* connected to marker.
 *
-* @param {Object}   resort  Information of the resort.
+* @param {Object}   resort  Information of the resort to be shown.
 * @returns {string} A string literal with HTML code.
 * 
 */
@@ -37,7 +65,7 @@ function contentInfoWindow(resort){
 }
 
 /**
-* Build a string of HTML code to be shown in class: txt-places.
+* Build a string literal of HTML code with information about a ski resort.
 *
 * @param {Object}   resort  Information of the resort
 * @returns {string} A string literal with HTML code
@@ -118,8 +146,11 @@ function addResortTxt(resort, snowReport, forecastReport){
 * InfoWindow is shown and text besides the map is changet to represent the 
 * current resort.
 *
-* @param {Object}   resort  Information of the ski resort
-* @returns {Object} The marker
+* @param {Object}   resort  Contains information of the ski resort
+* @param {Object}   snowReport Contains updated snowreport for resort
+* @param {Object}   forecastReport Contains an updated forecast for resort
+*
+* @returns {Object} Resort map marker
 * 
 */
 function buildMarker(resort, snowReport, forecastReport){  
@@ -137,104 +168,42 @@ function buildMarker(resort, snowReport, forecastReport){
     return marker;
 }
 
+/** Get map marker for a ski resort 
+ * @{Object} weatherInfo Contains snowreport and forecast for resort
+ * @{number} index  Index of resort that weatherinformation is valid for.
+ * 
+ * @returns {Objec} A google map marker
+*/
 function resortMarker(weatherInfo, index){
     let snowReport = weatherInfo[0];
     let forecastReport = weatherInfo[1];
     let resort = resorts[index];
     
     return buildMarker(resort, snowReport, forecastReport);
-}
-/**
-* Fetches snowreport and forecast for a ski resort, from Wheather Unlocked API.
-*
-* @param {Object}   resort  Information of the ski resort.
-* @returns {Object} A map marker
-* 
-*/
-/*
-function getWeatherInfo(resorts)
-{   
-    Promise.all([fetchSnowInfo(resort),fetchForecastInfo(resort)])
-    .then (result => {
-        resort.snowReport = result[0];
-        resort.forecast = result[1].forecast; 
-    })
-    .catch (error => console.log("Error: ", error));
-    
-}*/
-
-/* function getResortInfo(resort) {
-   
-    let urlUW1 = `https://api.weatherunlocked.com/api/`;
-    let urlUW2 =  `/${resort.id}?`;
-    let urlUW3 = 
-
-    $.ajax(urlUW1 + `snowreport` + urlUW2 + urlUW3)
-        .done( snowData => {
-            resort.snowReport = snowData;
-            $.ajax(urlUW1 + `resortforecast` + urlUW2 + `hourly_interval=6&` + urlUW3)
-                .done( forecastData => {
-                    resort.forecast = forecastData.forecast;
-                })
-                .fail((xhr, status) => console.log('error:', xhr, `status:`,status));
-        })
-        .fail((xhr, status) => {
-            console.log('error:', xhr, `status:`, status);
-        });
-
-    
-    return buildMarker(resort); 
-} */
-
-
-/**
- * Make a marker in the map for each resort and make cluster(s) if markers
- * are close. 
- * The resorts are fetched from a file. 
- * Using googles MakerClusterer to put markers close to each other in clusters.
- *
+} 
+ 
+/** 
+ * Make a google map marker for each resort and using googles MarkerClusterer
+ * to put markers, that are close to one another, in clusters. 
+ * The resorts are fetched from a file.
+ * Snowreport and forecast, respectively, are fetched from Weather Unlockeds API. 
  */
 function putResortMarkersInMap(){ 
     
     fetchResortInfo(resortsURL)
     .then( allResorts => {  
         resorts = allResorts;
-        return Promise.all( resorts.map(resort => Promise.all([fetchSnowInfo(resort), fetchForecastInfo(resort)])));
-                           /* [
-                                Promise.all([fetchSnowInfo(resorts[0]), fetchForecastInfo(resorts[0])]),
-                                Promise.all([fetchSnowInfo(resorts[1]), fetchForecastInfo(resorts[1])]),
-                                Promise.all([fetchSnowInfo(resorts[2]), fetchForecastInfo(resorts[2])]),
-                                Promise.all([fetchSnowInfo(resorts[3]), fetchForecastInfo(resorts[3])]),
-                                Promise.all([fetchSnowInfo(resorts[4]), fetchForecastInfo(resorts[4])]),
-                                Promise.all([fetchSnowInfo(resorts[5]), fetchForecastInfo(resorts[5])]),
-                                Promise.all([fetchSnowInfo(resorts[6]), fetchForecastInfo(resorts[6])]),
-                                Promise.all([fetchSnowInfo(resorts[7]), fetchForecastInfo(resorts[7])]),
-                                Promise.all([fetchSnowInfo(resorts[8]), fetchForecastInfo(resorts[8])]),
-                                Promise.all([fetchSnowInfo(resorts[9]), fetchForecastInfo(resorts[9])])
-                            ] 
-                        );*/
+        return Promise.all( resorts.map(resort => Promise.all([fetchSnowInfo(resort.id), fetchForecastInfo(resort.id)]))); 
     })
-    .then( resortsInfo => resortsInfo.map(resortMarker))
-    .then( markers =>  {clustersOfMarkers = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});})
+    .then( resortsInfo => {clustersOfMarkers = new MarkerClusterer(map, resortsInfo.map(resortMarker), {imagePath: 'assets/images/m'});})
     .catch( error => {console.error("Error:", error);}); 
-}
-/*
-function putMarkersInMap(){ 
-    fetch("assets/data/resorts.json")
-    .then( res => res.json())
-    .then( resorts => resorts.map(getResortInfo))  
-    .then ( (markers) => {
-        let clusterOfMarkers = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
-    })
-    .catch((error) => console.error("Error:", error))
-}*/
+} 
 
 /**
-* Inits and puts a map with markers, in MarkersCluster, in the page. 
+* Creates a map with markers for ski resorts in the page. 
 *
 */
-function initMap(){
-    
+function initMap(){ 
     map = new google.maps.Map(document.getElementById("map"), 
         {
             zoom: 3,
