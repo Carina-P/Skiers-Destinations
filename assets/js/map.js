@@ -1,5 +1,25 @@
 let map;
+
+const resortsURL = "assets/data/resorts.json";
+const weatherFrontURL = `https://api.weatherunlocked.com/api/`;
+const weatherEndURL = `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`; 
+
+const fetchResortInfo = (url) => {
+    return fetch(url)
+        .then( res => res.json())
+        .catch( error => console.log("Error!", error));
+};
  
+const fetchSnowInfo = (resort) => {
+    let snowReportURL = weatherFrontURL+`snowreport/${resort.id}?`+weatherEndURL;
+    return fetchResortInfo(snowReportURL);
+}
+
+const fetchForecastInfo = (resort) => {
+    let forecastURL = weatherFrontURL+`resortforecast/${resort.id}?hourly_interval=6&`+weatherEndURL;
+    return fetchResortInfo(forecastURL);
+}
+
 /**
 * Build a string of HTML code to be shown in infoMarker.
 *
@@ -76,14 +96,22 @@ function txtResortToHTML(resort){
 function buildMarker(resort){  
      
     let infoWindow = new google.maps.InfoWindow({content: txtInfoWindowToHTML(resort)});
-            
+     
     let marker = new google.maps.Marker({position: resort.position, icon:"assets/images/yellow-marker48.gif"});
-            
+     
     marker.addListener("click", () => {
         infoWindow.open(map, marker);
         $("#place-txt").css("background-color","#ffffff");
-        $("#place-txt").html(txtResortToHTML(resort));
+        if (resort.fetchSnowOK) {
+            $("#place-txt").html(txtResortToHTML(resort));
+        }
+        else {
+            $("#place-text").html(`At the moment our providor of snow and weather information can not
+            give information about ${resort.name}. Please pick another reasort by clicking on
+            marker in the map! <br> You can also try to reload the page.`);
+        }
     });
+
     return marker;
 }
 
@@ -94,11 +122,23 @@ function buildMarker(resort){
 * @returns {Object} A map marker
 * 
 */
-function getResortInfo(resort) {
+
+function getResortInfo(resort)
+{
+    Promise.all([fetchSnowInfo(resort),fetchForecastInfo(resort)])
+    .then (result => {
+        resort.snowReport = result[0];
+        resort.forecast = result[1].forecast;
+        resort.marker = buildMarker(resort); 
+    })
+    .catch (error => console.log("Error: ", error));
+}
+
+/* function getResortInfo(resort) {
    
     let urlUW1 = `https://api.weatherunlocked.com/api/`;
     let urlUW2 =  `/${resort.id}?`;
-    let urlUW3 = `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`; 
+    let urlUW3 = 
 
     $.ajax(urlUW1 + `snowreport` + urlUW2 + urlUW3)
         .done( snowData => {
@@ -115,24 +155,37 @@ function getResortInfo(resort) {
 
     
     return buildMarker(resort); 
-} 
+} */
+
 
 /**
-* Fetches all the resort from a file and makes a marker for each resort. Making a MarkerClusterer with the markers.
-*
-*/
-function makeMarkersCluster(){ 
-    fetch("assets/data/resorts.json")
-    .then( (res) => {return res.json();}
-    )
-    .then( (resorts) => {return resorts.map(getResortInfo);
+ * Make a marker in the map for each resort and make cluster(s) if markers
+ * are close. 
+ * The resorts are fetched from a file. 
+ * Using googles MakerClusterer to put markers close to each other in clusters.
+ *
+ */
+function putResortMarkersInMap(){
+     
+    let resorts = [];
+    fetchResortInfo(resortsURL)
+    .then( resortsInfo => { 
+        resorts = resortsInfo;
+        let markers = resorts.map(resort => buildMarker(resort));
+        let markerCluster = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
     })  
-    .then ( (markers) => {
-        new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
-        $("#loader").remove();
-    }) 
-    .catch((error) => console.error("Error:", error))
+    .catch((error) => console.error("Error:", error)); 
 }
+/*
+function putMarkersInMap(){ 
+    fetch("assets/data/resorts.json")
+    .then( res => res.json())
+    .then( resorts => resorts.map(getResortInfo))  
+    .then ( (markers) => {
+        let clusterOfMarkers = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
+    })
+    .catch((error) => console.error("Error:", error))
+}*/
 
 /**
 * Inits and puts a map with markers, in MarkersCluster, in the page. 
@@ -147,8 +200,5 @@ function initMap(){
         }
     );
 
-    $("#loader").html(`<img src="assets/css/loader.gif" alt="loading..." /> <span>loading markers...</span>`);
-
-    makeMarkersCluster();
-
+   putResortMarkersInMap();
 }
