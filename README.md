@@ -254,6 +254,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 I recived inspiration for this project from:
 - [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
 - [dcode: How to use JSDoc -Basics & Introduction](https://www.youtube.com/watch?v=Nqv6UkTROak)
+- [MDN web docs: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
 <!--
 - I received inspiration for this project from X
