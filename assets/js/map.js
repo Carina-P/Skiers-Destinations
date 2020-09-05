@@ -27,7 +27,7 @@ const fetchForecastInfo = (resort) => {
 * @returns {string} A string literal with HTML code.
 * 
 */
-function txtInfoWindowToHTML(resort){
+function contentInfoWindow(resort){    
     return `<p><strong>${resort.name}</strong><br> Altitude base:
                     ${resort.altitudeB}<br>Altitude top:${resort.altitudeT}<br>Slopes: ${resort.pists}
                     <br>Number of lifts: ${resort.nrLifts} </p>`;
@@ -40,47 +40,73 @@ function txtInfoWindowToHTML(resort){
 * @returns {string} A string literal with HTML code
 * 
 */
-function txtResortToHTML(resort){ 
- 
-    if ((resort.forecast==undefined) || (resort.snowReport==undefined)){
-        return(`At the moment our providor of snow and weather information can not
-        give information about ${resort.name}. Please pick another reasort by clicking on
-        marker in the map! <br> You can also try to reload the page.`);
+function addResortTxt(resort){ 
+    
+    console.log(resort);
+    
+    if(resort === undefined){
+        return(`<h2>Something is wrong</h2>
+        <p>Unfortunately we could not fetch any resort information. 
+        Please let us know that this happend!</p>`);
     }
-
-    let forecastTxt = 
+    
+    let txt = 
         `<h2 class = "text-center">${resort.name}</h2>
         <p>${resort.info}</p>
-        <hr class="block-divider"> 
+        <hr class="block-divider">
         <div>
-            <h3 class="text-center">Forecast at top: ${resort.forecast[1].date}</h3>
+            <h3 class="text-center">Weather at top`;
+    
+    if (resort.forecast === undefined) {
+        txt += `: </h3>
+        <div>
+        <p>At the moment our provider of information can not
+        give us weather information for ${resort.name}.</p>
+        <p>Sometimes it helps to reload the page!</p>
+        <p> Notice that usually is information 
+        for other resorts in place. Check by clicking on other resorts 
+        marker.</p>
+        </div>`;
+    }
+    else {
+        txt += `${resort.forecast[1].date} :</h3>
             <div class = "flex-container">`;
-     
-    for (let i = 1; i < 4 ; i++){ 
-        forecastTxt += 
-                `<div class = "forecast"> 
-                    ${resort.forecast[i].time}<br>
-                    <img src="assets/images/weather/${resort.forecast[i].upper.wx_icon}"> <br>
-                    ${resort.forecast[i].upper.temp_avg_c}&#8451<br>
-                    ${resort.forecast[i].upper.windspd_avg_ms}m/s
-                </div>`;
+        
+        for (let i = 1; i < 4 ; i++){ 
+            txt += `<div class = "forecast"> 
+                        ${resort.forecast[i].time}<br>
+                        <img src="assets/images/weather/${resort.forecast[i].upper.wx_icon}"> <br>
+                        ${resort.forecast[i].upper.temp_avg_c}&#8451<br>
+                        ${resort.forecast[i].upper.windspd_avg_ms}m/s
+                    </div>`;
+        }
     }
 
-    forecastTxt += 
-            `</div>
+    txt+=  `</div>
         </div>
         <hr class="block-divider"> 
         <div>
-                <h3 class="text-center">Snow Report</h3>
-                <p><small>New snow:</small> ${resort.snowReport.newsnow_cm}<br>
+        <h3 class="text-center">Snow Report</h3>`;
+
+    if (resort.snowReport === undefined){
+        txt += `<p>At the moment our provider of information can not
+        give us the snow report for ${resort.name}.</p>
+        <p>Sometimes it helps to reload the page!</p>
+        <p> Notice that usually is information 
+        for other resorts in place. Check by clicking on other resorts 
+        marker.</p>`;
+    }
+    else {
+        txt += `<p><small>New snow:</small> ${resort.snowReport.newsnow_cm}<br>
                 <small>Last snow:</small> ${resort.snowReport.lastsnow}<br>
                 <small>Runs open:</small> ${resort.snowReport.pctopen}%<br>
-                <small>Snow report:</small> ${resort.snowReport.conditions} </p>
-            </div>
-            <div><br><a href=${resort.homePage} target="_blank">More info</a></div>`;
+                <small>Snow report:</small> ${resort.snowReport.conditions} </p>`
+    }
 
-    
-    return forecastTxt;           
+    txt += `</div>
+            <div><br><a href=${resort.homePage} target="_blank">More info</a></div>`;
+        
+    return txt;           
 }
 
 /**
@@ -95,22 +121,16 @@ function txtResortToHTML(resort){
 */
 function buildMarker(resort){  
      
-    let infoWindow = new google.maps.InfoWindow({content: txtInfoWindowToHTML(resort)});
+    let infoWindow = new google.maps.InfoWindow({content: contentInfoWindow(resort)});
      
     let marker = new google.maps.Marker({position: resort.position, icon:"assets/images/yellow-marker48.gif"});
      
     marker.addListener("click", () => {
         infoWindow.open(map, marker);
         $("#place-txt").css("background-color","#ffffff");
-        if (resort.fetchSnowOK) {
-            $("#place-txt").html(txtResortToHTML(resort));
-        }
-        else {
-            $("#place-text").html(`At the moment our providor of snow and weather information can not
-            give information about ${resort.name}. Please pick another reasort by clicking on
-            marker in the map! <br> You can also try to reload the page.`);
-        }
-    });
+        $("#place-txt").html(addResortTxt(resort));
+        addResortTxt(resort); 
+    });   
 
     return marker;
 }
@@ -124,12 +144,11 @@ function buildMarker(resort){
 */
 
 function getResortInfo(resort)
-{
+{ 
     Promise.all([fetchSnowInfo(resort),fetchForecastInfo(resort)])
     .then (result => {
         resort.snowReport = result[0];
-        resort.forecast = result[1].forecast;
-        resort.marker = buildMarker(resort); 
+        resort.forecast = result[1].forecast; 
     })
     .catch (error => console.log("Error: ", error));
 }
