@@ -1,4 +1,7 @@
 let map;
+let clustersOfMarkers;
+let resorts;
+
 
 const resortsURL = "assets/data/resorts.json";
 const weatherFrontURL = `https://api.weatherunlocked.com/api/`;
@@ -40,10 +43,8 @@ function contentInfoWindow(resort){
 * @returns {string} A string literal with HTML code
 * 
 */
-function addResortTxt(resort){ 
-    
-    console.log(resort);
-    
+function addResortTxt(resort, snowReport, forecastReport){ 
+
     if(resort === undefined){
         return(`<h2>Something is wrong</h2>
         <p>Unfortunately we could not fetch any resort information. 
@@ -57,7 +58,7 @@ function addResortTxt(resort){
         <div>
             <h3 class="text-center">Weather at top`;
     
-    if (resort.forecast === undefined) {
+    if (forecastReport === undefined) {
         txt += `: </h3>
         <div>
         <p>At the moment our provider of information can not
@@ -69,15 +70,17 @@ function addResortTxt(resort){
         </div>`;
     }
     else {
-        txt += `${resort.forecast[1].date} :</h3>
+        let forecast = forecastReport.forecast;
+
+        txt += `${forecast[1].date} :</h3>
             <div class = "flex-container">`;
         
         for (let i = 1; i < 4 ; i++){ 
             txt += `<div class = "forecast"> 
-                        ${resort.forecast[i].time}<br>
-                        <img src="assets/images/weather/${resort.forecast[i].upper.wx_icon}"> <br>
-                        ${resort.forecast[i].upper.temp_avg_c}&#8451<br>
-                        ${resort.forecast[i].upper.windspd_avg_ms}m/s
+                        ${forecast[i].time}<br>
+                        <img src="assets/images/weather/${forecast[i].upper.wx_icon}"> <br>
+                        ${forecast[i].upper.temp_avg_c}&#8451<br>
+                        ${forecast[i].upper.windspd_avg_ms}m/s
                     </div>`;
         }
     }
@@ -88,7 +91,7 @@ function addResortTxt(resort){
         <div>
         <h3 class="text-center">Snow Report</h3>`;
 
-    if (resort.snowReport === undefined){
+    if (snowReport === undefined){
         txt += `<p>At the moment our provider of information can not
         give us the snow report for ${resort.name}.</p>
         <p>Sometimes it helps to reload the page!</p>
@@ -97,10 +100,10 @@ function addResortTxt(resort){
         marker.</p>`;
     }
     else {
-        txt += `<p><small>New snow:</small> ${resort.snowReport.newsnow_cm}<br>
-                <small>Last snow:</small> ${resort.snowReport.lastsnow}<br>
-                <small>Runs open:</small> ${resort.snowReport.pctopen}%<br>
-                <small>Snow report:</small> ${resort.snowReport.conditions} </p>`
+        txt += `<p><small>New snow:</small> ${snowReport.newsnow_cm}<br>
+                <small>Last snow:</small> ${snowReport.lastsnow}<br>
+                <small>Runs open:</small> ${snowReport.pctopen}%<br>
+                <small>Snow report:</small> ${snowReport.conditions} </p>`
     }
 
     txt += `</div>
@@ -119,7 +122,7 @@ function addResortTxt(resort){
 * @returns {Object} The marker
 * 
 */
-function buildMarker(resort){  
+function buildMarker(resort, snowReport, forecastReport){  
      
     let infoWindow = new google.maps.InfoWindow({content: contentInfoWindow(resort)});
      
@@ -128,13 +131,19 @@ function buildMarker(resort){
     marker.addListener("click", () => {
         infoWindow.open(map, marker);
         $("#place-txt").css("background-color","#ffffff");
-        $("#place-txt").html(addResortTxt(resort));
-        addResortTxt(resort); 
+        $("#place-txt").html(addResortTxt(resort, snowReport, forecastReport));
     });   
 
     return marker;
 }
 
+function resortMarker(weatherInfo, index){
+    let snowReport = weatherInfo[0];
+    let forecastReport = weatherInfo[1];
+    let resort = resorts[index];
+    
+    return buildMarker(resort, snowReport, forecastReport);
+}
 /**
 * Fetches snowreport and forecast for a ski resort, from Wheather Unlocked API.
 *
@@ -142,16 +151,17 @@ function buildMarker(resort){
 * @returns {Object} A map marker
 * 
 */
-
-function getResortInfo(resort)
-{ 
+/*
+function getWeatherInfo(resorts)
+{   
     Promise.all([fetchSnowInfo(resort),fetchForecastInfo(resort)])
     .then (result => {
         resort.snowReport = result[0];
         resort.forecast = result[1].forecast; 
     })
     .catch (error => console.log("Error: ", error));
-}
+    
+}*/
 
 /* function getResortInfo(resort) {
    
@@ -184,16 +194,29 @@ function getResortInfo(resort)
  * Using googles MakerClusterer to put markers close to each other in clusters.
  *
  */
-function putResortMarkersInMap(){
-     
-    let resorts = [];
+function putResortMarkersInMap(){ 
+    
     fetchResortInfo(resortsURL)
-    .then( resortsInfo => { 
-        resorts = resortsInfo;
-        let markers = resorts.map(resort => buildMarker(resort));
-        let markerCluster = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});
-    })  
-    .catch((error) => console.error("Error:", error)); 
+    .then( allResorts => {  
+        resorts = allResorts;
+        return Promise.all( 
+                            [
+                                Promise.all([fetchSnowInfo(resorts[0]), fetchForecastInfo(resorts[0])]),
+                                Promise.all([fetchSnowInfo(resorts[1]), fetchForecastInfo(resorts[1])]),
+                                Promise.all([fetchSnowInfo(resorts[2]), fetchForecastInfo(resorts[2])]),
+                                Promise.all([fetchSnowInfo(resorts[3]), fetchForecastInfo(resorts[3])]),
+                                Promise.all([fetchSnowInfo(resorts[4]), fetchForecastInfo(resorts[4])]),
+                                Promise.all([fetchSnowInfo(resorts[5]), fetchForecastInfo(resorts[5])]),
+                                Promise.all([fetchSnowInfo(resorts[6]), fetchForecastInfo(resorts[6])]),
+                                Promise.all([fetchSnowInfo(resorts[7]), fetchForecastInfo(resorts[7])]),
+                                Promise.all([fetchSnowInfo(resorts[8]), fetchForecastInfo(resorts[8])]),
+                                Promise.all([fetchSnowInfo(resorts[9]), fetchForecastInfo(resorts[9])])
+                            ] 
+                        );
+    })
+    .then( resortsInfo => resortsInfo.map(resortMarker))
+    .then( markers =>  {clustersOfMarkers = new MarkerClusterer(map, markers, {imagePath: 'assets/images/m'});})
+    .catch( error => {console.error("Error:", error);}); 
 }
 /*
 function putMarkersInMap(){ 
