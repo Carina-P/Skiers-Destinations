@@ -1,4 +1,5 @@
 let resortsRating;
+
 /**  
 * Use if no rating information is available in local storage. Initial 
 * information consists of Ski resorts but no rating information.
