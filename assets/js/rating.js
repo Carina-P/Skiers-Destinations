@@ -66,8 +66,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
 * @param {number} rowIndex Indicates were in a table this information belongs 
 *
 * @returns {string} HTLM code
-*/
-
+*/ 
      this.rowToHTML = (rowIndex) => {
         let rowHTML = `<td>${rowIndex+1}</td>
                         <td>${this.name}</td>
@@ -94,4 +93,17 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     
      return rowHTML;
     } 
+/**
+ * Put information about this resorts rating in the document.
+ * 
+ * @param {number} rowIndex Indicates where in a table information belongs
+ */
+    this.toDocument = (rowIndex) => {
+        let id = "#index"+rowIndex;
+        $(id).html(this.rowToHTML(rowIndex));
+        
+        if (this.lastVote == 0) {
+            $(`#gradeIndex${rowIndex}`).change({index : rowIndex} , ratedList.updateList);
+        }
+    }
 } 
