@@ -11,8 +11,8 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     this.setLastVote = (vote) => {this.lastVote = vote};
  
     /** 
-     * Returns a string literal of HTML code that contains stars representing the
-     * value of the input parameter.
+     * Returns a string literal of HTML code that contains stars representing 
+     * the value of the input parameter.
      *
      * @param {number} grade Value to be represented by stars in HTML code.
      *
@@ -66,7 +66,8 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     /**
     * HTML code for a this resort with rating.
     *
-    * @param {number} rowIndex Indicates were in a table this information belongs 
+    * @param {number} rowIndex Indicates were in a table this information 
+    *                          belongs 
     *
     * @returns {string} HTLM code
     */ 
@@ -115,11 +116,18 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     *
     * @param {number} vote The value of a new vote to be added to the rating.
     */
-    this.calulateNewRating = (vote) => {
+    this.calculateNewRating = (vote) => {
     
-        if (typeof(this.rating)!="number" || typeof(this.nrOfVotes)!="number" || typeof(vote)!="number"){
-            console.log("Error in function calcNewRating, variables of wrong type");
-        return("Error");
+        if (typeof(this.rating)!="number" || typeof(this.nrOfVotes)!="number" 
+            || typeof(vote)!="number"){
+            console.log(
+                "Error in function calcNewRating, variables of wrong type");
+            return("Error");
+        }
+        if(vote<1 || vote>5){
+            console.log(
+                "Error in function calculateNewRating, vote is out of range");
+            return("Error");
         }
  
         this.rating = (this.rating*this.nrOfVotes++ +vote)/(this.nrOfVotes);
@@ -157,7 +165,8 @@ function RatedList(){
         let table = JSON.parse(localStorage.getItem("ratingTable"));
         if (table === null) {return this.fetchInitList();}
         
-        table.forEach(item => {list.push(new RatedResort(item.name, item.rating, item.nrOfVotes, 0))} );
+        table.forEach(item => {list.push(new RatedResort(item.name, 
+            item.rating, item.nrOfVotes, 0))} );
         return list;
     }
     
@@ -166,7 +175,8 @@ function RatedList(){
      * Put the information in the RatedList into the document.
      */
     this.toDocument = () => {
-        this.list.forEach( (ratedResort, index) => { ratedResort.toDocument(index);});
+        this.list.forEach( (ratedResort, index) => 
+            { ratedResort.toDocument(index);});
     }
     /**
      * Save information to localStorage.
@@ -179,8 +189,10 @@ function RatedList(){
      * Updates RatingList when a new vote is entered
      */
     this.updateList = (event) => {
-        this.list[event.data.index].calulateNewRating( parseInt(event.target.value));
-        this.list.sort((resortA,resortB) => {return resortB.getRating()-resortA.getRating();}); 
+        this.list[event.data.index].calculateNewRating( 
+            parseInt(event.target.value));
+        this.list.sort((resortA,resortB) => {
+            return resortB.getRating()-resortA.getRating();}); 
         ratedList.toDocument();
         ratedList.toLocalStorage();
     }
