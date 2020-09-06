@@ -103,7 +103,23 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         $(id).html(this.rowToHTML(rowIndex));
         
         if (this.lastVote == 0) {
-            $(`#gradeIndex${rowIndex}`).change({index : rowIndex} , ratedList.updateList);
+            $(`#gradeIndex${rowIndex}`).change({index : rowIndex} , 
+                ratedList.updateList);
         }
+    }
+/**
+* Update rating of resort with the last vote
+*
+* @param {number} vote The value of a new vote to be added to the rating.
+*/
+    this.calulateNewRating = (vote) => {
+    
+        if (typeof(this.rating)!="number" || typeof(this.nrOfVotes)!="number" || typeof(vote)!="number"){
+            console.log("Error in function calcNewRating, variables of wrong type");
+        return("Error");
+        }
+ 
+        this.rating = (this.rating*this.nrOfVotes++ +vote)/(this.nrOfVotes);
+        this.lastVote = vote; 
     }
 } 
