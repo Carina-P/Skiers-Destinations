@@ -18,3 +18,5 @@ function sendMail(contactForm){
     );
     return false;
 }
+
+$(function(){emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo");})
