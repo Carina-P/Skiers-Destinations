@@ -14,7 +14,9 @@
     <link rel="icon" type="image/png" sizes="16x16" 
         href="assets/favicons/favicon-16x16.png">
     <link rel="stylesheet" href="assets/css/style.css"> 
-     
+    <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+
     <title>Skiers Destinations</title>
 </head>
 <body>
@@ -78,7 +80,7 @@
             </div>
         </div>
     </section>
-<!-- 10-Top-places with reviews -->
+<!-- 10-Top-places -->
     <section id="recommend" class="container">
         <div class="banner"></div>
         <div class = "row border-blue m-2 p-1">
@@ -93,6 +95,32 @@
                 <div id="top-ten"></div>
             </div>
         </div> 
+    </section>
+
+<!-- Reviews-->
+    <section id="reviews" class="container">
+        <div id="responsive-slick">
+            <div class="bgr-blue">
+                <h3>Val Thorens</h3>
+                <p>Best resort ever!</p>
+            </div>
+            <div class="bgr-yellow">
+                <h3>Val d'Isere</h3>
+                <p>Best resort ever!</p>
+            </div>
+            <div class="bgr-blue">
+                <h3>Åre</h3>
+                <p>Best resort ever!</p>
+            </div>
+            <div class="bgr-yellow">
+                <h3>Zermatt</h3>
+                <p>Best resort ever!</p>
+            </div>
+            <div class="bgr-yellow">
+                <h3>Zugspitze</h3>
+                <p>Best resort ever!</p>
+            </div>
+        </div>
     </section>
 
 <!-- Send in a wish -->
@@ -219,6 +247,7 @@
     <script defer 
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX-O_fvMaggssq6tug8mVsSWNsaOrVNkE&callback=initMap">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script type="text/javascript" 
         src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js">
     </script>
@@ -226,5 +255,6 @@
     <script src="assets/js/rating.js"></script>
     <script src="assets/js/mail.js"></script>
     <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/slick.js"></script>
 </body>
 </html>

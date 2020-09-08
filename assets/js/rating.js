@@ -112,7 +112,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
                      <td> 
                         <div>`};
 
-        if (this.lastVote == 0) {
+        if (this.lastVote === 0) {
             let id = "gradeIndex" + rowIndex;
             rowHTML += this.noVoteHTML(id);  
         }
@@ -145,7 +145,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
        
         $(id).html(this.rowToHTML(rowIndex, smallViewport));
         
-        if (this.lastVote == 0) {
+        if (this.lastVote === 0) {
             $(`#gradeIndex${rowIndex}`).change({index : rowIndex} , 
                 ratedList.updateList);
         }
@@ -220,7 +220,7 @@ function RatedList(){
     this.frameworkToSmallDocument = () => {
         let toHTML = ``;
         for (let i=0; i<this.list.length; i++) {
-            if (i%2===0){
+            if (i%2 === 0){
                 toHTML += `
                 <div id="index${i}" class="bgr-blue rounded-corners pt-2 mb-2">
                 </div>`
