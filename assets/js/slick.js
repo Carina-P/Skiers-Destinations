@@ -4,6 +4,8 @@ $(document).ready( () => {
         dots: false,
         slidesToShow: 4,
         slidesToScroll: 4,
+        centerMode: true,
+        arrows: false,
         responsive: [
             {
             breakpoint: 1024,
@@ -30,4 +32,11 @@ $(document).ready( () => {
             }
         ]
     })
+})
+$('.left').click(function(){
+  $('#responsive-slick').slick('slickPrev');
+})
+
+$('.right').click(function(){
+  $('#responsive-slick').slick('slickNext');
 })
