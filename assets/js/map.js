@@ -106,12 +106,13 @@ function addResortTxt(resort, snowReport, forecastReport){
         let forecast = forecastReport.forecast;
 
         txt += ` ${forecast[1].date}:</h5>
-            <div class = "flex-container">`;
+            <div class = "flex-container justify-content-center">`;
         
         for (let i = 1; i < 4 ; i++){ 
             txt += `<div class = "forecast"> 
                         ${forecast[i].time}<br>
-                        <img src="assets/images/weather/${forecast[i].upper.wx_icon}"> <br>
+                        <img src="assets/images/weather/
+                        ${forecast[i].upper.wx_icon}"> <br>
                         ${forecast[i].upper.temp_avg_c}&#8451<br>
                         ${forecast[i].upper.windspd_avg_ms}m/s
                     </div>`;
@@ -133,14 +134,16 @@ function addResortTxt(resort, snowReport, forecastReport){
         marker.</p>`;
     }
     else {
-        txt += `<p><small>New snow:</small> ${snowReport.newsnow_cm}<br>
+        txt += `<div class="text-center"><p><small>New snow:</small> 
+                ${snowReport.newsnow_cm}<br>
                 <small>Last snow:</small> ${snowReport.lastsnow}<br>
                 <small>Runs open:</small> ${snowReport.pctopen}%<br>
-                <small>Snow report:</small> ${snowReport.conditions} </p>`
+                <small>Snow report:</small> ${snowReport.conditions} </p></div>`
     }
 
     txt += `</div>
-            <div class="text-center"><a href=${resort.homePage} target="_blank">More info</a></div>`;
+            <div class="text-center"><a href=${resort.homePage} 
+                target="_blank">More info</a></div>`;
         
     return txt;           
 }
@@ -160,14 +163,17 @@ function addResortTxt(resort, snowReport, forecastReport){
 */
 function buildMarker(resort, snowReport, forecastReport){  
      
-    let infoWindow = new google.maps.InfoWindow({content: contentInfoWindow(resort)});
+    let infoWindow = new google.maps.InfoWindow({content: 
+        contentInfoWindow(resort)});
      
-    let marker = new google.maps.Marker({position: resort.position, icon:"assets/images/yellow-marker48.gif"});
+    let marker = new google.maps.Marker({position: resort.position, 
+        icon:"assets/images/yellow-marker48.gif"});
      
     marker.addListener("click", () => {
         infoWindow.open(map, marker);
-        $("#place-txt").css("background-color","#ffffff");
-        $("#place-txt").html(addResortTxt(resort, snowReport, forecastReport));
+        $("#resort-info").css("background-color","#ffffff");
+        $("#resort-info").html(addResortTxt(resort, snowReport, forecastReport)
+        );
     });   
 
     return marker;
@@ -191,16 +197,21 @@ function resortMarker(weatherInfo, index){
  * Make a google map marker for each resort and using googles MarkerClusterer
  * to put markers, that are close to one another, in clusters. 
  * The resorts are fetched from a file.
- * Snowreport and forecast, respectively, are fetched from Weather Unlockeds API. 
+ * Snowreport and forecast, respectively, are fetched from Weather Unlockeds 
+ * API. 
  */
 function putResortMarkersInMap(){ 
     
     fetchResortInfo(resortsURL)
     .then( allResorts => {  
         resorts = allResorts;
-        return Promise.all( resorts.map(resort => Promise.all([fetchSnowInfo(resort.id), fetchForecastInfo(resort.id)]))); 
+        return Promise.all( resorts.map(resort => 
+            Promise.all([fetchSnowInfo(resort.id), 
+                fetchForecastInfo(resort.id)]))); 
     })
-    .then( resortsInfo => {clustersOfMarkers = new MarkerClusterer(map, resortsInfo.map(resortMarker), {imagePath: 'assets/images/m'});})
+    .then( resortsInfo => {clustersOfMarkers = 
+        new MarkerClusterer(map, resortsInfo.map(resortMarker), 
+            {imagePath: 'assets/images/m'});})
     .catch( error => {console.error("Error:", error);}); 
 } 
 
