@@ -171,10 +171,36 @@ function RatedList(){
     }
     
     this.list = this.getList();
+    
+    this.frameworkToDocument = () => {
+        let toHTML = `
+            <table class = "table table-hover">
+                <caption>Top-10 Ski Resorts</caption>
+                <thead class="bgr-blue">
+                    <tr>
+                        <th>Nr</th>
+                        <th>Resort</th>
+                        <th>Rating average</th>
+                        <th>Your rating</th>
+                    </tr> 
+                    </thead>
+                    <tbody>`;
+        
+        for (let i=0; i<this.list.length; i++){
+            toHTML += `<tr id = "index${i}"></tr>`;
+        }
+
+        toHTML += `  </tbody>
+                </table>`;
+        console.log(toHTML);
+        return toHTML;
+
+    }
     /**
      * Put the information in the RatedList into the document.
      */
     this.toDocument = () => {
+        $("#top-ten").html(this.frameworkToDocument());
         this.list.forEach( (ratedResort, index) => 
             { ratedResort.toDocument(index);});
     }
