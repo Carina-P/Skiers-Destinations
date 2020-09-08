@@ -11,7 +11,8 @@ const resortsURL = "assets/data/resorts.json";
 forecast from Wheather Unlocked */
 const weatherFrontURL = `https://api.weatherunlocked.com/api/`;
 /* the end part of url fetching information from Weather Unlocked */
-const weatherEndURL = `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`; 
+const weatherEndURL = 
+    `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`; 
 
 /**
  * Fetches information from json file.
@@ -34,7 +35,8 @@ function fetchResortInfo(url){
  * @returns {Promise} 
  */
 function fetchSnowInfo(resortId){
-    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+weatherEndURL;
+    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+
+        weatherEndURL;
     return fetchResortInfo(snowReportURL);
 }
 
@@ -46,7 +48,8 @@ function fetchSnowInfo(resortId){
  * @returns {Promise} 
  */
 function fetchForecastInfo(resortId){
-    let forecastURL = weatherFrontURL+`resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
+    let forecastURL = weatherFrontURL+
+        `resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
     return fetchResortInfo(forecastURL);
 }
 
@@ -59,9 +62,11 @@ function fetchForecastInfo(resortId){
 * 
 */
 function contentInfoWindow(resort){    
-    return `<p><strong>${resort.name}</strong><br> Altitude base:
-                    ${resort.altitudeB}<br>Altitude top:${resort.altitudeT}<br>Slopes: ${resort.pists}
-                    <br>Number of lifts: ${resort.nrLifts} </p>`;
+    return `<h5>${resort.name}</h5>
+            <p>Alt base: ${resort.altitudeB}<br>
+            Alt top: ${resort.altitudeT}<br>
+            Slopes: ${resort.pists}<br>
+            Nr of lifts: ${resort.nrLifts} </p>`;
 }
 
 /**
@@ -84,10 +89,10 @@ function addResortTxt(resort, snowReport, forecastReport){
         <p>${resort.info}</p>
         <hr class="block-divider">
         <div>
-            <h3 class="text-center">Weather at top`;
+            <h5 class="text-center">Weather at top`;
     
     if (forecastReport === undefined) {
-        txt += `: </h3>
+        txt += `: </h5>
         <div>
         <p>At the moment our provider of information can not
         give us weather information for ${resort.name}.</p>
@@ -100,7 +105,7 @@ function addResortTxt(resort, snowReport, forecastReport){
     else {
         let forecast = forecastReport.forecast;
 
-        txt += `${forecast[1].date} :</h3>
+        txt += ` ${forecast[1].date}:</h5>
             <div class = "flex-container">`;
         
         for (let i = 1; i < 4 ; i++){ 
@@ -117,7 +122,7 @@ function addResortTxt(resort, snowReport, forecastReport){
         </div>
         <hr class="block-divider"> 
         <div>
-        <h3 class="text-center">Snow Report</h3>`;
+        <h5 class="text-center">Snow Report</h5>`;
 
     if (snowReport === undefined){
         txt += `<p>At the moment our provider of information can not
@@ -135,7 +140,7 @@ function addResortTxt(resort, snowReport, forecastReport){
     }
 
     txt += `</div>
-            <div><br><a href=${resort.homePage} target="_blank">More info</a></div>`;
+            <div class="text-center"><a href=${resort.homePage} target="_blank">More info</a></div>`;
         
     return txt;           
 }
