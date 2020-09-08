@@ -5,8 +5,7 @@
 html{
     scroll-behavior: smooth;
     font-size: 16px;
-}
-
+} 
 body{
     font-family: "Varela", sans-serif;
     color: #262730;
@@ -14,17 +13,22 @@ body{
 }
 h5{
     font-size: 1rem;
-}
-
+} 
 .border-blue{
     border: solid .3rem #cae9ff; 
     border-radius: 1rem;
 }
 .rounded-corners{
     border-radius: 1rem; 
-}  
-.banner{
-    height: 6rem;
+}   
+.bgr-white{
+    background-color: #ffffff;
+}
+.bgr-yellow{
+    background-color: #fecf3e;
+}
+.bgr-blue{
+    background-color: #cae9ff;
 }
 
 /* Header */
@@ -33,13 +37,11 @@ h5{
     width: 7rem;
     border: solid .3rem #cae9ff;
     border-radius: 50%;    
-}
-
+} 
 .navbar-toggler{
     background-color: #fecf3e;
     color: #262730;
-}
-
+} 
 .nav-link{
     color: #262730;
 }
@@ -50,24 +52,19 @@ h5{
 .navbar-brand:hover, .navbar-toggler:hover{
     transform: scale(1.1);
 }
-.bgr-white{
-    background-color: #ffffff;
+.banner{
+    height: 6rem;
 }
 
-/* Places */
-#places {
+/* Map-section */
+#resorts {
     min-height: 100vh;
 }  
 #map{
     min-height : 370px; 
     height: 80vh;
     width : 100%; 
-}  
-/*
-#place-txt{
-    background-color:  #cae9ff; 
-}
-*/
+}   
 .block-divider {
     height: 0.3rem;
     border: 0;
@@ -80,6 +77,7 @@ h5{
 .forecast {
     padding: .5rem;
 }
+
 /* recommend-section */
 .yellow{
   color: #fecf3e;
@@ -87,10 +85,7 @@ h5{
 .table{
     margin-left: auto;
     margin-right: auto;
-}
-.bgr-yellow{
-    background-color: #fecf3e;
-}
+} 
 .hero-img{
     background-image: url("../images/resort-pic.jpg");
     background-color: #ffffff;
@@ -98,12 +93,7 @@ h5{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* mail-section */
-.bgr-blue{
-    background-color: #cae9ff;
-}
-
+ 
 /* footer */
 .icon{
     color: #262730; 
@@ -113,6 +103,7 @@ h5{
     transform: scale(1.5);
 }
 
+/* For a responsive site */
 @media screen and (max-width: 340px){
     html{
         font-size: 14px;
