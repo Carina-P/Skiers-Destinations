@@ -97,7 +97,7 @@
             </div>
             <div class="bgr-blue p-3 rounded-corners">
                 <h4 class="text-center">Which resort do you want us to add?</h4>
-                <form id="mailForm" onsubmit="return sendMail(this);" method="POST">
+                <form id="mail-form">
                     <div class="form-group"> 
                         <input type="text" class="form-control" id="resort" name="resort" placeholder="Enter resort name" required>
                     </div>
@@ -113,7 +113,7 @@
                     </div>
                     <div class="form-group text-center">
                         <p id="mail-sending"></p>
-                        <button type="submit" class="btn bgr-yellow" onclick="mailMessage()"><strong>Submit</strong></button>
+                        <button type="submit" class="btn bgr-yellow"><strong>Submit</strong></button>
                     </div>
                 </form>
             </div> 
