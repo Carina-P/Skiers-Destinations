@@ -210,7 +210,13 @@ function RatedList(){
     }
     
     this.list = this.getList();
-    
+
+    /**
+     * The skeleton of the list is made into HTML code. Applies to small 
+     * screens.
+     * 
+     * @returns {string} The HTML code
+     */
     this.frameworkToSmallDocument = () => {
         let toHTML = ``;
         for (let i=0; i<this.list.length; i++) {
@@ -226,7 +232,12 @@ function RatedList(){
         }
         return toHTML;
     }
-
+    /**
+     * The skeleton of the list is made into HTML code. Applies to small 
+     * screens.
+     * 
+     * @returns {string} The HTML code
+     */
     this.frameworkToDocument = () => {
         let toHTML = `
             <table class = "table table-hover">
