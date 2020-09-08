@@ -65,63 +65,52 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         voteHTML += `</select>`;
     return  voteHTML;
     }
-    /**
-    * HTML code for resort with rating, used when viewport is small or less.
-    *
-    * @param {number} rowIndex Indicates were in a table this information 
-    *                          belongs 
-    *
-    * @returns {string} HTLM code
-    */ 
-    this.rowToSmallHTML = (rowIndex) => {
-        let rowHTML = `
-            <div class="row">
-                <div class ="col-12">
-                    <h4>Nr ${rowIndex+1}: ${this.name}</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <h5>Rating average:</h5>`
-        rowHTML += this.starsToHTML(this.rating);
-        rowHTML += `<p> ${this.rating.toFixed(2)}</p>`;
-        rowHTML += `</div>
-                    <div id = class="col-6">
-                        <h5>Your rating:</h5>`;
-        if (this.lastVote == 0) {
-            let id = "gradeIndex" + rowIndex;
-            rowHTML += this.noVoteHTML(id);  
-        }
-        else {
-            rowHTML += this.starsToHTML(this.lastVote);
-            rowHTML += `<p> ${this.lastVote}</p>`;
-        }
-
-        rowHTML +=  `</div>
-                    </div>`;
-
-        return rowHTML;
-    }
-
+    
     /**
     * HTML code for resort with rating, used when viewport is medium or larger.
     *
     * @param {number} rowIndex Indicates were in a table this information 
-    *                          belongs 
+    *                          belongs
+    * @param {boolean} smallViewport Indicates if it is a viewport with small 
+    *                                 width
     *
     * @returns {string} HTLM code
     */ 
-     this.rowToHTML = (rowIndex) => {
-        let rowHTML = `<td>${rowIndex+1}</td>
+     this.rowToHTML = (rowIndex, smallViewport) => {
+        let rowHTML = ``;
+        if (smallViewport){
+            rowHTML += `
+                <div class="row">
+                    <div class ="col-12">
+                        <h4>Nr ${rowIndex+1}: ${this.name}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Rating average:</h5>`
+        }
+        else{
+            rowHTML += `<td>${rowIndex+1}</td>
                         <td>${this.name}</td>
                         <td>`;
-
+        }
         rowHTML += this.starsToHTML(this.rating);
-        rowHTML += `<span> ${this.rating.toFixed(2)}</span>`;
+ 
+        if (smallViewport){ rowHTML += `<p>`}
+        else { rowHTML += `<span>`}
 
-        rowHTML += `</td> 
+        rowHTML += `${this.rating.toFixed(2)}`
+        
+         if (smallViewport){ rowHTML += `
+                    </p>
+                </div>
+                <div id = class="col-6">
+                    <h5>Your rating:</h5>`;
+        }
+         else { rowHTML += `</span>
+                </td> 
                      <td> 
-                        <div>`;
+                        <div>`};
 
         if (this.lastVote == 0) {
             let id = "gradeIndex" + rowIndex;
@@ -129,11 +118,19 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         }
         else {
             rowHTML += this.starsToHTML(this.lastVote);
-            rowHTML += `<span> ${this.lastVote}</span>`;
+            if (smallViewport){rowHTML += `<p>`}
+            else {rowHTML += `<span> `}
+            rowHTML += `${this.lastVote}`;
+            if (smallViewport){rowHTML += `</p>`}
+            else {rowHTML += `</span> `}
         }
 
-        rowHTML += `   </div>
-                        </td>`;
+        if(smallViewport){rowHTML += 
+                        `</div>
+                    </div>`;}
+        else{
+            rowHTML += `   </div>
+                        </td>`;}
     
      return rowHTML;
     } 
@@ -145,10 +142,8 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      */
     this.toDocument = (rowIndex, smallViewport) => {
         let id = "#index"+rowIndex;
-        if(smallViewport)
-            $(id).html(this.rowToSmallHTML(rowIndex));
-        else
-            $(id).html(this.rowToHTML(rowIndex));
+       
+        $(id).html(this.rowToHTML(rowIndex, smallViewport));
         
         if (this.lastVote == 0) {
             $(`#gradeIndex${rowIndex}`).change({index : rowIndex} , 
