@@ -55,7 +55,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      * @returns {literal} HTML code
      */
     this.noVoteHTML = (id) => {
-        let voteHTML = `<label for = ${id}>Select grade!:</label>
+        let voteHTML = `<label for = ${id}>Pick grade!:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;
         for (let i=5; i>0; i--){

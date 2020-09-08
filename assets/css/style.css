@@ -115,3 +115,9 @@ h5{
     background-color: #cae9ff;
     transform: scale(1.5);
 }
+
+@media screen and (max-width: 340px){
+    html{
+        font-size: 14px;
+    }
+}
