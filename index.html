@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" 
+        href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" 
+        href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" 
+        href="assets/favicons/favicon-16x16.png">
     <link rel="stylesheet" href="assets/css/style.css"> 
      
     <title>Skiers Destinations</title>
@@ -17,41 +22,58 @@
     <header>
         <nav class="navbar navbar-expand-md fixed-top bgr-white">
             <a href ="#" class="navbar-brand" aria-label="Navigate to top">
-                <img src="assets/images/logo-skiers-destinations.png" class="logo d-inline-block align-top" alt="logo">
+                <img src="assets/images/logo-skiers-destinations.png" 
+                    class="logo d-inline-block align-top" alt="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" 
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarText" 
+            aria-controls="navbarText" aria-expanded="false" 
+                aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"> 
-                        <a class="nav-link js-collapse" href="#recommend" aria-label="Navigate to 10-top-list and reviews">  10-top places  </a>
+                        <a class="nav-link js-collapse" href="#recommend" 
+                            aria-label="Navigate to 10-top-list and reviews"
+                            >  10-top places  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-collapse" href="#wish" aria-label="Navigate to input form for ski resort wishes">  Add ski resort  </a>
+                        <a class="nav-link js-collapse" href="#wish" 
+                            aria-label="Navigate to input form for ski resort wishes"
+                            >  Add ski resort  </a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="banner"></div>
         <div id="top">
-            <h1 class="border-blue text-center m-3 p-3">Downhill Skiing Destinations in Europe</h1>
+            <h1 class="border-blue text-center m-3 p-3"
+                >Downhill Skiing Destinations in Europe</h1>
         </div>
     </header>
    
 <!-- Skiing resorts in map -->
-    <section id="places" class = "container-fluid">
+    <section id="resorts" class = "container-fluid">
         <div class ="row border-blue m-2 p-1">
             <div id="map" class = "col-12 col-md-8 rounded-corners"></div>
             <div id = "loader"></div>
             <div class ="col-12 col-md-4 d-flex p-2">
-                <div id ="place-txt" class="align-self-center p-2 rounded-corners bgr-blue">
-                    <h4><strong>Click</strong> on a <img src="assets/images/yellow-marker48.gif" alt="yellow marker"> or a <img src="assets/images/m1.png" alt="cluster marker">in the map!</h4> 
-                    <p>And information about a Ski Resort will appear here and also close to the marker.</p>
+                <div id ="resort-info" 
+                    class="align-self-center p-2 rounded-corners bgr-blue">
+                    <h4><strong>Click</strong> on a <img 
+                        src="assets/images/yellow-marker48.gif" 
+                        alt="yellow marker"> or a <img 
+                        src="assets/images/m1.png" alt="cluster marker">
+                        in the map!</h4> 
+                    <p>And information about a Ski Resort will appear here and 
+                        also close to the marker.</p>
                     <h5><u>Symbols in the map:</u></h5>
-                    <p><img src="assets/images/yellow-marker48.gif" alt="yellow marker">: Marker for a ski resort.</p>
-                    <p><img src="assets/images/m1.png" alt="cluster marker">: Cluster of markers (may have different colors). Click on it until you see the markers.</p>
+                    <p><img src="assets/images/yellow-marker48.gif" 
+                        alt="yellow marker">: Marker for a ski resort.</p>
+                    <p><img src="assets/images/m1.png" alt="cluster marker">
+                        : Cluster of markers (may have different colors). Click
+                         on it until you see the markers.</p>
                 </div>
             </div>
         </div>
@@ -60,11 +82,14 @@
     <section id="recommend" class="container">
         <div class="banner"></div>
         <div class = "row border-blue m-2 p-1">
-            <div class = "col-3 d-none d-sm-block hero-img rounded-corners"></div>
+            <div class = "col-3 d-none d-sm-block hero-img rounded-corners">
+            </div>
             <div class = "col-12 col-md-9 text-center">
                 <h2 class="pt-2">Rating of Ski Resorts</h2>
-                <p>Affect the rating by submitting your opinion to the right!</p>
-                <p><small>Notice: The list order is immediately affected when you cast your vote</small></p>
+                <p>Affect the rating by submitting your opinion to the right!
+                </p>
+                <p><small>Notice: The list order is immediately affected when 
+                    you cast your vote</small></p>
                 <div id="top-ten"></div>
             </div>
         </div> 
@@ -75,45 +100,59 @@
         <div class="banner"></div>
         <div class="container border-blue p-1">
             <div>
-                <h2 class="text-center p-3">Information about other ski resort in this page?</h2>
+                <h2 class="text-center p-3">Information about other ski resort 
+                    in this page?</h2>
             </div>
             <div class="bgr-blue p-3 rounded-corners">
-                <h4 class="text-center">Which resort do you want us to add?</h4>
+                <h4 class="text-center">Which resort do you want us to add?
+                </h4>
                 <form id="mail-form">
                     <div class="form-group"> 
-                        <input type="text" class="form-control" id="resort" name="resort" placeholder="Enter resort name" required>
+                        <input type="text" class="form-control" id="resort" 
+                            name="resort" placeholder="Enter resort name" 
+                            required>
                     </div>
                     <div class="form-group"> 
-                        <textarea class="form-control" rows="3" id="reason" name="reason" placeholder="Enter reason for adding resort"></textarea>
+                        <textarea class="form-control" rows="3" id="reason" 
+                        name="reason" placeholder="Enter reason for adding 
+                        resort"></textarea>
                     </div>
                     <div class="form-group"> 
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        <input type="text" class="form-control" id="name" 
+                            name="name" placeholder="Enter your name" required>
                     </div>
                     <div class="form-group"> 
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email adress" required>
-                        <small>We'll never share your email with anyone else.</small>
+                        <input type="email" class="form-control" id="email" 
+                            name="email" placeholder="Enter your email adress" 
+                            required>
+                        <small>We'll never share your email with anyone else.
+                        </small>
                     </div>
                     <div class="form-group text-center">
                         <p id="mail-sending"></p>
-                        <button type="submit" class="btn bgr-yellow"><strong>Submit</strong></button>
+                        <button type="submit" class="btn bgr-yellow"><strong>
+                            Submit</strong></button>
                     </div>
                 </form>
             </div> 
         </div> 
 
         <!-- Modal called from js-->
-        <div class="modal fade" id="mail-feedback" tabindex="-1" aria-labelledby="mail-answer" aria-hidden="true">
+        <div class="modal fade" id="mail-feedback" tabindex="-1" 
+            aria-labelledby="mail-answer" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content border-blue p-1">
                     <div class="modal-header">
                         <h4 class="modal-title" id="mail-answer"></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss=
+                            "modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body bgr-blue"></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn bgr-yellow" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn bgr-yellow" 
+                            data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -124,33 +163,41 @@
         <div class="row">
             <div class="col-sm-6 text-center"> 
                 <strong>Contact</strong>
-                <p><i class="fas fa-envelope" aria-hidden="true"></i>skiers.destinations@gmail.com</p>
+                <p>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    skiers.destinations@gmail.com
+                </p>
             </div>
             <div class="col-sm-6 text-center"> 
                 <strong>Social</strong>
                 <ul class="list-inline">
                     <li class="list-inline-item"> 
-                        <a target="_blank" href="https://www.facebook.com/" aria-label="Find us on Facebook" rel="noopener">
+                        <a target="_blank" href="https://www.facebook.com/" 
+                            aria-label="Find us on Facebook" rel="noopener">
                             <i class="fab fa-facebook icon hover-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item"> 
-                        <a target="_blank" href="https://twitter.com/explore" aria-label="Follow us on Twitter" rel="noopener">
+                        <a target="_blank" href="https://twitter.com/explore" 
+                            aria-label="Follow us on Twitter" rel="noopener">
                             <i class="fab fa-twitter icon hover-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item"> 
-                        <a target="_blank" href="https://www.linkedin.com/" aria-label="Find us on LinkedIn" rel="noopener">
+                        <a target="_blank" href="https://www.linkedin.com/" 
+                            aria-label="Find us on LinkedIn" rel="noopener">
                             <i class="fab fa-linkedin icon hover-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item"> 
-                        <a target="_blank" href="https://www.instagram.com/" aria-label="Find us on LinkedIn" rel="noopener">
+                        <a target="_blank" href="https://www.instagram.com/" 
+                            aria-label="Find us on LinkedIn" rel="noopener">
                             <i class="fab fa-instagram icon hover-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item"> 
-                        <a target="_blank" href="https://www.instagram.com/" aria-label="Find us on YouTube" rel="noopener">
+                        <a target="_blank" href="https://www.instagram.com/" 
+                            aria-label="Find us on YouTube" rel="noopener">
                             <i class="fab fa-youtube icon hover-lg"></i>
                         </a>
                     </li>
@@ -160,11 +207,21 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX-O_fvMaggssq6tug8mVsSWNsaOrVNkE&callback=initMap"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
+    </script>
+    <script 
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    </script> 
+    <script 
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX-O_fvMaggssq6tug8mVsSWNsaOrVNkE&callback=initMap">
+    </script>
+    <script type="text/javascript" 
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js">
+    </script>
     <script src="assets/js/map.js"></script>
     <script src="assets/js/rating.js"></script>
     <script src="assets/js/mail.js"></script>
