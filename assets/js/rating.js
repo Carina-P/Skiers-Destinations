@@ -1,3 +1,5 @@
+let sizeViewport = window.matchMedia("(max-width: 767px)");
+
 /** 
  * Constructor function for RatedResort
  */
@@ -53,7 +55,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      * @returns {literal} HTML code
      */
     this.noVoteHTML = (id) => {
-        let voteHTML = `<label for = ${id}>My grade:</label>
+        let voteHTML = `<label for = ${id}>Select grade!:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;
         for (let i=5; i>0; i--){
@@ -64,7 +66,45 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     return  voteHTML;
     }
     /**
-    * HTML code for a this resort with rating.
+    * HTML code for resort with rating, used when viewport is small or less.
+    *
+    * @param {number} rowIndex Indicates were in a table this information 
+    *                          belongs 
+    *
+    * @returns {string} HTLM code
+    */ 
+    this.rowToSmallHTML = (rowIndex) => {
+        let rowHTML = `
+            <div class="row">
+                <div class ="col-12">
+                    <h4>Nr ${rowIndex+1}: ${this.name}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h5>Rating average:</h5>`
+        rowHTML += this.starsToHTML(this.rating);
+        rowHTML += `<p> ${this.rating.toFixed(2)}</p>`;
+        rowHTML += `</div>
+                    <div id = class="col-6">
+                        <h5>Your rating:</h5>`;
+        if (this.lastVote == 0) {
+            let id = "gradeIndex" + rowIndex;
+            rowHTML += this.noVoteHTML(id);  
+        }
+        else {
+            rowHTML += this.starsToHTML(this.lastVote);
+            rowHTML += `<p> ${this.lastVote}</p>`;
+        }
+
+        rowHTML +=  `</div>
+                    </div>`;
+
+        return rowHTML;
+    }
+
+    /**
+    * HTML code for resort with rating, used when viewport is medium or larger.
     *
     * @param {number} rowIndex Indicates were in a table this information 
     *                          belongs 
@@ -101,10 +141,14 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      * Put information about this resorts rating in the document.
      * 
      * @param {number} rowIndex Indicates where in a table information belongs
+     * @param {boolean} smallViewport Indicates if current viewport is small
      */
-    this.toDocument = (rowIndex) => {
+    this.toDocument = (rowIndex, smallViewport) => {
         let id = "#index"+rowIndex;
-        $(id).html(this.rowToHTML(rowIndex));
+        if(smallViewport)
+            $(id).html(this.rowToSmallHTML(rowIndex));
+        else
+            $(id).html(this.rowToHTML(rowIndex));
         
         if (this.lastVote == 0) {
             $(`#gradeIndex${rowIndex}`).change({index : rowIndex} , 
@@ -136,7 +180,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
 }
 
 /** 
- * Constructor function for RatedResort
+ * Constructor function for RatedList
  */
 function RatedList(){
     this.fetchInitList = () => {
@@ -172,6 +216,22 @@ function RatedList(){
     
     this.list = this.getList();
     
+    this.frameworkToSmallDocument = () => {
+        let toHTML = ``;
+        for (let i=0; i<this.list.length; i++) {
+            if (i%2===0){
+                toHTML += `
+                <div id="index${i}" class="bgr-blue rounded-corners pt-2 mb-2">
+                </div>`
+            }
+            else{
+                toHTML += `<div id="index${i}" class="border-blue pt-2 mb-2">
+                </div>`
+            }    
+        }
+        return toHTML;
+    }
+
     this.frameworkToDocument = () => {
         let toHTML = `
             <table class = "table table-hover">
@@ -188,21 +248,23 @@ function RatedList(){
         
         for (let i=0; i<this.list.length; i++){
             toHTML += `<tr id = "index${i}"></tr>`;
-        }
-
+        } 
         toHTML += `  </tbody>
                 </table>`;
-        console.log(toHTML);
-        return toHTML;
-
+        return toHTML; 
     }
     /**
      * Put the information in the RatedList into the document.
      */
-    this.toDocument = () => {
-        $("#top-ten").html(this.frameworkToDocument());
-        this.list.forEach( (ratedResort, index) => 
-            { ratedResort.toDocument(index);});
+    this.toDocument = (sizeViewport) => {
+        let smallViewport = sizeViewport.matches;
+
+        if (smallViewport) $("#top-ten").html(this.frameworkToSmallDocument());
+        else $("#top-ten").html(this.frameworkToDocument());
+        
+        this.list.forEach( (ratedResort, index) => { 
+                ratedResort.toDocument(index, smallViewport);
+            });
     }
     /**
      * Save information to localStorage.
@@ -219,11 +281,12 @@ function RatedList(){
             parseInt(event.target.value));
         this.list.sort((resortA,resortB) => {
             return resortB.getRating()-resortA.getRating();}); 
-        ratedList.toDocument();
-        ratedList.toLocalStorage();
+        this.toDocument(sizeViewport);
+        this.toLocalStorage();
     }
 }
 
-let ratedList = new RatedList();
+let ratedList = new RatedList(); 
+$(document).ready(ratedList.toDocument(sizeViewport));
 
-$(document).ready(ratedList.toDocument());
+sizeViewport.addListener(ratedList.toDocument);
