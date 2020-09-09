@@ -78,7 +78,7 @@ h5{
     padding: .5rem;
 }
 
-/* recommend-section */
+/* 10 top-section */
 .yellow{
   color: #fecf3e;
 } 
@@ -94,14 +94,17 @@ h5{
     background-size: cover;
 }
 
-/* reviews-section */
+/* details-section */
 .divider-yellow {
     height: 0.2rem;
     border: 0;
     background-color:  #fecf3e;
     width: 3rem;
 }
-/* Found below two on stackoverflow, user Phoenix 
+.left:hover, .right:hover{
+    transform: scale(1.5);
+}
+/* Found below two, on stackoverflow, user Phoenix 
 https://stackoverflow.com/questions/49028877/slick-carousel-force-slides-to-have-the-same-height */
 .slick-track
 {
@@ -113,6 +116,13 @@ https://stackoverflow.com/questions/49028877/slick-carousel-force-slides-to-have
     height: inherit !important;
 }
  
+
+/* mail-section */
+#submit-btn:hover{
+    color: #fecf3e;
+    background-color: #262730;
+}
+
 /* footer */
 .icon{
     color: #262730; 
