@@ -34,8 +34,8 @@ h5{
 /* Header */
 .logo{
     height: 4rem;
-    width: 7rem;
-    border: solid .3rem #cae9ff;
+    width: 6rem;
+    border: solid .2rem #cae9ff;
     border-radius: 50%;    
 } 
 .navbar-toggler{
