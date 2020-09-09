@@ -264,17 +264,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         let starsHTML =``;
         let fullStars = 0;
 
-        if( grade===undefined || grade===null || typeof(grade)!="number"){
-            console.log(
-    "Error in starsToHTML, parameter has not got a value or is not a number");
-            return("Error");
-        }
-
-        if (grade<1 || grade>5){
-            console.log(
-                "Error in function starsToHTML, grade is out of range");
-            return("Error");
-        }
+         
 
         let rest = grade%1;
 
