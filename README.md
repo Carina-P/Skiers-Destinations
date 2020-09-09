@@ -1,8 +1,9 @@
 # Skiers Destinations
-![Logo](assets/images/logo-skiers-destinations.png)     
-*(Above logo is under construction.)*
+![Logo](assets/images/logo-skiers-destinations.png)      
 
-**UpToDate information about Ski Resorts** for downhill ski lovers who want inspiration for where their next ski trip goes, or just want updated information about skiing conditions and/or weather.
+**UpToDate information about Ski Resorts** for downhill ski lovers who want 
+inspiration their next ski trip, or just want updated information about skiing 
+conditions and/or weather.
  
 ## UX
 <!--
@@ -14,12 +15,16 @@ In particular, as part of this section we recommend that you provide a list of U
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 -->
 ### External users goal
-A place to find **information and up-to-date facts** about the **best downhill ski places in the world**. This is the site where you find **inspiration** if you do not know
-**which ski resort to choose**. And the site to find update information when you are or are going to a ski resort.
+A place to find **information and up-to-date facts** about the **best downhill 
+ski places in the world**. This is the site where you find **inspiration** if 
+you do not know **which ski resort to choose**. And the site to find update 
+information when you are or are going to a ski resort.
 
 ### Site owners goal
-To **share information** with other ski lovers and get uptodate information about skiing conditions at the best downhill skiing resorts.
-In the long run **advertisers** will get the opportunity to put adds in the site.
+To **share information** with other ski lovers and get uptodate information 
+about skiing conditions at the best downhill skiing resorts.
+In the long run **advertisers** will get the opportunity to put adds in the 
+site.
 
 ### Potential features, grouping of the features and in order of prioritize
 - **Header**, fixed at the top of viewport, with:
@@ -27,35 +32,46 @@ In the long run **advertisers** will get the opportunity to put adds in the site
     - **navbar**
 - **Information**-section with:
     - **Map** with with labels on skiing resorts.
-    - **Skiing-resort information** matching the label user has **choosen in map**.
+    - **Skiing-resort information** matching the label user has 
+        **choosen in map**.
 - **Recommendation**-section with:
-    - **Table with 10-top** skiing resort sorted with the best in the top. Providing possibility to do own ranking of place and
-**interactive update** of the list.
+    - **Table with 10-top** skiing resort sorted with the best in the top. 
+    Providing possibility to do own ranking of place and **interactive update** 
+    of the list.
     - **Reviews** of ski resorts
-- Section for **wishes** were you can **mail** a wish for a **ski resort** that you want the site to show information about.
+- Section for **wishes** were you can **mail** a wish for a **ski resort** that 
+    you want the site to show information about.
 - **Footer**-section with:
     - **contact and social media** information
 
 ### User stories 
 - As a user I want to know where good skiing places are situated on a **map**.
-- As a user I want to find up-to-date **information and facts** about downhill skiing places, to be able to choose where I am going
-on my next ski trip and/or get up-date-information, as skiing- and wheather-conditions, at the place I am going to.
-- As a user I want to see **which skiing places are most popular** according to the club and the sites visitors, so I am inspired when 
-I think of my next trip.
-- As a user I want to be able to **grade the different skiing places**, and interactively see how my vote affects the 10-top-list. So I can
-contribute to other ski lovers travel choises.
-- As a user I want to see **reviews** of different places, so I get inspired for my next skiing-trip.
-- As a user I want to be able to **influence which ski resorts** are showing on the site.
+- As a user I want to find up-to-date **information and facts** about downhill 
+skiing places, to be able to choose where I am going on my next ski trip and/or 
+get up-date-information, as skiing- and wheather-conditions, at the place I am 
+going to.
+- As a user I want to see **which skiing places are most popular** according to 
+the club and the sites visitors, so I am inspired when I think of my next trip.
+- As a user I want to be able to **grade the different skiing places**, and 
+interactively see how my vote affects the 10-top-list. So I can contribute to 
+other ski lovers travel choises.
+- As a user I want to see **reviews** of different places, so I get inspired 
+for my next skiing-trip.
+- As a user I want to be able to **influence which ski resorts** are showing on 
+the site.
 
 ## User requirements and Expectations
 
 ### Requirements
 - Navigate the website using **navbar**
 - Originate from the **map**: find **information** about different ski resort.
-- An **updated list** of the 10 most popular ski-resorts with name of the place, ranking and grade. **Grade is calculated** from users input.
-- Possibility to give the ski-resorts **own grade** and the 10-top-list is updated accordingly.
+- An **updated list** of the 10 most popular ski-resorts with name of the 
+place, ranking and grade. **Grade is calculated** from users input.
+- Possibility to give the ski-resorts **own grade** and the 10-top-list is 
+updated accordingly.
 - See **reviews** on ski resorts, from other skiiers.
-- Possitbility to **mail wishes** for other Ski Resorts to be shown on the site. The input should include name, mailadress, name of ski resort and reason to 
+- Possitbility to **mail wishes** for other Ski Resorts to be shown on the site.
+The input should include name, mailadress, name of ski resort and reason to 
 choose the resort.
 
 ### Expectations
@@ -68,8 +84,9 @@ choose the resort.
 - **Updating of 10-top-list** works after user grading.
 
 ## Wireframes
-I used [Balsamiq Wireframes](https://balsamiq.com/) to build rudimentary wireframes for a basic understanding.
-I have made frames for desktop, tablet and mobile:
+I used [Balsamiq Wireframes](https://balsamiq.com/) to build rudimentary 
+wireframes for a basic understanding. I have made frames for desktop, tablet 
+and mobile:
 - [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
 - [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
@@ -78,15 +95,18 @@ I have made frames for desktop, tablet and mobile:
 
 ## Design Choices
 ### Fonts
-I have choosen **Oswald**, because i find it very **useful** on different platforms, **clean** and **easy** to read. "Oswald is designed 
-to be used freely across the internet by web browsers on desktop computers, laptops and mobile devices." (quote from 
+I have choosen **Oswald**, because i find it very **useful** on different 
+platforms, **clean** and **easy** to read. "Oswald is designed 
+to be used freely across the internet by web browsers on desktop computers, 
+laptops and mobile devices." (quote from 
 [Google fonts](https://fonts.google.com/specimen/Oswald#standard-styles). 
 And as the alternative font: Open Sans.
 
 ### Icons
 
 ### Colors
-I want the colors to match a day in the skiing slope: White for **snow**, light-blue for the **sky** and yellow for the **sun**. 
+I want the colors to match a day in the skiing slope: White for **snow**, 
+light-blue for the **sky** and yellow for the **sun**. 
 <img src="wireframes/colors-skiers-destinations.png" width="75%">
 
 - **Text** to contrast lighter backgrounds: **Raisin black** #262730
@@ -101,8 +121,9 @@ In order of importance:
     - **navbar**
 - **Map** with with markers on popular skiing resorts.
 - **Skiing-resort information** matching the marker user has **choosen in map**.
-- **Table with 10-top** skiing resort sorted with the best in the top. Providing possibility to do users own ranking of place and
-interactive update of the list.
+- **Table with 10-top** skiing resort sorted with the best in the top. 
+Providing possibility to do users own ranking of place and interactive update 
+of the list.
 - **Reviews** of ski resorts
 - **Form for wishing** new ski resorts on the site.
 - **Footer** with contacts and social media
@@ -124,7 +145,10 @@ In addition, you may also use this section to discuss plans for additional featu
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+In this section, you should mention all of the languages, frameworks, libraries, 
+and any other tools that you have used to construct this project. For each, 
+provide its name, a link to its official site and a short sentence of why it 
+was used.
 
 
 ### Languages
@@ -142,7 +166,8 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [JQuery](https://jquery.com/)
     - The project uses **JQuery** to simplify DOM manipulation.
 - [JSON](https://www.json.org/json-en.html)
-    - A data-interchange format used when retrieve information from other sources as [Weather Unlocked](http://www.weatherunlocked.com/)
+    - A data-interchange format used when retrieve information from other 
+    sources as [Weather Unlocked](http://www.weatherunlocked.com/)
 - [Jasmine](https://jasmine.github.io/)
     - Supports behavior-driven development, makes it easy to build unit test.
 <!--* [Popper](https://popper.js.org/)
@@ -160,10 +185,13 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - To generate color-schemes
 
 ## Testing
-When it has been feasible the test where automated. The rest was tested manually. 
-The manually testing was performed **regularly** in a **iterative** manner during the development of the site and then **thorough** after all features 
-was in place. Testing often  and after a small part of development, makes it is **easier to find** and **fix bugs early** and it is also a way to **use experience** 
-in coming development.
+When it has been feasible the test where automated. The rest was tested 
+manually. 
+The manually testing was performed **regularly** in a **iterative** manner 
+during the development of the site and then **thorough** after all features 
+was in place. Testing often  and after a small part of development, makes it is 
+**easier to find** and **fix bugs early** and it is also a way to 
+**use experience** in coming development.
 
 When all features was implemented the following tests was performed:
 - Validated by [W3S Markup validation service](https://validator.w3.org/)
@@ -191,11 +219,15 @@ If this section grows too long, you may want to split it off into a separate fil
 ### Scenarios
 ### Validation with W3S
 ### Some of the bugs
-CORS: There is a CORS-problem when fetching information from Weather Unlocked. Code Institute support looked at the problem but 
-could not understand how to solve it. But they said I should use jQuery Ajax for my requests instead of fetch, since it seems to be working better with the API and
-the problem appears a little less frequently. And this is why I use fetch when fetching information from local file and JQuery ajax when fetching information
-from Weahter Unlockeds API. The bug appears in that way that you do not get any information for one or more of the resorts (The InfoWindow in map
-is still showing but not the text beside/under the map).
+CORS: There is a CORS-problem when fetching information from Weather Unlocked. 
+Code Institute support looked at the problem but could not understand how to 
+solve it. But they said I should use jQuery Ajax for my requests instead of 
+fetch, since it seems to be working better with the API and the problem appears 
+a little less frequently. And this is why I use fetch when fetching information 
+from local file and JQuery ajax when fetching information from Weahter Unlockeds 
+API. The bug appears in that way that you do not get any information for one or 
+more of the resorts (The InfoWindow in map is still showing but not the text 
+beside/under the map).
 
 ## Deployment
 ***To myself: Look this over!!!!!!***
@@ -224,7 +256,8 @@ Cloning Skiers Destinations from GitHub:
 * Copy the **url** in the dropdown box.
 * Using your favourite **IDE** open up your preferred **terminal**.
 * Navigate to your desired file location. 
-* Copy the following **code** and input it into your terminal to clone Skiers Paradise.
+* Copy the following **code** and input it into your terminal to clone 
+Skiers Destinations.
  ```git
   git clone https://github.com/Carina-P/skiers-destinations.git
    ```
@@ -247,9 +280,10 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 -->
 ### Media
-<!--
-- The photos used in this site were obtained from ...
--->
+The photos used in this site were obtained from:
+- [Can Stock](https://www.canstockphoto.se)
+- [Pixabay](https://pixabay.com/)
+
 ### Acknowledgements
 I recived inspiration for this project from:
 - [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
