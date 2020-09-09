@@ -46,7 +46,7 @@
                             >  More details  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-collapse" href="#wish" 
+                        <a class="nav-link js-collapse" href="#mail" 
                             aria-label="Navigate to input form for ski resort wishes"
                             >  Add ski resort  </a>
                     </li>
@@ -63,9 +63,11 @@
 <!-- Skiing resorts in map -->
     <section id="resorts" class = "container-fluid">
         <div class ="row border-blue m-2 p-1">
-            <div id="map" class = "col-12 col-md-8 rounded-corners"></div>
-            <div id = "loader"></div>
+            <div id="map" class = "col-12 col-md-8 rounded-corners"></div> 
             <div class ="col-12 col-md-4 d-flex p-2">
+                <div id = "map-loading" class="text-center"><img src="assets/css/loader.gif" alt="loading..."/> 
+                            <span>loading markers...</span>
+                </div>
                 <div id ="resort-info" 
                     class="align-self-center p-2 rounded-corners bgr-blue">
                     <h4><strong>Click</strong> on a <img 
@@ -183,8 +185,8 @@
         </div>
     </section>
 
-<!-- Send in a wish -->
-    <section id="wish" class="top-marg">
+<!-- email -->
+    <section id="mail" class="top-marg">
         <div class="banner"></div>
         <div class="container border-blue p-1">
             <div>
@@ -218,7 +220,7 @@
                     </div>
                     <div class="form-group text-center">
                         <p id="mail-sending"></p>
-                        <button type="submit" class="btn bgr-yellow"><strong>
+                        <button id="submit-btn" type="submit" class="btn bgr-yellow"><strong>
                             Submit</strong></button>
                     </div>
                 </form>

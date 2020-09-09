@@ -226,6 +226,6 @@ function initMap(){
             center: {lat: 45.297309, lng: 6.579732}
         }
     );
-
-   putResortMarkersInMap();
+    putResortMarkersInMap();
+    $("#map-loading").html(``);
 }
