@@ -222,7 +222,8 @@ function RatedList(){
         for (let i=0; i<this.list.length; i++) {
             if (i%2 === 0){
                 toHTML += `
-                <div id="index${i}" class="bgr-blue rounded-corners pt-2 mb-2">
+                <div id="index${i}" class="bgr-blue border-blue rounded-corners
+                 pt-2 mb-2">
                 </div>`
             }
             else{
@@ -289,6 +290,9 @@ function RatedList(){
             return resortB.getRating()-resortA.getRating();}); 
         this.toDocument(sizeViewport);
         this.toLocalStorage();
+        /*Thanks to https://stackoverflow.com/users/92315/fabien-m%c3%a9nager
+         :*/
+        location.href = "#recommend";
     }
 }
 
