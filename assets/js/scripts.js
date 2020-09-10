@@ -161,7 +161,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         let starsHTML = ``;
         let fullStars = 0;
         
-        if (!grade) {return ("Error");}
+        if (grade === null || grade === undefined) {return ("Error");}
         if (typeof(grade) !== "number") {return ("Error");}
         if (grade < 1 || grade > 5) {return("Error");}
 
@@ -198,7 +198,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     this.noVoteHTML = (id) => {
         if (!id) {return "Error";}
         if (typeof(id) !== "string") {return "Error"};
-        
+
         let voteHTML = `<label for = ${id}>Pick grade!:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;
@@ -220,6 +220,13 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     * @returns {string} HTLM code
     */
      this.rowToHTML = (rowIndex, smallViewport) => {
+        console.log(typeof(rowIndex), typeof(smallViewport));
+        if (rowIndex === null || rowIndex === undefined) {return "Error";}
+        if (smallViewport === null || smallViewport === undefined) 
+            {return "Error";}
+        if (typeof(rowIndex) !== "number" || 
+            typeof(smallViewport) !== "boolean") {return "Error";}
+        
         let rowHTML = ``;
         if (smallViewport){
             rowHTML += `

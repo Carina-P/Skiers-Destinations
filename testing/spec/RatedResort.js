@@ -57,4 +57,19 @@ describe ("RatedResort", function(){
             expect(ratedResort0.noVoteHTML(undefined)).toEqual("Error");
         })
     });
+
+    describe("rowToHTML function", function(){
+        it("should return Error if rowIndex is not a number", function(){
+            expect(ratedResort0.rowToHTML("olive", true)).toEqual("Error");
+        });
+        it("should return Error if rowIndex is undefined", function(){
+            expect(ratedResort0.rowToHTML(undefined, true)).toEqual("Error");
+        });
+        it("should return Error if smallViewport is not boolean", function(){
+            expect(ratedResort0.rowToHTML(1, "onion")).toEqual("Error");
+        });
+        it("should return Error if smallViewport is undefined", function(){
+            expect(ratedResort0.rowToHTML(1, undefined)).toEqual("Error");
+        });
+    });
 })
