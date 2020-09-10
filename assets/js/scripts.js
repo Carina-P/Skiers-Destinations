@@ -161,8 +161,8 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         let starsHTML = ``;
         let fullStars = 0;
         
-        if (!grade){return ("Error");}
-        if (typeof(grade) !== "number"){return ("Error");}
+        if (!grade) {return ("Error");}
+        if (typeof(grade) !== "number") {return ("Error");}
         if (grade < 1 || grade > 5) {return("Error");}
 
         let remainder = grade%1;
@@ -196,6 +196,9 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      * @returns {string} HTML code
      */
     this.noVoteHTML = (id) => {
+        if (!id) {return "Error";}
+        if (typeof(id) !== "string") {return "Error"};
+        
         let voteHTML = `<label for = ${id}>Pick grade!:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;

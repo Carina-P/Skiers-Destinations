@@ -48,4 +48,13 @@ describe ("RatedResort", function(){
             expect(ratedResort0.starsToHTML(undefined)).toEqual("Error");
         })
     });
+
+    describe("noVoteHTML function", function(){
+        it("should return Error if id is not a string", function(){
+            expect(ratedResort0.noVoteHTML(3.2)).toEqual("Error");
+        });
+        it("should return Error if vote is undefined", function(){
+            expect(ratedResort0.noVoteHTML(undefined)).toEqual("Error");
+        })
+    });
 })
