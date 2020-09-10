@@ -1,9 +1,4 @@
-/* Header-section----------------------------------------------------------- */
-$(".js-collapse").on("click", function () {
-  $(".navbar-collapse").collapse("hide");
-});
-/* End header-section ------------------------------------------------------ */ 
-let map;
+let map; 
 let resortsInMap = [];
 const mapIcon = "assets/images/yellow-marker48.gif";
  
@@ -11,6 +6,10 @@ const resortsURL = "assets/data/resorts.json";
 const weatherFrontURL = `https://api.weatherunlocked.com/api/`;
 const weatherEndURL = 
     `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`;
+
+let sizeViewport = window.matchMedia("(max-width: 767px)");
+let ratedList = new RatedList(getRatingList()); 
+sizeViewport.addListener(ratedList.toDocument);
 
 /**
  * Constructor for ResortInMap
@@ -143,102 +142,7 @@ function ResortInMap(resort){
     }
 }
 
-/**
- * Fetches information from json file.
- *
- * @param {sting literal} url the files url
- *
- * @returns {Promise} resorts
- */
-function fetchResortInfo(url){
-    return fetch(url)
-        .then( (res) => res.json())
-        .catch( (error) => console.log("Error!", error));
-}
-
-/**
- * Fetches snowreport for a specific resort from Weahter Unlocked
- *
- * @param {number} resortId Resorts id in Weather Unlocked API
- *
- * @returns {Promise} snowreport
- */
-function fetchSnowInfo(resortId){
-    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+
-        weatherEndURL;
-    return fetchResortInfo(snowReportURL);
-}
-
-/**
- * Fetches forecast for a specific resort from Wheather unlocked
- *
- * @param {number} resortId Resorts id in Weather Unlocked API
- *
- * @returns {Promise}
- */
-function fetchForecastInfo(resortId){
-    let forecastURL = weatherFrontURL+
-        `resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
-    
-    return fetchResortInfo(forecastURL);
-}
- 
-/** Get map marker for a ski resort
- * @{Object} weatherInfo Contains snowreport and forecast for resort
- * @{number} index  Index of resort that weatherinformation is valid for.
- *
- * @returns {Objec} A google map marker
- */
-function getMarker(weatherInfo, index){
-    let snowReport = weatherInfo[0];
-    let forecastReport = weatherInfo[1];
-    let resort = resortsInMap[index];
-
-    return resort.buildMarker(snowReport, forecastReport);
-}
-
-/**
- * Make a google map marker for each resort and using googles MarkerClusterer
- * to put markers, that are close to one another, in clusters.
- * The resorts are fetched from a file.
- * Snowreport and forecast, respectively, are fetched from Weather Unlockeds
- * API.
- */
-function putResortMarkersInMap(){ 
-    fetchResortInfo(resortsURL)
-    .then( allResorts => {
-        allResorts.forEach((resort) => {
-            resortsInMap.push(new ResortInMap(resort)); 
-        });
-        return Promise.all(resortsInMap.map(resort =>
-            Promise.all([fetchSnowInfo(resort.getId()),
-                fetchForecastInfo(resort.getId())])));
-    })
-    .then( resortsInfo => {
-        const clustersOfMarkers =
-            new MarkerClusterer(map, resortsInfo.map(getMarker),
-            {imagePath: "assets/images/m"});})
-    .catch( error => {console.error("Error:", error);});
-}
-
-/**
-* Creates a map with markers for ski resorts.
-*
-*/
-function initMap(){
-    map = new google.maps.Map(document.getElementById("map"),
-        {
-            zoom: 3,
-            center: {lat: 45.297309, lng: 6.579732}
-        }
-    );
-    putResortMarkersInMap();
-    $("#map-loading").html(``);
-} 
-/* Recommend-section ------------------------------------------------------- */
-let sizeViewport = window.matchMedia("(max-width: 767px)");
-
-/**
+/** 
  * Constructor function for RatedResort
  */
 function RatedResort( name, rating, nrOfVotes, lastVote){
@@ -505,6 +409,105 @@ function RatedList(list){
         location.href = "#recommend";
     }
 }
+
+
+/**
+ * Fetches information from json file.
+ *
+ * @param {sting literal} url the files url
+ *
+ * @returns {Promise} resorts
+ */
+function fetchResortInfo(url){
+    return fetch(url)
+        .then( (res) => res.json())
+        .catch( (error) => console.log("Error!", error));
+}
+
+/**
+ * Fetches snowreport for a specific resort from Weahter Unlocked
+ *
+ * @param {number} resortId Resorts id in Weather Unlocked API
+ *
+ * @returns {Promise} snowreport
+ */
+function fetchSnowInfo(resortId){
+    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+
+        weatherEndURL;
+    return fetchResortInfo(snowReportURL);
+}
+
+/**
+ * Fetches forecast for a specific resort from Wheather unlocked
+ *
+ * @param {number} resortId Resorts id in Weather Unlocked API
+ *
+ * @returns {Promise}
+ */
+function fetchForecastInfo(resortId){
+    let forecastURL = weatherFrontURL+
+        `resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
+    
+    return fetchResortInfo(forecastURL);
+}
+ 
+/** Get map marker for a ski resort
+ * @{Object} weatherInfo Contains snowreport and forecast for resort
+ * @{number} index  Index of resort that weatherinformation is valid for.
+ *
+ * @returns {Objec} A google map marker
+ */
+function getMarker(weatherInfo, index){
+    let snowReport = weatherInfo[0];
+    let forecastReport = weatherInfo[1];
+    let resort = resortsInMap[index];
+
+    return resort.buildMarker(snowReport, forecastReport);
+}
+
+/**
+ * Make a google map marker for each resort and using googles MarkerClusterer
+ * to put markers, that are close to one another, in clusters.
+ * The resorts are fetched from a file.
+ * Snowreport and forecast, respectively, are fetched from Weather Unlockeds
+ * API.
+ */
+function putResortMarkersInMap(){ 
+    fetchResortInfo(resortsURL)
+    .then( allResorts => {
+        allResorts.forEach((resort) => {
+            resortsInMap.push(new ResortInMap(resort)); 
+        });
+        return Promise.all(resortsInMap.map(resort =>
+            Promise.all([fetchSnowInfo(resort.getId()),
+                fetchForecastInfo(resort.getId())])));
+    })
+    .then( resortsInfo => {
+        const clustersOfMarkers =
+            new MarkerClusterer(map, resortsInfo.map(getMarker),
+            {imagePath: "assets/images/m"});})
+    .catch( error => {console.error("Error:", error);});
+}
+
+/**
+* Creates a map with markers for ski resorts.
+*
+*/
+function initMap(){
+    map = new google.maps.Map(document.getElementById("map"),
+        {
+            zoom: 3,
+            center: {lat: 45.297309, lng: 6.579732}
+        }
+    );
+    putResortMarkersInMap();
+    $("#map-loading").html(``);
+} 
+
+/**
+ *  An initial list of resorts
+ *  @returns {Object} An array of resorts
+ */
 function fetchInitRatingList(){
     let list =[];
     list.push(new RatedResort("Bad Gastein", 0.0, 0, 0));
@@ -522,7 +525,7 @@ function fetchInitRatingList(){
 }
 
 /**
-     * Get lists values form localStorage or if not in localStorage starts
+     * Get lists values form localStorage or if not in localStorage initializes
      * a new list.
      *
      * @returns {Object} An array of RatedResort
@@ -534,16 +537,39 @@ function getRatingList(){
 
     table.forEach(item => {list.push(new RatedResort(item.name,
         item.rating, item.nrOfVotes, 0))} );
+
     return list;
 }
+ 
+$(".js-collapse").on("click", function () {
+  $(".navbar-collapse").collapse("hide");
+});
 
-let ratedList = new RatedList(getRatingList());
-$(document).ready(ratedList.toDocument(sizeViewport));
+emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo");
 
-sizeViewport.addListener(ratedList.toDocument);
-/* End recommend-section --------------------------------------------------- */
+$("#mail-form").submit( () => {
+    $("#mail-sending").html(`<img src="assets/css/loader.gif" alt="loading..."/>
+                            <span>sending mail...</span>`);
+    emailjs.sendForm("gmail","skiers_destinations", "#mail-form")
+    .then( () => {
+        $("#mail-feedback").modal();
+        $(".modal-title").html(`<strong>Your email is sent</strong>`);
+        $(".modal-body").html(`<p>We will read it during the day.</p>
+                            <p>Thank you for contributing to this page!</p>`);
+        $("#mail-form").trigger("reset");
+        $("#mail-sending").html(``);
+    }, (error) => {
+        $("#mail-feedback").modal();
+        $(".modal-title").html(`<strong>Error</strong>`);
+        $(".modal-body").html(`<p>Unfortunately we could not send the mail.</p>
+                                    <p>Please try again!</p>`);
+        $("#mail-sending").html(``);
+        console.log(error);
+    });
+    return false;
+});
 
-/* Details-section --------------------------------------------------------- */
+$(document).ready(ratedList.toDocument(sizeViewport)); 
 $(document).ready( () => {
     $("#responsive-slick").slick({
         infinite: true,
@@ -583,31 +609,4 @@ $(".left").click(function(){
 
 $(".right").click(function(){
   $("#responsive-slick").slick("slickNext");
-})
-/* End details-section ----------------------------------------------------- */
-
-/* Mail-section ------------------------------------------------------------ */
-$("#mail-form").submit( () => {
-    $("#mail-sending").html(`<img src="assets/css/loader.gif" alt="loading..."/>
-                            <span>sending mail...</span>`);
-    emailjs.sendForm("gmail","skiers_destinations", "#mail-form")
-    .then( () => {
-        $("#mail-feedback").modal();
-        $(".modal-title").html(`<strong>Your email is sent</strong>`);
-        $(".modal-body").html(`<p>We will read it during the day.</p>
-                            <p>Thank you for contributing to this page!</p>`);
-        $("#mail-form").trigger("reset");
-        $("#mail-sending").html(``);
-    }, (error) => {
-        $("#mail-feedback").modal();
-        $(".modal-title").html(`<strong>Error</strong>`);
-        $(".modal-body").html(`<p>Unfortunately we could not send the mail.</p>
-                                    <p>Please try again!</p>`);
-        $("#mail-sending").html(``);
-        console.log(error);
-    });
-    return false;
-});
-
-emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo");
-/* End mail-section -------------------------------------------------------- */
+}) 
