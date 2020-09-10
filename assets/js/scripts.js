@@ -159,7 +159,12 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      */
     this.starsToHTML = (grade) => { 
         let starsHTML = ``;
-        let fullStars = 0; 
+        let fullStars = 0;
+        
+        if (!grade){return ("Error");}
+        if (typeof(grade) !== "number"){return ("Error");}
+        if (grade < 1 || grade > 5) {return("Error");}
+
         let remainder = grade%1;
 
         if (remainder >= 0.75){
@@ -291,8 +296,8 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     * @param {number} vote The value of a new vote to be added to the rating.
     */
     this.calculateNewRating = (vote) => {
-        if (typeof(this.rating)!="number" || typeof(this.nrOfVotes)!="number"
-            || typeof(vote)!="number"){
+        if (typeof(this.rating) !== "number" || 
+            typeof(this.nrOfVotes) !== "number" || typeof(vote)!=="number"){
             console.log(
                 "Error in function calcNewRating, variables of wrong type");
             return("Error");
