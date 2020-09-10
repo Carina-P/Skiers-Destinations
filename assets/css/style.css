@@ -94,30 +94,7 @@ h5{
     background-size: cover;
 }
 
-/* details-section */
-.divider-yellow {
-    height: 0.2rem;
-    border: 0;
-    background-color:  #fecf3e;
-    width: 3rem;
-}
-.left:hover, .right:hover{
-    transform: scale(1.5);
-}
-/* Found below two, on stackoverflow, user Phoenix 
-https://stackoverflow.com/questions/49028877/slick-carousel-force-slides-to-have-the-same-height */
-.slick-track
-{
-    display: flex !important;
-}
-
-.slick-slide
-{
-    height: inherit !important;
-}
- 
-
-/* mail-section */
+/* mail-section */ 
 #submit-btn:hover{
     color: #fecf3e;
     background-color: #262730;

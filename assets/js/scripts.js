@@ -7,8 +7,9 @@ const weatherFrontURL = `https://api.weatherunlocked.com/api/`;
 const weatherEndURL = 
     `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`;
 
-let sizeViewport = window.matchMedia("(max-width: 767px)");
-let ratedList = new RatedList(getRatingList()); 
+let ratedList = new RatedList(getRatingList());
+
+let sizeViewport = window.matchMedia("(max-width: 767px)"); 
 sizeViewport.addListener(ratedList.toDocument);
 
 /**
@@ -490,8 +491,7 @@ function putResortMarkersInMap(){
 }
 
 /**
-* Creates a map with markers for ski resorts.
-*
+* Creates a map with markers for ski resorts. 
 */
 function initMap(){
     map = new google.maps.Map(document.getElementById("map"),
@@ -506,7 +506,7 @@ function initMap(){
 
 /**
  *  An initial list of resorts
- *  @returns {Object} An array of resorts
+ *  @returns {Object} An array of rated resorts
  */
 function fetchInitRatingList(){
     let list =[];
@@ -525,11 +525,11 @@ function fetchInitRatingList(){
 }
 
 /**
-     * Get lists values form localStorage or if not in localStorage initializes
-     * a new list.
-     *
-     * @returns {Object} An array of RatedResort
-     */
+ * Get lists values form localStorage or if not in localStorage initializes
+ * a new list.
+ *
+ * @returns {Object} An array of RatedResort
+ */
 function getRatingList(){
     let list = [];
     let table = JSON.parse(localStorage.getItem("ratingTable"));
@@ -569,44 +569,4 @@ $("#mail-form").submit( () => {
     return false;
 });
 
-$(document).ready(ratedList.toDocument(sizeViewport)); 
-$(document).ready( () => {
-    $("#responsive-slick").slick({
-        infinite: true,
-        dots: false,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        centerMode: true,
-        arrows: false,
-        responsive: [
-            {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3
-            }
-            },
-            {
-            breakpoint: 770,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-            },
-            {
-            breakpoint: 500,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-            }
-        ]
-    })
-})
-$(".left").click(function(){
-  $("#responsive-slick").slick("slickPrev");
-})
-
-$(".right").click(function(){
-  $("#responsive-slick").slick("slickNext");
-}) 
+$(document).ready(ratedList.toDocument(sizeViewport));
