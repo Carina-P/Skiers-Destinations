@@ -161,9 +161,21 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         let starsHTML = ``;
         let fullStars = 0;
         
-        if (grade === null || grade === undefined) {return ("Error");}
-        if (typeof(grade) !== "number") {return ("Error");}
-        if (grade < 1 || grade > 5) {return("Error");}
+        if (grade === null || grade === undefined) {
+            console.log(
+                "Error in function starsToHTML, grade undefined");
+                return "Error";
+        }
+        if (typeof(grade) !== "number") {
+            console.log(
+                "Error in function starsToHTML, grade is not number");
+                return "Error";
+        }
+        if (grade < 1 || grade > 5) {
+            console.log(
+                "Error in function starsToHTML, grade is right range");
+                return "Error";
+        }
 
         let remainder = grade%1;
 
@@ -196,8 +208,16 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      * @returns {string} HTML code
      */
     this.noVoteHTML = (id) => {
-        if (!id) {return "Error";}
-        if (typeof(id) !== "string") {return "Error"};
+        if (!id) {
+            console.log(
+                "Error in function noVoteHTML, id undefined");
+                return "Error";
+        }
+        if (typeof(id) !== "string") {
+            console.log(
+                "Error in function noVoteHTML, id of wrong type");
+                return "Error";
+        }
 
         let voteHTML = `<label for = ${id}>Pick grade!:</label>
                     <select name = ${id} id=${id}>
@@ -220,12 +240,22 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     * @returns {string} HTLM code
     */
      this.rowToHTML = (rowIndex, smallViewport) => {
-        console.log(typeof(rowIndex), typeof(smallViewport));
-        if (rowIndex === null || rowIndex === undefined) {return "Error";}
-        if (smallViewport === null || smallViewport === undefined) 
-            {return "Error";}
+        if (rowIndex === null || rowIndex === undefined) {
+            console.log(
+                "Error in function rowToHTML, rowIndex undefined");
+                return "Error";
+        }
+        if (smallViewport === null || smallViewport === undefined){ 
+            console.log(
+                "Error in function rowToHTML, smallViewport undefined");
+                return "Error";
+        }
         if (typeof(rowIndex) !== "number" || 
-            typeof(smallViewport) !== "boolean") {return "Error";}
+            typeof(smallViewport) !== "boolean") {
+            console.log(
+                "Error in function rowToHTML, parameter of wrong type");
+            return "Error";
+        }
         
         let rowHTML = ``;
         if (smallViewport){
@@ -306,16 +336,20 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     * @param {number} vote The value of a new vote to be added to the rating.
     */
     this.calculateNewRating = (vote) => {
-        if (typeof(this.rating) !== "number" || 
-            typeof(this.nrOfVotes) !== "number" || typeof(vote)!=="number"){
+        if (vote === undefined || vote === null){
             console.log(
-                "Error in function calcNewRating, variables of wrong type");
-            return("Error");
+                "Error in function calcNewRating, vote is undefined");
+            return "Error";
         }
-        if(vote<1 || vote>5){
+        if (typeof(vote)!=="number"){
+            console.log(
+                "Error in function calcNewRating, vote of wrong type");
+            return "Error";
+        }
+        if(vote < 1 || vote > 5){
             console.log(
                 "Error in function calculateNewRating, vote is out of range");
-            return("Error");
+            return "Error";
         }
 
         this.rating = (this.rating*this.nrOfVotes++ +vote)/(this.nrOfVotes);
@@ -383,7 +417,17 @@ function RatedList(list){
      * Put RatedLists information into the document.
      */
     this.toDocument = (sizeViewport) => {
+        if (sizeViewport === undefined || sizeViewport === null){
+            $("#top-ten").html("Something is wrong!");
+            console.log("Error in function toDocument");
+            return;
+        }
         let smallViewport = sizeViewport.matches;
+        if (smallViewport === undefined || smallViewport === null){
+            $("#top-ten").html("Something is wrong!");
+            console.log("Error in function toDocument");
+            return;
+        }
 
         if (smallViewport) $("#top-ten").html(this.frameworkToSmallDocument());
         else $("#top-ten").html(this.frameworkToDocument());
