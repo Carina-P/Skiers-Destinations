@@ -2,24 +2,146 @@
 $(".js-collapse").on("click", function () {
   $(".navbar-collapse").collapse("hide");
 });
-/* End header-section ------------------------------------------------------ */
-
-/* Map-section ------------------------------------------------------------- */
-/* A google map */
+/* End header-section ------------------------------------------------------ */ 
 let map;
-/* Googles MarkerClusterer */
-let clustersOfMarkers;
-/* Will contain information of all resorts shown in map */
-let resorts;
-
-/* url to file with information about resorts */
-const resortsURL = "assets/data/resorts.json";
-/* the beginning part of url used both for fetching snowreport but also
-forecast from Wheather Unlocked */
+let resortsInMap = [];
+const mapIcon = "assets/images/yellow-marker48.gif";
+ 
+const resortsURL = "assets/data/resorts.json"; 
 const weatherFrontURL = `https://api.weatherunlocked.com/api/`;
-/* the end part of url fetching information from Weather Unlocked */
-const weatherEndURL =
+const weatherEndURL = 
     `app_id=754144cc&app_key=108769d13601e41f8dfeb934ee961859`;
+
+/**
+ * Constructor for ResortInMap
+ */
+function ResortInMap(resort){
+    this.id = resort.id;
+    this.name = resort.name;
+    this.info = resort.info;
+    this.position = resort.position;
+    this.altitudeB = resort.altitudeB;
+    this.altitudeT = resort.altitudeT;
+    this.pists = resort.pists;
+    this.nrLifts = resort.nrLifts;
+    this.homePage = resort.homePage;
+
+    this.getId = () => this.id;
+
+    /**
+    * Build a string literal of HTML code for the content of a infoMarker. The
+    * infoMarker is connected to marker for this resort.
+    *
+    * @param {Object}   resort  Information of the resort to be shown.
+    * @returns {string} A string literal with HTML code.
+    *
+    */
+    this.contentInfoWindow = () => {
+        return `<h5>${this.name}</h5>
+            <p>Alt base: ${this.altitudeB}<br>
+            Alt top: ${this.altitudeT}<br>
+            Slopes: ${this.pists}<br>
+            Nr of lifts: ${this.nrLifts} </p>`;
+    }
+
+    /**
+    * Build a string literal of HTML code with information about the resort.
+    *
+    * @param {Object}   resort  Information of the resort
+    * @returns {string} A string literal with HTML code
+    *
+    */
+    this.addResortTxt = (snowReport, forecastReport) => {
+        let txt =
+            `<h2 class = "text-center">${this.name}</h2>
+            <p>${this.info}</p>
+            <hr class="block-divider">
+            <div>
+                <h5 class="text-center">Weather at top`;
+
+        if (forecastReport === undefined) {
+            txt += `: </h5>
+            <div>
+            <p>At the moment our provider of information can not
+            give us weather information for ${this.name}.</p>
+            <p>Sometimes it helps to reload the page!</p>
+            <p> Notice that usually is information
+            for other resorts in place. Check by clicking on other resorts
+            marker.</p>
+            </div>`;
+        }
+        else {
+            let forecast = forecastReport.forecast;
+
+            txt += ` ${forecast[1].date}:</h5>
+                <div class = "flex-container justify-content-center">`;
+
+            for (let i = 1; i < 4; i++){
+                txt += `<div class = "forecast">
+                    ${forecast[i].time}<br>
+                    <img src="assets/images/weather/${forecast[i].upper.wx_icon}">
+                    <br>${forecast[i].upper.temp_avg_c}&#8451<br>
+                    ${forecast[i].upper.windspd_avg_ms}m/s
+                        </div>`;
+            }
+        }
+
+        txt+=  `</div>
+            </div>
+            <hr class="block-divider">
+            <div>
+            <h5 class="text-center">Snow Report</h5>`;
+
+        if (snowReport === undefined){
+            txt += `<p>At the moment our provider of information can not
+            give us the snow report for ${this.name}.</p>
+            <p>Sometimes it helps to reload the page!</p>
+            <p> Notice that usually is information
+            for other resorts in place. Check by clicking on other resorts
+            marker.</p>`;
+        }
+        else {
+            txt += `<div class="text-center"><p><small>New snow:</small>
+                    ${snowReport.newsnow_cm}<br>
+                    <small>Last snow:</small> ${snowReport.lastsnow}<br>
+                    <small>Runs open:</small> ${snowReport.pctopen}%<br>
+                    <small>Snow report:</small> ${snowReport.conditions} </p></div>`
+        }
+
+        txt += `</div>
+                <div class="text-center"><a href=${this.homePage}
+                    target="_blank">More info</a></div>`;
+
+        return txt;
+    }
+
+    /**
+    * Put a marker at resorts position in map and connect an InfoWindow
+    * to the marker. When user clicks on marker the
+    * InfoWindow is shown and also information about resort is shown
+    * beside the map.
+    *
+    * @param {Object}   snowReport Contains updated snowreport for resort
+    * @param {Object}   forecastReport Contains an updated forecast for resort
+    *
+    * @returns {Object} Resorts marker
+    *
+    */
+    this.buildMarker = (snowReport, forecastReport) => {
+        let infoWindow = new google.maps.InfoWindow({content:
+            this.contentInfoWindow()});
+        let marker = new google.maps.Marker({position: this.position,
+            icon: mapIcon});
+
+        marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+            $("#resort-info").css("background-color","#ffffff");
+            $("#resort-info").html(this.addResortTxt(snowReport, forecastReport));
+        });
+
+        return marker;
+    }
+}
 
 /**
  * Fetches information from json file.
@@ -57,145 +179,22 @@ function fetchSnowInfo(resortId){
 function fetchForecastInfo(resortId){
     let forecastURL = weatherFrontURL+
         `resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
+    
     return fetchResortInfo(forecastURL);
 }
-
-/**
-* Build a string literal of HTML code for the content of a infoMarker, that is
-* connected to marker.
-*
-* @param {Object}   resort  Information of the resort to be shown.
-* @returns {string} A string literal with HTML code.
-*
-*/
-function contentInfoWindow(resort){
-    return `<h5>${resort.name}</h5>
-            <p>Alt base: ${resort.altitudeB}<br>
-            Alt top: ${resort.altitudeT}<br>
-            Slopes: ${resort.pists}<br>
-            Nr of lifts: ${resort.nrLifts} </p>`;
-}
-
-/**
-* Build a string literal of HTML code with information about a ski resort.
-*
-* @param {Object}   resort  Information of the resort
-* @returns {string} A string literal with HTML code
-*
-*/
-function addResortTxt(resort, snowReport, forecastReport){
-
-    if(resort === undefined){
-        return(`<h2>Something is wrong</h2>
-        <p>Unfortunately we could not fetch any resort information.
-        Please let us know that this happend!</p>`);
-    }
-    let txt =
-        `<h2 class = "text-center">${resort.name}</h2>
-        <p>${resort.info}</p>
-        <hr class="block-divider">
-        <div>
-            <h5 class="text-center">Weather at top`;
-
-    if (forecastReport === undefined) {
-        txt += `: </h5>
-        <div>
-        <p>At the moment our provider of information can not
-        give us weather information for ${resort.name}.</p>
-        <p>Sometimes it helps to reload the page!</p>
-        <p> Notice that usually is information
-        for other resorts in place. Check by clicking on other resorts
-        marker.</p>
-        </div>`;
-    }
-    else {
-        let forecast = forecastReport.forecast;
-
-        txt += ` ${forecast[1].date}:</h5>
-            <div class = "flex-container justify-content-center">`;
-
-        for (let i = 1; i < 4; i++){
-            txt += `<div class = "forecast">
-                ${forecast[i].time}<br>
-                <img src="assets/images/weather/${forecast[i].upper.wx_icon}">
-                <br>${forecast[i].upper.temp_avg_c}&#8451<br>
-                ${forecast[i].upper.windspd_avg_ms}m/s
-                    </div>`;
-        }
-    }
-
-    txt+=  `</div>
-        </div>
-        <hr class="block-divider">
-        <div>
-        <h5 class="text-center">Snow Report</h5>`;
-
-    if (snowReport === undefined){
-        txt += `<p>At the moment our provider of information can not
-        give us the snow report for ${resort.name}.</p>
-        <p>Sometimes it helps to reload the page!</p>
-        <p> Notice that usually is information
-        for other resorts in place. Check by clicking on other resorts
-        marker.</p>`;
-    }
-    else {
-        txt += `<div class="text-center"><p><small>New snow:</small>
-                ${snowReport.newsnow_cm}<br>
-                <small>Last snow:</small> ${snowReport.lastsnow}<br>
-                <small>Runs open:</small> ${snowReport.pctopen}%<br>
-                <small>Snow report:</small> ${snowReport.conditions} </p></div>`
-    }
-
-    txt += `</div>
-            <div class="text-center"><a href=${resort.homePage}
-                target="_blank">More info</a></div>`;
-
-    return txt;
-}
-
-/**
-* Put a marker at a certain position in the map. It also connects an InfoWindow
-* to the marker. When user clicks on marker the
-* InfoWindow is shown and text besides the map is changet to represent the
-* current resort.
-*
-* @param {Object}   resort  Contains information of the ski resort
-* @param {Object}   snowReport Contains updated snowreport for resort
-* @param {Object}   forecastReport Contains an updated forecast for resort
-*
-* @returns {Object} Resort map marker
-*
-*/
-function buildMarker(resort, snowReport, forecastReport){
-
-    let infoWindow = new google.maps.InfoWindow({content:
-        contentInfoWindow(resort)});
-
-    let marker = new google.maps.Marker({position: resort.position,
-        icon:"assets/images/yellow-marker48.gif"});
-
-    marker.addListener("click", () => {
-        infoWindow.open(map, marker);
-        $("#resort-info").css("background-color","#ffffff");
-        $("#resort-info").html(addResortTxt(resort, snowReport, forecastReport)
-        );
-    });
-
-    return marker;
-}
-
+ 
 /** Get map marker for a ski resort
  * @{Object} weatherInfo Contains snowreport and forecast for resort
  * @{number} index  Index of resort that weatherinformation is valid for.
  *
  * @returns {Objec} A google map marker
  */
-function resortMarker(weatherInfo, index){
+function getMarker(weatherInfo, index){
     let snowReport = weatherInfo[0];
     let forecastReport = weatherInfo[1];
-    let resort = resorts[index];
+    let resort = resortsInMap[index];
 
-    return buildMarker(resort, snowReport, forecastReport);
+    return resort.buildMarker(snowReport, forecastReport);
 }
 
 /**
@@ -205,23 +204,25 @@ function resortMarker(weatherInfo, index){
  * Snowreport and forecast, respectively, are fetched from Weather Unlockeds
  * API.
  */
-function putResortMarkersInMap(){
-
+function putResortMarkersInMap(){ 
     fetchResortInfo(resortsURL)
     .then( allResorts => {
-        resorts = allResorts;
-        return Promise.all( resorts.map(resort =>
-            Promise.all([fetchSnowInfo(resort.id),
-                fetchForecastInfo(resort.id)])));
+        allResorts.forEach((resort) => {
+            resortsInMap.push(new ResortInMap(resort)); 
+        });
+        return Promise.all(resortsInMap.map(resort =>
+            Promise.all([fetchSnowInfo(resort.getId()),
+                fetchForecastInfo(resort.getId())])));
     })
-    .then( resortsInfo => {clustersOfMarkers =
-        new MarkerClusterer(map, resortsInfo.map(resortMarker),
+    .then( resortsInfo => {
+        const clustersOfMarkers =
+            new MarkerClusterer(map, resortsInfo.map(getMarker),
             {imagePath: "assets/images/m"});})
     .catch( error => {console.error("Error:", error);});
 }
 
 /**
-* Creates a map with markers for ski resorts in the page.
+* Creates a map with markers for ski resorts.
 *
 */
 function initMap(){
@@ -233,9 +234,7 @@ function initMap(){
     );
     putResortMarkersInMap();
     $("#map-loading").html(``);
-}
-/* End map-section --------------------------------------------------------- */
-
+} 
 /* Recommend-section ------------------------------------------------------- */
 let sizeViewport = window.matchMedia("(max-width: 767px)");
 
@@ -419,41 +418,10 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
 /**
  * Constructor function for RatedList
  */
-function RatedList(){
-    this.fetchInitList = () => {
-        let list =[];
-        list.push(new RatedResort("Bad Gastein", 0.0, 0, 0));
-        list.push(new RatedResort("Charmonix", 0.0, 0, 0));
-        list.push(new RatedResort("Cortina d'Ampesso", 0.0, 0, 0));
-        list.push(new RatedResort("Trysil", 0.0, 0, 0));
-        list.push(new RatedResort("Val d'Isere", 0.0, 0, 0));
-        list.push(new RatedResort("Val Thorens", 0.0, 0, 0));
-        list.push(new RatedResort("Verbier", 0.0, 0, 0));
-        list.push(new RatedResort("Zermatt", 0.0, 0, 0));
-        list.push(new RatedResort("Zugspitze", 0.0, 0, 0));
-        list.push(new RatedResort("Åre", 0.0, 0, 0));
-
-        return list;
-    }
-    /**
-     * Get lists values form localStorage or if not in localStorage starts
-     * a new list.
-     *
-     * @returns {Object} An array of RatedResort
-     */
-    this.getList =  () => {
-        let list = [];
-        let table = JSON.parse(localStorage.getItem("ratingTable"));
-        if (table === null) {return this.fetchInitList();}
-
-        table.forEach(item => {list.push(new RatedResort(item.name,
-            item.rating, item.nrOfVotes, 0))} );
-        return list;
-    }
-
-    this.list = this.getList();
-
-    /**
+function RatedList(list){
+    this.list = list;
+ 
+    /** 
      * The skeleton of the list is made into HTML code. Applies to small
      * screens.
      *
@@ -537,8 +505,39 @@ function RatedList(){
         location.href = "#recommend";
     }
 }
+function fetchInitRatingList(){
+    let list =[];
+    list.push(new RatedResort("Bad Gastein", 0.0, 0, 0));
+    list.push(new RatedResort("Charmonix", 0.0, 0, 0));
+    list.push(new RatedResort("Cortina d'Ampesso", 0.0, 0, 0));
+    list.push(new RatedResort("Trysil", 0.0, 0, 0));
+    list.push(new RatedResort("Val d'Isere", 0.0, 0, 0));
+    list.push(new RatedResort("Val Thorens", 0.0, 0, 0));
+    list.push(new RatedResort("Verbier", 0.0, 0, 0));
+    list.push(new RatedResort("Zermatt", 0.0, 0, 0));
+    list.push(new RatedResort("Zugspitze", 0.0, 0, 0));
+    list.push(new RatedResort("Åre", 0.0, 0, 0));
 
-let ratedList = new RatedList();
+    return list;
+}
+
+/**
+     * Get lists values form localStorage or if not in localStorage starts
+     * a new list.
+     *
+     * @returns {Object} An array of RatedResort
+     */
+function getRatingList(){
+    let list = [];
+    let table = JSON.parse(localStorage.getItem("ratingTable"));
+    if (table === null) {return fetchInitRatingList();}
+
+    table.forEach(item => {list.push(new RatedResort(item.name,
+        item.rating, item.nrOfVotes, 0))} );
+    return list;
+}
+
+let ratedList = new RatedList(getRatingList());
 $(document).ready(ratedList.toDocument(sizeViewport));
 
 sizeViewport.addListener(ratedList.toDocument);
