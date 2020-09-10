@@ -31,10 +31,8 @@ function ResortInMap(resort){
     /**
     * Build a string literal of HTML code for the content of a infoMarker. The
     * infoMarker is connected to marker for this resort.
-    *
-    * @param {Object}   resort  Information of the resort to be shown.
-    * @returns {string} A string literal with HTML code.
-    *
+    * 
+    * @returns {string} A string of HTML code. 
     */
     this.contentInfoWindow = () => {
         return `<h5>${this.name}</h5>
@@ -47,8 +45,9 @@ function ResortInMap(resort){
     /**
     * Build a string literal of HTML code with information about the resort.
     *
-    * @param {Object}   resort  Information of the resort
-    * @returns {string} A string literal with HTML code
+    * @param {Object}   snowReport  Information of snow conditions
+    * @param {Object}   forecastReport  Weather forecast
+    * @returns {string} A string of HTML code
     *
     */
     this.addResortTxt = (snowReport, forecastReport) => {
@@ -72,10 +71,8 @@ function ResortInMap(resort){
         }
         else {
             let forecast = forecastReport.forecast;
-
-            txt += ` ${forecast[1].date}:</h5>
-                <div class = "flex-container justify-content-center">`;
-
+            txt += ` ${forecast[1].date}:</h5> 
+                <div class = "flex-container justify-content-center">`; 
             for (let i = 1; i < 4; i++){
                 txt += `<div class = "forecast">
                     ${forecast[i].time}<br>
@@ -84,14 +81,13 @@ function ResortInMap(resort){
                     ${forecast[i].upper.windspd_avg_ms}m/s
                         </div>`;
             }
-        }
-
+        } 
         txt+=  `</div>
             </div>
             <hr class="block-divider">
             <div>
-            <h5 class="text-center">Snow Report</h5>`;
-
+            <h5 class="text-center">Snow Report</h5>`; 
+        
         if (snowReport === undefined){
             txt += `<p>At the moment our provider of information can not
             give us the snow report for ${this.name}.</p>
@@ -106,8 +102,7 @@ function ResortInMap(resort){
                     <small>Last snow:</small> ${snowReport.lastsnow}<br>
                     <small>Runs open:</small> ${snowReport.pctopen}%<br>
                     <small>Snow report:</small> ${snowReport.conditions} </p></div>`
-        }
-
+        } 
         txt += `</div>
                 <div class="text-center"><a href=${this.homePage}
                     target="_blank">More info</a></div>`;
@@ -122,8 +117,7 @@ function ResortInMap(resort){
     * beside the map.
     *
     * @param {Object}   snowReport Contains updated snowreport for resort
-    * @param {Object}   forecastReport Contains an updated forecast for resort
-    *
+    * @param {Object}   forecastReport Contains an updated forecast for resort 
     * @returns {Object} Resorts marker
     *
     */
@@ -163,32 +157,28 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      *
      * @returns {string} HTML code
      */
-    this.starsToHTML = (grade) => {
+    this.starsToHTML = (grade) => { 
+        let starsHTML = ``;
+        let fullStars = 0; 
+        let remainder = grade%1;
 
-        let starsHTML =``;
-        let fullStars = 0;
-
-         
-
-        let rest = grade%1;
-
-        if (rest >= 0.75){
+        if (remainder >= 0.75){
             fullStars = Math.ceil(grade);
         }
         else {
             fullStars = Math.floor(grade);
         }
 
-        for (let i=0; i<fullStars; i++){
+        for (let i = 0; i < fullStars; i++){
             starsHTML += `<span class="fas fa-star yellow"></span>`;
         }
 
-        if ((rest > 0.25) && (rest < 0.75)){
+        if ((remainder > 0.25) && (remainder < 0.75)){
             starsHTML +=`<span class="fas fa-star-half-alt yellow"></span>`;
             fullStars++;
         }
 
-        for (let i=fullStars; i<5; i++){
+        for (let i = fullStars; i < 5; i++){
             starsHTML += `<span class="far fa-star yellow"></span>`;
         }
 
@@ -197,15 +187,14 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     /**
      * Returns HTML code with scrolldown of numbers 1 to 5.
      *
-     * @param {string} id Place in DOM to insert the HTML code.
-     *
-     * @returns {literal} HTML code
+     * @param {String} id Place in DOM to insert the HTML code. 
+     * @returns {string} HTML code
      */
     this.noVoteHTML = (id) => {
         let voteHTML = `<label for = ${id}>Pick grade!:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;
-        for (let i=5; i>0; i--){
+        for (let i = 5; i > 0; i--){
             voteHTML += `<option value=${i}>${i}</option>`;
         }
 
@@ -214,13 +203,12 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     }
 
     /**
-    * HTML code for resort with rating, used when viewport is medium or larger.
+    * HTML code for resort and its rating.
     *
     * @param {number} rowIndex Indicates were in a table this information
     *                          belongs
     * @param {boolean} smallViewport Indicates if it is a viewport with small
-    *                                 width
-    *
+    *                                 width 
     * @returns {string} HTLM code
     */
      this.rowToHTML = (rowIndex, smallViewport) => {
@@ -243,18 +231,18 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         }
         rowHTML += this.starsToHTML(this.rating);
 
-        if (smallViewport){ rowHTML += `<p>`}
-        else { rowHTML += `<span>`}
+        if (smallViewport) {rowHTML += `<p>`;}
+        else {rowHTML += `<span>`}
 
         rowHTML += `${this.rating.toFixed(2)}`
 
-         if (smallViewport){ rowHTML += `
+        if (smallViewport){ rowHTML += `
                     </p>
                 </div>
                 <div id = class="col-6">
                     <h5>Your rating:</h5>`;
         }
-         else { rowHTML += `</span>
+        else {rowHTML += `</span>
                 </td>
                      <td>
                         <div>`};
@@ -279,10 +267,11 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
             rowHTML += `   </div>
                         </td>`;}
 
-     return rowHTML;
+        return rowHTML;
     }
     /**
-     * Put information about this resorts rating in the document.
+     * Put information about this resorts rating in the document and adds
+     * handlers to react when user casts a vote.
      *
      * @param {number} rowIndex Indicates where in a table information belongs
      * @param {boolean} smallViewport Indicates if current viewport is small
@@ -290,8 +279,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     this.toDocument = (rowIndex, smallViewport) => {
         let id = "#index"+rowIndex;
 
-        $(id).html(this.rowToHTML(rowIndex, smallViewport));
-
+        $(id).html(this.rowToHTML(rowIndex, smallViewport)); 
         if (this.lastVote === 0) {
             $(`#gradeIndex${rowIndex}`).change({index : rowIndex},
                 ratedList.updateList);
@@ -327,14 +315,15 @@ function RatedList(list){
     this.list = list;
  
     /** 
-     * The skeleton of the list is made into HTML code. Applies to small
-     * screens.
+     * The skeleton of the list is made into HTML code. Applies to screens
+     * with small width.
      *
      * @returns {string} The HTML code
      */
     this.frameworkToSmallDocument = () => {
-                let toHTML = ``;
-        for (let i=0; i<this.list.length; i++) {
+        let toHTML = ``;
+
+        for (let i = 0; i < this.list.length; i++) {
             if (i%2 === 0){
                 toHTML += `
                 <div id="index${i}" class="bgr-blue border-blue rounded-corners
@@ -349,8 +338,8 @@ function RatedList(list){
         return toHTML;
     }
     /**
-     * The skeleton of the list is made into HTML code. Applies to small
-     * screens.
+     * The skeleton of the list is made into HTML code. Applies screens with
+     * larger width.
      *
      * @returns {string} The HTML code
      */
@@ -366,17 +355,17 @@ function RatedList(list){
                         <th>Your rating</th>
                     </tr>
                     </thead>
-                    <tbody>`;
-
+                    <tbody>`; 
         for (let i=0; i<this.list.length; i++){
             toHTML += `<tr id = "index${i}"></tr>`;
         }
         toHTML += `  </tbody>
                 </table>`;
+
         return toHTML;
     }
     /**
-     * Put the information in the RatedList into the document.
+     * Put RatedLists information into the document.
      */
     this.toDocument = (sizeViewport) => {
         let smallViewport = sizeViewport.matches;
@@ -386,7 +375,7 @@ function RatedList(list){
 
         this.list.forEach( (ratedResort, index) => {
                 ratedResort.toDocument(index, smallViewport);
-            });
+        });
     }
     /**
      * Save information to localStorage.
@@ -404,9 +393,7 @@ function RatedList(list){
         this.list.sort((resortA,resortB) => {
             return resortB.getRating()-resortA.getRating();});
         this.toDocument(sizeViewport);
-        this.toLocalStorage();
-        /*Thanks to https://stackoverflow.com/users/92315/fabien-m%c3%a9nager
-         :*/
+        this.toLocalStorage(); 
         location.href = "#recommend";
     }
 }
@@ -415,8 +402,7 @@ function RatedList(list){
 /**
  * Fetches information from json file.
  *
- * @param {sting literal} url the files url
- *
+ * @param {String} url the files url
  * @returns {Promise} resorts
  */
 function fetchResortInfo(url){
@@ -443,7 +429,7 @@ function fetchSnowInfo(resortId){
  *
  * @param {number} resortId Resorts id in Weather Unlocked API
  *
- * @returns {Promise}
+ * @returns {Promise} forecast
  */
 function fetchForecastInfo(resortId){
     let forecastURL = weatherFrontURL+
@@ -452,10 +438,12 @@ function fetchForecastInfo(resortId){
     return fetchResortInfo(forecastURL);
 }
  
-/** Get map marker for a ski resort
- * @{Object} weatherInfo Contains snowreport and forecast for resort
- * @{number} index  Index of resort that weatherinformation is valid for.
- *
+/** 
+ * Get map marker for a ski resort
+ * 
+ * @param {Object} weatherInfo Contains snowreport and forecast for resort
+ * @param {number} index  Index of resort in ratedList that weatherInfo
+ *                        is valid for.
  * @returns {Objec} A google map marker
  */
 function getMarker(weatherInfo, index){
@@ -506,6 +494,7 @@ function initMap(){
 
 /**
  *  An initial list of resorts
+ * 
  *  @returns {Object} An array of rated resorts
  */
 function fetchInitRatingList(){
@@ -541,12 +530,13 @@ function getRatingList(){
     return list;
 }
  
+$(document).ready(ratedList.toDocument(sizeViewport));
+$(document).ready(emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo"));
+
 $(".js-collapse").on("click", function () {
   $(".navbar-collapse").collapse("hide");
-});
-
-emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo");
-
+}); 
+ 
 $("#mail-form").submit( () => {
     $("#mail-sending").html(`<img src="assets/css/loader.gif" alt="loading..."/>
                             <span>sending mail...</span>`);
@@ -557,7 +547,7 @@ $("#mail-form").submit( () => {
         $(".modal-body").html(`<p>We will read it during the day.</p>
                             <p>Thank you for contributing to this page!</p>`);
         $("#mail-form").trigger("reset");
-        $("#mail-sending").html(``);
+        $("#mail-sending").html(``);S
     }, (error) => {
         $("#mail-feedback").modal();
         $(".modal-title").html(`<strong>Error</strong>`);
@@ -567,6 +557,4 @@ $("#mail-form").submit( () => {
         console.log(error);
     });
     return false;
-});
-
-$(document).ready(ratedList.toDocument(sizeViewport));
+}); 
