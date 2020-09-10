@@ -465,8 +465,14 @@ function RatedList(list){
  * @returns {Promise} resorts
  */
 function fetchResortInfo(url){
-    return fetch(url)
-        .then( (res) => res.json())
+    return fetch(url).then( (res) => {
+            if (!res.ok) {
+                console.log(
+                    "Something went wrong when fetching information, status: ",
+                    res.status, res.statusText);
+            }
+            return res.json()
+        })
         .catch( (error) => console.log("Error!", error));
 }
 
