@@ -40,7 +40,7 @@ function ResortInMap(resort){
             Alt top: ${this.altitudeT}<br>
             Slopes: ${this.pists}<br>
             Nr of lifts: ${this.nrLifts} </p>`;
-    }
+    };
 
     /**
     * Build a string literal of HTML code with information about the resort.
@@ -101,14 +101,14 @@ function ResortInMap(resort){
                     ${snowReport.newsnow_cm}<br>
                     <small>Last snow:</small> ${snowReport.lastsnow}<br>
                     <small>Runs open:</small> ${snowReport.pctopen}%<br>
-                    <small>Snow report:</small> ${snowReport.conditions} </p></div>`
+                    <small>Snow report:</small> ${snowReport.conditions} </p></div>`;
         } 
         txt += `</div>
                 <div class="text-center"><a href=${this.homePage}
                     target="_blank">More info</a></div>`;
 
         return txt;
-    }
+    };
 
     /**
     * Put a marker at resorts position in map and connect an InfoWindow
@@ -134,7 +134,7 @@ function ResortInMap(resort){
         });
 
         return marker;
-    }
+    };
 }
 
 /** 
@@ -147,7 +147,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     this.lastVote = lastVote;
 
     this.getRating = () => this.rating;
-    this.setLastVote = (vote) => {this.lastVote = vote};
+    this.setLastVote = (vote) => {this.lastVote = vote;};
 
     /**
      * Returns a string literal of HTML code that contains stars representing
@@ -200,7 +200,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         }
 
         return starsHTML;
-    }
+    };
     /**
      * Returns HTML code with scrolldown of numbers 1 to 5.
      *
@@ -228,7 +228,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
 
         voteHTML += `</select>`;
         return  voteHTML;
-    }
+    };
 
     /**
     * HTML code for resort and its rating.
@@ -267,7 +267,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <h5>Rating average:</h5>`
+                        <h5>Rating average:</h5>`;
         }
         else{
             rowHTML += `<td>${rowIndex+1}</td>
@@ -277,9 +277,9 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         rowHTML += this.starsToHTML(this.rating);
 
         if (smallViewport) {rowHTML += `<p>`;}
-        else {rowHTML += `<span>`}
+        else {rowHTML += `<span>`;}
 
-        rowHTML += `${this.rating.toFixed(2)}`
+        rowHTML += `${this.rating.toFixed(2)}`;
 
         if (smallViewport){ rowHTML += `
                     </p>
@@ -290,7 +290,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         else {rowHTML += `</span>
                 </td>
                      <td>
-                        <div>`};
+                        <div>`;}
 
         if (this.lastVote === 0) {
             let id = "gradeIndex" + rowIndex;
@@ -298,11 +298,11 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         }
         else {
             rowHTML += this.starsToHTML(this.lastVote);
-            if (smallViewport){rowHTML += `<p>`}
-            else {rowHTML += `<span> `}
+            if (smallViewport){rowHTML += `<p>`;}
+            else {rowHTML += `<span> `;}
             rowHTML += `${this.lastVote}`;
-            if (smallViewport){rowHTML += `</p>`}
-            else {rowHTML += `</span> `}
+            if (smallViewport){rowHTML += `</p>`;}
+            else {rowHTML += `</span> `;}
         }
 
         if(smallViewport){rowHTML +=
@@ -313,7 +313,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
                         </td>`;}
 
         return rowHTML;
-    }
+    };
     /**
      * Put information about this resorts rating in the document and adds
      * handlers to react when user casts a vote.
@@ -329,7 +329,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
             $(`#gradeIndex${rowIndex}`).change({index : rowIndex},
                 ratedList.updateList);
         }
-    }
+    };
     /**
     * Update rating of resort with the last vote
     *
@@ -354,7 +354,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
 
         this.rating = (this.rating*this.nrOfVotes++ +vote)/(this.nrOfVotes);
         this.lastVote = vote;
-    }
+    };
 }
 
 /**
@@ -377,15 +377,16 @@ function RatedList(list){
                 toHTML += `
                 <div id="index${i}" class="bgr-blue border-blue rounded-corners
                  pt-2 mb-2">
-                </div>`
+                </div>`;
             }
             else{
                 toHTML += `<div id="index${i}" class="border-blue pt-2 mb-2">
-                </div>`
+                </div>`;
             }
         }
+
         return toHTML;
-    }
+    };
     /**
      * The skeleton of the list is made into HTML code. Applies screens with
      * larger width.
@@ -412,7 +413,7 @@ function RatedList(list){
                 </table>`;
 
         return toHTML;
-    }
+    };
     /**
      * Put RatedLists information into the document.
      */
@@ -435,14 +436,14 @@ function RatedList(list){
         this.list.forEach( (ratedResort, index) => {
                 ratedResort.toDocument(index, smallViewport);
         });
-    }
+    };
     /**
      * Save information to localStorage.
      */
     this.toLocalStorage = () => {
         let table = this.list;
         localStorage.setItem("ratingTable", JSON.stringify(table));
-    }
+    };
     /**
      * Updates RatingList when a new vote is entered
      */
@@ -454,7 +455,7 @@ function RatedList(list){
         this.toDocument(sizeViewport);
         this.toLocalStorage(); 
         location.href = "#recommend";
-    }
+    };
 }
 
 
@@ -471,7 +472,7 @@ function fetchResortInfo(url){
                     "Something went wrong when fetching information, status: ",
                     res.status, res.statusText);
             }
-            return res.json()
+            return res.json();
         })
         .catch( (error) => console.log("Error!", error));
 }
@@ -590,7 +591,7 @@ function getRatingList(){
     if (table === null) {return fetchInitRatingList();}
 
     table.forEach(item => {list.push(new RatedResort(item.name,
-        item.rating, item.nrOfVotes, 0))} );
+        item.rating, item.nrOfVotes, 0));} );
 
     return list;
 }
@@ -612,7 +613,7 @@ $("#mail-form").submit( () => {
         $(".modal-body").html(`<p>We will read it during the day.</p>
                             <p>Thank you for contributing to this page!</p>`);
         $("#mail-form").trigger("reset");
-        $("#mail-sending").html(``);S
+        $("#mail-sending").html(``);
     }, (error) => {
         $("#mail-feedback").modal();
         $(".modal-title").html(`<strong>Error</strong>`);
