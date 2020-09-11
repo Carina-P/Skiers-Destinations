@@ -221,6 +221,7 @@ was in place. Testing often  and after a small part of development, makes it is
 When all features was implemented the following tests was performed:
 - Validated by [W3S Markup validation service](https://validator.w3.org/)
 - Validated by [W3s CSS validation service](https://jigsaw.w3.org/css-validator/)
+- Validated by [JSHint](https://jshint.com/)
 - According to the **scenarios** as described below
 - The **deployed version** was tested
 <!--In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
@@ -305,6 +306,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 <!--
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 -->
+- The information about altitudes, nr of pists and slopes was received from [Skiresort.info](https://www.skiresort.info/)
+
 ### Media
 The photos used in this site were obtained from:
 - [Can Stock](https://www.canstockphoto.se)
