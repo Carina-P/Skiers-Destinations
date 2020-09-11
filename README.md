@@ -168,16 +168,19 @@ provide its name, a link to its official site and a short sentence of why it
 was used.
 
 
-### Languages
+### Languages used
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) 
     - The perfect language to build a static site.
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
     - For styling the site
 - [JavaScript](https://www.javascript.com/)
     - Bringing interactivity to the site.
-### Tools and libraries
-- [Git](https://git-scm.com/)
-    - For version control and storing the code
+
+### Frameworks, Libraries and Programs used
+- [GitPod](https://gitpod.io/)
+    - Git was used for version control by utilizing the GitPod terminal to commit to Git and push to GitHub.
+- [GitHub](https://github.com)
+    - GitHub is used to store the code.
 - [Bootstrap](https://getbootstrap.com/)
     - A helpful HTML, CSS (and JS) library that is great for responsive design.
 - [JQuery](https://jquery.com/)
@@ -186,13 +189,9 @@ was used.
     - A data-interchange format used when retrieve information from other 
     sources as [Weather Unlocked](http://www.weatherunlocked.com/)
 - [Jasmine](https://jasmine.github.io/)
-    - Supports behavior-driven development, makes it easy to build unit test.
-<!--* [Popper](https://popper.js.org/)
-    * A library to manage poppers in web-applications
--->
-<!--
+    - Supports behavior-driven development, makes it easy to build unit test. 
 - [Font-Awesome](https://fontawesome.com/icons?d=gallery)
-    * From this library I picked the icons
+    - From this library I picked the icons
 -->
 - [Google fonts](https://fonts.google.com/)
     - For inspiration and fonts
@@ -200,6 +199,8 @@ was used.
     - For designing the wireframes
 - [Coolors](https://balsamiq.com/)
     - To generate color-schemes
+- [Emailjs](https://www.emailjs.com/)
+    - Used for sending email from "Add ski resort"-section
 
 ## Testing
 When it has been feasible the test where automated. The rest was tested 
