@@ -45,6 +45,7 @@ at favourite spots.
     These are thing interesting to know e.g. when you are deciding which resort you want to visit.
 - US_006: As a user I want to know which skiing places **other users rank as the best**. And I will get inspired on were I want to go or perhaps discover a new place I was not aware of.
 - US_007: As a user I want to be able to **cast my on vote** for a resort. And in this I will be able to contribute to other users descision process.
+- US_008: As a user I want to be able to **see how I graded each resort**. Thus I can compare my ranking between the resorts.
 - US_008: As a user I want to see the **resulting top-list** after I have casted my vote. If my vote affects the order of ski resorts I want to see it immediately. 
 - US_009: As a user I want to be able to **influence which ski resorts are shown** on the site. If I am interested in a particular ski resort that does not show on the page.
 - US_010: As a user I want to be able to **navigate directly** to the map. If it is the map I am interested in.
@@ -61,9 +62,11 @@ at favourite spots.
 - An **updated list** of the 10 most popular ski-resorts with name of the 
 place, ranking and grade. 
 - **Grading is calculated** from users input.
-- Possibility to give the ski-resorts **own grade** and the 10-top-list is 
-updated accordingly. 
-- Possitbility to **mail wishes** for other Ski Resorts to be shown on the site. The input should include name of ski resort, reason it should show in site, name of person who is mailing and persons mail address.
+- **Grading is visualised** with the number of **stars** and if applicable "half-star".
+- The 10-top list should be **updated immediately** when user grade a resort.
+- The overall average grading for resorts should be saved over sessions.
+- It is possible for same user to **cast more votes if reloading** the page.
+- Possibility to **mail wishes** for other Ski Resorts to be shown on the site. The input should include name of ski resort, reason it should show in site, name of person who is mailing and persons mail address.
 
 ### Expectations
 - Content is **visually satisfying and informative**
