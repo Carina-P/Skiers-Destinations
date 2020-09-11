@@ -3,8 +3,8 @@
 [Visit the live **Skiers Destinations** here](https://carina-p.github.io/Skiers-Destinations/)
 
 **UpToDate information about Ski Resorts** for downhill skiers who want 
-inspiration for their next ski trip, compare different ski resorts or just want 
-updated information about skiing conditions and/or weather information on a 
+**inspiration** for their next ski trip, **compare** different ski resorts or just want 
+**updated information** about **skiing conditions** and/or **weather forecast** on a 
 particular resort.
  
 ## UX
@@ -32,8 +32,60 @@ forecasts.
 To **share information** with other ski lovers, get inspired by their rating
 of resorts and **get uptodate information** about skiing conditions and weather
 at favourite spots.
+ 
+### User stories 
+- US-001: As a user I want to know **where good skiing places**, in Europe, are situated in a **map**. In this way I know were in Europe the resort is situated.
+- US_002: As a user I want a **short description of a resort**. In this way I know if it is a resort that I am interested in.
+- US_003: As a user I want **uptodate information** about **snow conditions** at a resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
+- US_004: As a user I want **todays weather forecast** at resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
+- US_005: As a user I want to be able to **compare different ski resorts**. Things to compare:
+    - **altitude** at top and at base
+    - number of **slopes**
+    - number of **lifts**
+    These are thing interesting to know e.g. when you are deciding which resort you want to visit.
+- US_006: As a user I want to know which skiing places **other users rank as the best**. And I will get inspired on were I want to go or perhaps discover a new place I was not aware of.
+- US_007: As a user I want to be able to **cast my on vote** for a resort. And in this I will be able to contribute to other users descision process.
+- US_008: As a user I want to see the **resulting top-list** after I have casted my vote. If my vote affects the order of ski resorts I want to see it immediately. 
+- US_009: As a user I want to be able to **influence which ski resorts are shown** on the site. If I am interested in a particular ski resort that does not show on the page.
+- US_010: As a user I want to be able to **navigate directly** to the map. If it is the map I am interested in.
+- US_011: As a user I want to be able to **navigate directly** to the rating list. So I can go directly to the rating list.
+- US_012: As a user I want to be able to **navigate directly** to contact form. So I can go directly to the form.
 
-### Potential features, grouping of the features and in order of prioritize
+## User requirements and Expectations
+
+### Requirements
+- Navigate the website using **navbar**
+- **Markers** at ski resorts in the map.
+- Beside marker: find **short facts** in InfoWindow about resort. Thus user is able to **compare different resorts**.
+- When user **choose a resort** - **information**, as forecast and snow conditions, **about the resort** turns up besides the map.
+- An **updated list** of the 10 most popular ski-resorts with name of the 
+place, ranking and grade. 
+- **Grading is calculated** from users input.
+- Possibility to give the ski-resorts **own grade** and the 10-top-list is 
+updated accordingly. 
+- Possitbility to **mail wishes** for other Ski Resorts to be shown on the site. The input should include name of ski resort, reason it should show in site, name of person who is mailing and persons mail address.
+
+### Expectations
+- Content is **visually satisfying and informative**
+- **Easily understandable navigation** take user to correct place
+- **Links and buttons** work as espected
+- **Responsive design** fitting on mobile, tablet and desktop 
+- **Information** about a ski resort is immediately shown when user **has choosen a resort**.
+- **Short information** in map stays open until user choose to close the information.
+- **Information beside the map** is **updated** every time the user chooses a new resort.
+- **New grade is correctly calculated** after user graded a ski resort.
+- **Updating of 10-top-list** works after user grading.
+- **Form validation** works correctly
+
+## Wireframes
+I used [Balsamiq Wireframes](https://balsamiq.com/) to build rudimentary 
+wireframes for a basic understanding. I have made frames for desktop, tablet 
+and mobile. Original wireframe design:
+- [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
+- [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
+- [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
+
+### Potential feature
 - **Header**, fixed at the top of viewport, with:
     - **logo**
     - **navbar**
@@ -51,54 +103,7 @@ at favourite spots.
 - **Footer**-section with:
     - **contact and social media** information
 
-### User stories 
-- As a user I want to know where good skiing places are situated on a **map**.
-- As a user I want to find up-to-date **information and facts** about downhill 
-skiing places, to be able to choose where I am going on my next ski trip and/or 
-get up-date-information, as skiing- and wheather-conditions, at the place I am 
-going to.
-- As a user I want to see **which skiing places are most popular** according to 
-the club and the sites visitors, so I am inspired when I think of my next trip.
-- As a user I want to be able to **grade the different skiing places**, and 
-interactively see how my vote affects the 10-top-list. So I can contribute to 
-other ski lovers travel choises.
-- As a user I want to see **reviews** of different places, so I get inspired 
-for my next skiing-trip.
-- As a user I want to be able to **influence which ski resorts** are showing on 
-the site.
-
-## User requirements and Expectations
-
-### Requirements
-- Navigate the website using **navbar**
-- Originate from the **map**: find **information** about different ski resort.
-- An **updated list** of the 10 most popular ski-resorts with name of the 
-place, ranking and grade. **Grade is calculated** from users input.
-- Possibility to give the ski-resorts **own grade** and the 10-top-list is 
-updated accordingly.
-- See **reviews** on ski resorts, from other skiiers.
-- Possitbility to **mail wishes** for other Ski Resorts to be shown on the site.
-The input should include name, mailadress, name of ski resort and reason to 
-choose the resort.
-
-### Expectations
-- Content is **visually satisfying and informative**
-- **Easily understandable navigation** take user to correct place
-- **Links and buttons** work as espected
-- **Responsive design** fitting on mobile, tablet and desktop
-- **Form validation** works correctly
-- **New grade is correctly calculated** after user graded a ski resort.
-- **Updating of 10-top-list** works after user grading.
-
-## Wireframes
-I used [Balsamiq Wireframes](https://balsamiq.com/) to build rudimentary 
-wireframes for a basic understanding. I have made frames for desktop, tablet 
-and mobile:
-- [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
-- [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
-- [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
-
-### Major changes compared to above wireframes
+### Major changes compared to above wireframes and features
 
 ## Design Choices
 ### Fonts
@@ -122,6 +127,7 @@ light-blue for the **sky** and yellow for the **sun**.
 - Details to **stick out** as buttons: **Sunglow** #fecf3e
 
 ## Features
+
 In order of importance:
 - **Header**, fixed at the top of viewport, with:
     - **logo**
@@ -134,7 +140,8 @@ of the list.
 - **Reviews** of ski resorts
 - **Form for wishing** new ski resorts on the site.
 - **Footer** with contacts and social media
-
+### Responsive
+### Interactive elements
 <!--
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
  
@@ -268,7 +275,7 @@ A copy of the GitHub repository is made by forking the account. The copy can the
     * Using **GitHub Desktop**:
         * Save the clone directly by chosing **"Open with GitHub Desktop"**
     * Downloading **zip file**:
-        * Select **"Download ZIP"** and all the files will be saved, zipped, to local computer.
+        * Select **"Download ZIP"** and all the files will be saved, zipped, to local computer. 
 
 <!--
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
