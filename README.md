@@ -260,25 +260,15 @@ A copy of the GitHub repository is made by forking the account. The copy can the
 ### Making a local clone
 * Log in to **GitHub** and locate **[Skiers Destination Repository](https://github.com/Carina-P/Skiers-Destinations)**
 * Under repository name, locate **"Code"** and click on it.
-* To the top right: locate green button called **"Code"** and click on the button.
-* To clone repository using HTTPS: **copy the url** under **"Clone with HTTPS"**
-* Using your choice of IDE do appropriate process to paste the clone link.
-* Paste the URL copied above.
-* 
-Cloning Skiers Destinations from GitHub:
-
-* Navigate to **https://github.com/Carina-P/Skiers-Destinations**.
-* Click the green **'Clone or Download'** button.
+* To the top right: locate green button called **"Code"** and click on the button. 
 * There are some choices:
     * Checkout with **SVN using web URL**: 
-        * Copy the **url** shown
-        * Use that url to import the code into your favourite **IDE**. Note that different Code Editors have different processes for making the clone. 
+        * Copy the **url** shown or copy this: https://github.com/Carina-P/Skiers-Destinations.git 
+        * Use the url to import the code into your favourite **IDE**. Note that different Code Editors have different processes for making the clone. 
     * Using **GitHub Desktop**:
         * Save the clone directly by chosing **"Open with GitHub Desktop"**
     * Downloading **zip file**:
         * Select **"Download ZIP"** and all the files will be saved, zipped, to local computer.
-
-Here is the url if you use "SVN web URL": to clone Skiers Destination: https://github.com/Carina-P/Skiers-Destinations.git 
 
 <!--
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
