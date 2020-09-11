@@ -188,11 +188,12 @@ was used.
 - [JSON](https://www.json.org/json-en.html)
     - A data-interchange format used when retrieve information from other 
     sources as [Weather Unlocked](http://www.weatherunlocked.com/)
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+    - Fetch API provides an interface for fetching resources. In this project it is used for fetching data across the network from API sources but also to fetch from data file in this repository.
 - [Jasmine](https://jasmine.github.io/)
     - Supports behavior-driven development, makes it easy to build unit test. 
 - [Font-Awesome](https://fontawesome.com/icons?d=gallery)
-    - From this library I picked the icons
--->
+    - From this library I picked the icons 
 - [Google fonts](https://fonts.google.com/)
     - For inspiration and fonts
 - [Balsamiq Wireframes](https://balsamiq.com/)
@@ -201,6 +202,12 @@ was used.
     - To generate color-schemes
 - [Emailjs](https://www.emailjs.com/)
     - Used for sending email from "Add ski resort"-section
+
+### API (Application Programming Interfaces) used
+- [Google Maps Platform](https://developers.google.com/maps/documentation)
+    - Provides the map and possibility to create markers and cluster of markers.
+- [Wheater Unlocked](http://www.weatherunlocked.com/)
+    - From this API uptodate snow report and weather forecast for each resort is received.
 
 ## Testing
 When it has been feasible the test where automated. The rest was tested 
