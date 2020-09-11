@@ -1,5 +1,6 @@
 # Skiers Destinations
 ![Logo](assets/images/logo-skiers-destinations.png)      
+[Visit the live **Skiers Destinations** here](https://carina-p.github.io/Skiers-Destinations/)
 
 **UpToDate information about Ski Resorts** for downhill skiers who want 
 inspiration for their next ski trip, compare different ski resorts or just want 
@@ -235,38 +236,49 @@ API. The bug appears in that way that you do not get any information for one or
 more of the resorts (The InfoWindow in map is still showing but not the text 
 beside/under the map).
 
-## Deployment
-***To myself: Look this over!!!!!!***
-
-Skiers Destinations was developed on GitPod, using git and GitHub to host the repository.
-
+## Deployment 
+Skiers Destinations was developed on GitPod [GitPod](https://www.gitpod.io/), using git and GitHub to host the repository. The code was pushed
+to GitHub Pages.
+ 
 When deploying Skiers Destinations using GitHub Pages the following steps were made:
 
-* Opened up **GitHub** in the browser.
-* Signed in using username and password.
-* Selected my **repositories**.
-* Navigated to **'/Carina-P/Skiers-Destinations'**.
-* In the top navigation clicked **'settings'**.
-* Scrolled down to the **GitHub Pages** area. 
-* Selected **'Master Branch'** from the **'Source'** dropdown menu.
-* Clicked to confirm my selection.
-* Skiers Paradise now live on GitHub Pages:
- [Skiers Destinations](https://ffae6810-1c47-4d0d-b67b-2450376d2788.ws-eu01.gitpod.io/)
+* Opened up **[GitHub](https://github.com/** in the browser and signed in. 
+* Navigated to [Skier Destinations repository](https://github.com/Carina-P/Skiers-Destinations)
+* In the top navigation selected **'Settings'**.
+* Scrolled down the Settings page until the **"GitHub Pages"** area was located. 
+* Under "Source", the dropdown showing **"None"** was selected and then **'Master Branch'** was chosen.
+* The selection was saved and the page automatically refreshened. And the published site is found by **scrolling back down the "Settings" again** to "GitHub Pages". Where it says **"Your site is published at.."**
 
-### Running Skiers Paradise locally
+Here is the live site: [Skiers Destinations](https://carina-p.github.io/Skiers-Destinations/) 
 
+### Forking the GitHub Repository
+A copy of the GitHub repository is made by forking the account. The copy can then be viewed and changed without affecting the original code. Forking is done by:
+* Log in to **GitHub** and locate **[Skiers Destination Repository](https://github.com/Carina-P/Skiers-Destinations)**
+* At top right above the "Settings button" find **"Fork button"**
+* **Click** on the "Fork" to **create a copy** in your own account.
+
+### Making a local clone
+* Log in to **GitHub** and locate **[Skiers Destination Repository](https://github.com/Carina-P/Skiers-Destinations)**
+* Under repository name, locate **"Code"** and click on it.
+* To the top right: locate green button called **"Code"** and click on the button.
+* To clone repository using HTTPS: **copy the url** under **"Clone with HTTPS"**
+* Using your choice of IDE do appropriate process to paste the clone link.
+* Paste the URL copied above.
+* 
 Cloning Skiers Destinations from GitHub:
 
 * Navigate to **https://github.com/Carina-P/Skiers-Destinations**.
 * Click the green **'Clone or Download'** button.
-* Copy the **url** in the dropdown box.
-* Using your favourite **IDE** open up your preferred **terminal**.
-* Navigate to your desired file location. 
-* Copy the following **code** and input it into your terminal to clone 
-Skiers Destinations.
- ```git
-  git clone https://github.com/Carina-P/skiers-destinations.git
-   ```
+* There are some choices:
+    * Checkout with **SVN using web URL**: 
+        * Copy the **url** shown
+        * Use that url to import the code into your favourite **IDE**. Note that different Code Editors have different processes for making the clone. 
+    * Using **GitHub Desktop**:
+        * Save the clone directly by chosing **"Open with GitHub Desktop"**
+    * Downloading **zip file**:
+        * Select **"Download ZIP"** and all the files will be saved, zipped, to local computer.
+
+Here is the url if you use "SVN web URL": to clone Skiers Destination: https://github.com/Carina-P/Skiers-Destinations.git 
 
 <!--
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
