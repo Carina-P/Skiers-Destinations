@@ -1,9 +1,10 @@
 # Skiers Destinations
 ![Logo](assets/images/logo-skiers-destinations.png)      
 
-**UpToDate information about Ski Resorts** for downhill ski lovers who want 
-inspiration their next ski trip, or just want updated information about skiing 
-conditions and/or weather.
+**UpToDate information about Ski Resorts** for downhill skiers who want 
+inspiration for their next ski trip, compare different ski resorts or just want 
+updated information about skiing conditions and/or weather information on a 
+particular resort.
  
 ## UX
 <!--
@@ -15,23 +16,28 @@ In particular, as part of this section we recommend that you provide a list of U
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 -->
 ### External users goal
-A place to find **information and up-to-date facts** about the **best downhill 
-ski places in the world**. This is the site where you find **inspiration** if 
-you do not know **which ski resort to choose**. And the site to find update 
-information when you are or are going to a ski resort.
+A place to **easily** find **information and up-to-date facts** about some of the
+**ski resorts in Europe**. The goal can be to find **inspiration** where to 
+go on next ski trip. And when user have decided where to go, **follow** how the
+**snow conditions develop** and see **weather forecast**.
 
+<!--
+This is the site where you can **compare resorts** 
+to each other, conveniently based on a map. You can find out which resorts 
+**others rate high** and you can also find updated snow reports and weather 
+forecasts. 
+-->
 ### Site owners goal
-To **share information** with other ski lovers and get uptodate information 
-about skiing conditions at the best downhill skiing resorts.
-In the long run **advertisers** will get the opportunity to put adds in the 
-site.
+To **share information** with other ski lovers, get inspired by their rating
+of resorts and **get uptodate information** about skiing conditions and weather
+at favourite spots.
 
 ### Potential features, grouping of the features and in order of prioritize
 - **Header**, fixed at the top of viewport, with:
     - **logo**
     - **navbar**
 - **Information**-section with:
-    - **Map** with with labels on skiing resorts.
+    - **Map** with markers on skiing resorts.
     - **Skiing-resort information** matching the label user has 
         **choosen in map**.
 - **Recommendation**-section with:
@@ -288,6 +294,7 @@ The photos used in this site were obtained from:
 I recived inspiration for this project from:
 - [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
 - [dcode: How to use JSDoc -Basics & Introduction](https://www.youtube.com/watch?v=Nqv6UkTROak)
+- [Web Dev Simplified: Learn fetch API in 6 Minutes](https://www.youtube.com/watch?v=cuEtnrL9-H0)
 - [MDN web docs: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
 <!--
