@@ -305,21 +305,14 @@ function RatedList(list){
                 ratedResort.toDocument(index, smallViewport);
         });
     };
-    /**
-     * Save information to localStorage.
-     */
-    this.toLocalStorage = () => {
-        let table = this.list;
-        localStorage.setItem("ratingTable", JSON.stringify(table));
-    };
-    /**
+    
+    /** 
      * Updates RatingList when a new vote is entered
      */
     this.updateList = (event) => {
         this.list[event.data.index].calculateNewRating(
             parseInt(event.target.value)); 
-        this.toDocument(sizeViewport);
-        this.toLocalStorage(); 
+        this.toDocument(sizeViewport); 
         location.href = "#recommend";
     }; 
 } 
