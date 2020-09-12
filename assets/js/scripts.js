@@ -168,12 +168,12 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         }
         if (typeof(grade) !== "number") {
             console.log(
-                "Error in function starsToHTML, grade is not number");
+                "Error in function starsToHTML, grade is not a number");
                 return "Error";
         }
-        if (grade < 1 || grade > 5) {
+        if (grade < 0 || grade > 5) {
             console.log(
-                "Error in function starsToHTML, grade is right range");
+                "Error in function starsToHTML, grade is not in right range");
                 return "Error";
         }
 
@@ -588,14 +588,16 @@ function fetchInitRatingList(){
 function getRatingList(){
     let list = [];
     let table = JSON.parse(localStorage.getItem("ratingTable"));
-    if (table === null) {return fetchInitRatingList();}
+    if (table === null) {
+        return fetchInitRatingList();
+    }
 
     table.forEach(item => {list.push(new RatedResort(item.name,
         item.rating, item.nrOfVotes, 0));} );
 
     return list;
 }
- 
+
 $(document).ready(ratedList.toDocument(sizeViewport));
 $(document).ready(emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo"));
 
