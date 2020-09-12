@@ -339,3 +339,8 @@ function CurrentRatingList(){
 }
  
 $(document).ready(ratedList.toDocument(sizeViewport));
+$("#submit-rating-btn").click( () => {
+    console.log("Hello");
+    $("#submit-rating").html(`<img src="assets/css/loader.gif" alt="loading..."/>
+                            <span>sending mail...</span>`);
+})
