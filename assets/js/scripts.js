@@ -131,6 +131,105 @@ function ResortInMap(resort){
         return marker;
     };
 } 
+
+/**
+ * Fetches information from json file.
+ *
+ * @param {String} url the files url
+ * @returns {Promise} resorts
+ */
+function fetchResortInfo(url){
+    return fetch(url).then( (res) => {
+            if (!res.ok) {
+                console.log(
+                    "Something went wrong when fetching information, status: ",
+                    res.status, res.statusText);
+            }
+            return res.json();
+        })
+        .catch( (error) => console.log("Error!", error));
+}
+
+/**
+ * Fetches snowreport for a specific resort from Weahter Unlocked
+ *
+ * @param {number} resortId Resorts id in Weather Unlocked API
+ *
+ * @returns {Promise} snowreport
+ */
+function fetchSnowInfo(resortId){
+    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+
+        weatherEndURL;
+    return fetchResortInfo(snowReportURL);
+}
+
+/**
+ * Fetches forecast for a specific resort from Wheather unlocked
+ *
+ * @param {number} resortId Resorts id in Weather Unlocked API
+ *
+ * @returns {Promise} forecast
+ */
+function fetchForecastInfo(resortId){
+    let forecastURL = weatherFrontURL+
+        `resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
+    
+    return fetchResortInfo(forecastURL);
+}
+ 
+/** 
+ * Get map marker for a ski resort
+ * 
+ * @param {Object} weatherInfo Contains snowreport and forecast for resort
+ * @param {number} index  Index of resort in ratedList that weatherInfo
+ *                        is valid for.
+ * @returns {Objec} A google map marker
+ */
+function getMarker(weatherInfo, index){
+    let snowReport = weatherInfo[0];
+    let forecastReport = weatherInfo[1];
+    let resort = resortsInMap[index];
+
+    return resort.buildMarker(snowReport, forecastReport);
+}
+
+/**
+ * Make a google map marker for each resort and using googles MarkerClusterer
+ * to put markers, that are close to one another, in clusters.
+ * The resorts are fetched from a file.
+ * Snowreport and forecast, respectively, are fetched from Weather Unlockeds
+ * API.
+ */
+function putResortMarkersInMap(){ 
+    fetchResortInfo(resortsURL)
+    .then( allResorts => {
+        allResorts.forEach((resort) => {
+            resortsInMap.push(new ResortInMap(resort)); 
+        });
+        return Promise.all(resortsInMap.map(resort =>
+            Promise.all([fetchSnowInfo(resort.getId()),
+                fetchForecastInfo(resort.getId())])));
+    })
+    .then( resortsInfo => {
+        const clustersOfMarkers =
+            new MarkerClusterer(map, resortsInfo.map(getMarker),
+            {imagePath: "assets/images/m"});})
+    .catch( error => {console.error("Error:", error);});
+}
+
+/**
+* Creates a map with markers for ski resorts. 
+*/
+function initMap(){
+    map = new google.maps.Map(document.getElementById("map"),
+        {
+            zoom: 3,
+            center: {lat: 45.297309, lng: 6.579732}
+        }
+    );
+    putResortMarkersInMap();
+    $("#map-loading").html(``);
+} 
  
 $(document).ready(emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo")); 
  

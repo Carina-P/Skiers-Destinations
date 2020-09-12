@@ -1,4 +1,4 @@
-let ratedList = new RatedList(getRatingList());
+let ratedList = new RatedList(CurrentRatingList());
 
 let sizeViewport = window.matchMedia("(max-width: 767px)"); 
 sizeViewport.addListener(ratedList.toDocument);
@@ -283,6 +283,8 @@ function RatedList(list){
     /**
      * Put RatedLists information into the document.
      */
+    this.list.sort((resortA,resortB) => {
+            return resortB.getRating()-resortA.getRating();});
     this.toDocument = (sizeViewport) => {
         if (sizeViewport === undefined || sizeViewport === null){
             $("#top-ten").html("Something is wrong!");
@@ -315,153 +317,32 @@ function RatedList(list){
      */
     this.updateList = (event) => {
         this.list[event.data.index].calculateNewRating(
-            parseInt(event.target.value));
-        this.list.sort((resortA,resortB) => {
-            return resortB.getRating()-resortA.getRating();});
+            parseInt(event.target.value)); 
         this.toDocument(sizeViewport);
         this.toLocalStorage(); 
         location.href = "#recommend";
-    };
-}
-
-
-/**
- * Fetches information from json file.
- *
- * @param {String} url the files url
- * @returns {Promise} resorts
- */
-function fetchResortInfo(url){
-    return fetch(url).then( (res) => {
-            if (!res.ok) {
-                console.log(
-                    "Something went wrong when fetching information, status: ",
-                    res.status, res.statusText);
-            }
-            return res.json();
-        })
-        .catch( (error) => console.log("Error!", error));
-}
-
-/**
- * Fetches snowreport for a specific resort from Weahter Unlocked
- *
- * @param {number} resortId Resorts id in Weather Unlocked API
- *
- * @returns {Promise} snowreport
- */
-function fetchSnowInfo(resortId){
-    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+
-        weatherEndURL;
-    return fetchResortInfo(snowReportURL);
-}
-
-/**
- * Fetches forecast for a specific resort from Wheather unlocked
- *
- * @param {number} resortId Resorts id in Weather Unlocked API
- *
- * @returns {Promise} forecast
- */
-function fetchForecastInfo(resortId){
-    let forecastURL = weatherFrontURL+
-        `resortforecast/${resortId}?hourly_interval=6&`+weatherEndURL;
-    
-    return fetchResortInfo(forecastURL);
-}
- 
-/** 
- * Get map marker for a ski resort
- * 
- * @param {Object} weatherInfo Contains snowreport and forecast for resort
- * @param {number} index  Index of resort in ratedList that weatherInfo
- *                        is valid for.
- * @returns {Objec} A google map marker
- */
-function getMarker(weatherInfo, index){
-    let snowReport = weatherInfo[0];
-    let forecastReport = weatherInfo[1];
-    let resort = resortsInMap[index];
-
-    return resort.buildMarker(snowReport, forecastReport);
-}
-
-/**
- * Make a google map marker for each resort and using googles MarkerClusterer
- * to put markers, that are close to one another, in clusters.
- * The resorts are fetched from a file.
- * Snowreport and forecast, respectively, are fetched from Weather Unlockeds
- * API.
- */
-function putResortMarkersInMap(){ 
-    fetchResortInfo(resortsURL)
-    .then( allResorts => {
-        allResorts.forEach((resort) => {
-            resortsInMap.push(new ResortInMap(resort)); 
-        });
-        return Promise.all(resortsInMap.map(resort =>
-            Promise.all([fetchSnowInfo(resort.getId()),
-                fetchForecastInfo(resort.getId())])));
-    })
-    .then( resortsInfo => {
-        const clustersOfMarkers =
-            new MarkerClusterer(map, resortsInfo.map(getMarker),
-            {imagePath: "assets/images/m"});})
-    .catch( error => {console.error("Error:", error);});
-}
-
-/**
-* Creates a map with markers for ski resorts. 
-*/
-function initMap(){
-    map = new google.maps.Map(document.getElementById("map"),
-        {
-            zoom: 3,
-            center: {lat: 45.297309, lng: 6.579732}
-        }
-    );
-    putResortMarkersInMap();
-    $("#map-loading").html(``);
+    }; 
 } 
 
 /**
- *  An initial list of resorts
- * 
+ *  Current list of rated resorts
+ *  
  *  @returns {Object} An array of rated resorts
  */
-function fetchInitRatingList(){
+function CurrentRatingList(){
     let list =[];
-    list.push(new RatedResort("Bad Gastein", 0.0, 0, 0));
-    list.push(new RatedResort("Charmonix", 0.0, 0, 0));
-    list.push(new RatedResort("Cortina d'Ampesso", 0.0, 0, 0));
-    list.push(new RatedResort("Trysil", 0.0, 0, 0));
-    list.push(new RatedResort("Val d'Isere", 0.0, 0, 0));
-    list.push(new RatedResort("Val Thorens", 0.0, 0, 0));
-    list.push(new RatedResort("Verbier", 0.0, 0, 0));
-    list.push(new RatedResort("Zermatt", 0.0, 0, 0));
-    list.push(new RatedResort("Zugspitze", 0.0, 0, 0));
-    list.push(new RatedResort("Åre", 0.0, 0, 0));
+    list.push(new RatedResort("Bad Gastein", 3.0, 2, 0));
+    list.push(new RatedResort("Charmonix", 4.0, 3, 0));
+    list.push(new RatedResort("Cortina d'Ampesso", 2.75, 4, 0));
+    list.push(new RatedResort("Trysil", 3.0, 1, 0));
+    list.push(new RatedResort("Val d'Isere", 4.8, 7, 0));
+    list.push(new RatedResort("Val Thorens", 4.9, 10, 0));
+    list.push(new RatedResort("Verbier", 4.5, 4, 0));
+    list.push(new RatedResort("Zermatt", 4.2, 5, 0));
+    list.push(new RatedResort("Zugspitze", 2.0, 1, 0));
+    list.push(new RatedResort("Åre", 2.6, 5, 0));
 
     return list;
 }
-
-/**
- * Get lists values form localStorage or if not in localStorage initializes
- * a new list.
- *
- * @returns {Object} An array of RatedResort
- */
-function getRatingList(){
-    let list = [];
-    let table = JSON.parse(localStorage.getItem("ratingTable"));
-    if (table === null) {
-        return fetchInitRatingList();
-    }
-
-    table.forEach(item => {list.push(new RatedResort(item.name,
-        item.rating, item.nrOfVotes, 0));} );
-
-    return list;
-}
-
+ 
 $(document).ready(ratedList.toDocument(sizeViewport));
