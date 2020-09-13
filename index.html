@@ -36,6 +36,11 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"> 
+                        <a class="nav-link js-collapse" href="#resorts" 
+                            aria-label="Navigate to map with resorts"
+                            >  Map with resorts  </a>
+                    </li>
+                    <li class="nav-item"> 
                         <a class="nav-link js-collapse" href="#recommend" 
                             aria-label="Navigate to top-10-list"
                             >  Top-10 resorts  </a>
@@ -49,9 +54,26 @@
             </div>
         </nav>
         <div class="banner"></div>
-        <div id="top">
-            <h1 class="border-blue text-center m-3 p-3"
-                >Downhill Skiing Destinations in Europe</h1>
+        <div id="top" class ="border-blue m-3 p-3">
+            <h1 class="text-center"
+            >Downhill Skiing Destinations in Europe</h1>
+            <!-- Code inspired from Bootstrap-->
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="assets/images/first-line.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="assets/images/freerider.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="assets/images/skier-happy.jpg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="assets/images/ski-lift.jpg" alt="Third slide">
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
    
@@ -97,9 +119,9 @@
                 <strong>all</strong>
                 your votes to us by clicking on yellow button at the bottom of
                 the list.</p>
-                <p><small>Notice: If your vote affects the order in the list -
+                <p><strong>Notice:</strong> If your vote affects the order in the list -
                     the list is immediately updated as soon as you cast your
-                    vote.</small></p>
+                    vote.</p>
                 <div id="top-ten" class="text-center"></div>
                 <div id= "submit-rating" 
                     class="border-blue mt-5 p-3">
@@ -161,25 +183,27 @@
     <!-- Modal called from javascript and used when user has emailed both after
     rating resort and after emailing a wish of new resort. 
     This code is inspiration from Bootstrap -->
-    <div class="modal fade" id="mail-feedback" tabindex="-1" 
-        aria-labelledby="mail-answer" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-blue p-1">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="mail-answer"></h4>
-                    <button type="button" class="close" data-dismiss=
-                        "modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body bgr-blue"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn bgr-yellow" 
-                            data-dismiss="modal">Close</button>
+    <section>
+        <div class="modal fade" id="mail-feedback" tabindex="-1" 
+            aria-labelledby="mail-answer" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-blue p-1">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mail-answer"></h4>
+                        <button type="button" class="close" data-dismiss=
+                            "modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body bgr-blue"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bgr-yellow" 
+                                data-dismiss="modal">Close</button>
+                    </div> 
                 </div> 
             </div>
-        </div>
-    </div> 
+        </div> 
+    </section>
 
 <!-- Footer -->
     <footer class="container-fluid pt-5">
