@@ -30,6 +30,10 @@ h5{
 .bgr-blue{
     background-color: #cae9ff;
 }
+.btn:hover{
+    color: #fecf3e;
+    background-color: #262730;
+}
 
 /* Header */
 .logo{
@@ -92,12 +96,6 @@ h5{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-/* mail-section */ 
-#submit-btn:hover{
-    color: #fecf3e;
-    background-color: #262730;
 }
 
 /* footer */
