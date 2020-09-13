@@ -2,6 +2,7 @@ let ratedList = new RatedList(CurrentRatingList());
 
 let sizeViewport = window.matchMedia("(max-width: 767px)"); 
 sizeViewport.addListener(ratedList.toDocument);
+let ratingSubmitted = false;
 
 /** 
  * Constructor function for RatedResort
@@ -161,8 +162,13 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
                         <div>`;}
 
         if (this.lastVote === 0) {
-            let id = "gradeIndex" + rowIndex;
-            rowHTML += this.noVoteHTML(id);
+            if (ratingSubmitted){
+                rowHTML += `No vote casted`;
+            }
+            else {
+                let id = "gradeIndex" + rowIndex;
+                rowHTML += this.noVoteHTML(id);
+            }
         }
         else {
             rowHTML += this.starsToHTML(this.lastVote);
@@ -193,7 +199,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         let id = "#index"+rowIndex;
 
         $(id).html(this.rowToHTML(rowIndex, smallViewport)); 
-        if (this.lastVote === 0) {
+        if (this.lastVote === 0 && !ratingSubmitted) {
             $(`#gradeIndex${rowIndex}`).change({index : rowIndex},
                 ratedList.updateList);
         }
@@ -289,7 +295,7 @@ function RatedList(list){
      */
     this.list.sort((resortA,resortB) => {
             return resortB.getRating()-resortA.getRating();});
-    this.toDocument = (sizeViewport) => {
+    this.toDocument = () => {
         if (sizeViewport === undefined || sizeViewport === null){
             $("#top-ten").html("Something is wrong!");
             console.log("Error in function toDocument");
@@ -316,7 +322,7 @@ function RatedList(list){
     this.updateList = (event) => {
         this.list[event.data.index].calculateNewRating(
             parseInt(event.target.value)); 
-        this.toDocument(sizeViewport); 
+        this.toDocument(); 
         location.href = "#recommend";
     }; 
 } 
@@ -342,7 +348,7 @@ function CurrentRatingList(){
     return list;
 }
  
-$(document).ready(ratedList.toDocument(sizeViewport));
+$(document).ready(ratedList.toDocument());
 $("#submit-rating-btn").click( () => { 
     $("#submit-rating").html(`<img src="assets/css/loader.gif" alt="loading..."/>
                             <span>sending mail...</span>`);
@@ -362,8 +368,20 @@ $("#submit-rating-btn").click( () => {
     };
     emailjs.send("gmail","template_hc0lfh3", parameters)
     .then(() => {
-        console.log("Hello world");
+        $("#mail-feedback").modal();
+        $(".modal-title").html(`<strong>Your email is sent</strong>`);
+        $(".modal-body").html(`<p>Thank you very much!</p>
+            <p>We will add your rating to the average as soon as possible.</p>`
+        );
+        $("#submit-rating").html(`Thank you for the votes! We will add them as 
+        soon as possible.`);
+    }, (error) => {
+        $("#mail-feedback").modal();
+        $(".modal-title").html(`<strong>Something is wrong</strong>`);
+        $(".modal-body").html(`<p>Unfortunately we could not send the mail.</p>`);
         $("#submit-rating").html(``);
-    })
-    .catch( (error) => {console.log("Error:", error)});
+        console.log("Error:", error)}
+    );
+    ratingSubmitted = true;
+    ratedList.toDocument();
 })
