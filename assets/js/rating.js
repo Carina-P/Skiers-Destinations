@@ -12,6 +12,8 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     this.nrOfVotes = nrOfVotes;
     this.lastVote = lastVote;
 
+    this.getName = () => this.name;
+    this.getLastVote = () => this.lastVote;
     this.getRating = () => this.rating;
     this.setLastVote = (vote) => {this.lastVote = vote;};
 
@@ -228,6 +230,8 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
  */
 function RatedList(list){
     this.list = list;
+
+    this.getList = () => {return this.list;};
  
     /** 
      * The skeleton of the list is made into HTML code. Applies to screens
@@ -339,8 +343,27 @@ function CurrentRatingList(){
 }
  
 $(document).ready(ratedList.toDocument(sizeViewport));
-$("#submit-rating-btn").click( () => {
-    console.log("Hello");
+$("#submit-rating-btn").click( () => { 
     $("#submit-rating").html(`<img src="assets/css/loader.gif" alt="loading..."/>
                             <span>sending mail...</span>`);
+
+    let list = ratedList.getList();
+    let parameters = {
+        name0: list[0].getName(), vote0: list[0].getLastVote(),
+        name1: list[1].getName(), vote1: list[1].getLastVote(),
+        name2: list[2].getName(), vote2: list[2].getLastVote(),
+        name3: list[3].getName(), vote3: list[3].getLastVote(),
+        name4: list[4].getName(), vote4: list[4].getLastVote(),
+        name5: list[5].getName(), vote5: list[5].getLastVote(),
+        name6: list[6].getName(), vote6: list[6].getLastVote(),
+        name7: list[7].getName(), vote7: list[7].getLastVote(),
+        name8: list[8].getName(), vote8: list[8].getLastVote(),
+        name9: list[9].getName(), vote9: list[9].getLastVote()
+    };
+    emailjs.send("gmail","template_hc0lfh3", parameters)
+    .then(() => {
+        console.log("Hello world");
+        $("#submit-rating").html(``);
+    })
+    .catch( (error) => {console.log("Error:", error)});
 })
