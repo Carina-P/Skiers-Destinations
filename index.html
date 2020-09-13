@@ -91,9 +91,10 @@
             </div>
             <div class = "col-12 col-md-9 text-center">
                 <h2 class="pt-2">Rating of Ski Resorts</h2>
-                <p>Cast your vote for resorts by choosing grade to the right!
+                <p>Cast your vote for resorts by choosing a grade to the right!
                 </p>
-                <p>When your are done voting: You can submit <strong>all</strong>
+                <p>When your are done voting: You can submit 
+                <strong>all</strong>
                 your votes to us by clicking on yellow button at the bottom of
                 the list.</p>
                 <p><small>Notice: If your vote affects the order in the list -
@@ -155,28 +156,30 @@
                 </form>
             </div> 
         </div> 
-
-        <!-- Modal called from js. This code got inspiration from Bootstrap -->
-        <div class="modal fade" id="mail-feedback" tabindex="-1" 
-            aria-labelledby="mail-answer" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content border-blue p-1">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="mail-answer"></h4>
-                        <button type="button" class="close" data-dismiss=
-                            "modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body bgr-blue"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bgr-yellow" 
-                            data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
     </section>
+
+    <!-- Modal called from javascript and used when user has emailed both after
+    rating resort and after emailing a wish of new resort. 
+    This code is inspiration from Bootstrap -->
+    <div class="modal fade" id="mail-feedback" tabindex="-1" 
+        aria-labelledby="mail-answer" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-blue p-1">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="mail-answer"></h4>
+                    <button type="button" class="close" data-dismiss=
+                        "modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bgr-blue"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bgr-yellow" 
+                            data-dismiss="modal">Close</button>
+                </div> 
+            </div>
+        </div>
+    </div> 
 
 <!-- Footer -->
     <footer class="container-fluid pt-5">
