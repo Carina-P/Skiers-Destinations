@@ -148,7 +148,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         if (smallViewport) {rowHTML += `<p>`;}
         else {rowHTML += `<span>`;}
 
-        rowHTML += `${this.rating.toFixed(2)}`;
+        rowHTML += ` ${this.rating.toFixed(2)}`;
 
         if (smallViewport){ rowHTML += `
                     </p>
@@ -291,10 +291,9 @@ function RatedList(list){
         return toHTML;
     };
     /**
-     * Put RatedLists information into the document.
-     */
-    this.list.sort((resortA,resortB) => {
-            return resortB.getRating()-resortA.getRating();});
+     * Put RatedLists information into the document. The list is sorted
+     * before written in document.
+     */ 
     this.toDocument = () => {
         if (sizeViewport === undefined || sizeViewport === null){
             $("#top-ten").html("Something is wrong!");
@@ -307,6 +306,9 @@ function RatedList(list){
             console.log("Error in function toDocument");
             return;
         }
+
+        this.list.sort((resortA,resortB) => {
+            return resortB.getRating()-resortA.getRating();});
 
         if (smallViewport) $("#top-ten").html(this.frameworkToSmallDocument());
         else $("#top-ten").html(this.frameworkToDocument());
