@@ -162,51 +162,64 @@ light-blue for the **sky** and yellow for the **sun**.
     width the information is shown beside the map. With smaller widths the
     information is shown below map.
     ![Implementation of long resort information](wireframes/long-info.jpg)
-- **Table with 10-top** skiing resort sorted with the best ranked resort in the
-    top and the resort with lowest ranking in bottom.
-    - On devices with larger width the information is shown i table.
+    - **File with javaScript** for implementing the rating part of page: 
+    assets/js/rating.js - Since it is a lot of code it is easier
+    to find specific code and probably easier to add code by keeping the code
+    for implementing rating in seperate file. Instead of putting the code 
+    togehter with rest of javaScript implementation (assets/js/scripts.js).
+    This is to the cost of longer loading with two js-files compared to only 
+    one file.
+- **Table with 10-top** skiing resort sorted with the **best ranked resort in the
+    top and the resort with lowest ranking in bottom**.
+    - On devices with **larger width** the information is shown i **table**.
     ![Implementatin of rating list on larger viewports](wireframes/table.jpg)
-    - On smaller devices it is presented as "cards" that is sorted in ranking
-    order.
+    - On **smaller devices** it is presented as **"cards"** that also is sorted
+    in ranking order.
     ![Implementation rating list on smaller viewports](wireframes/cards.jpg)
-    - Ranking is visually presented with stars:
+    - Ranking is **visualized with stars**:
         - The rankings integer is represented by full stars
         - If remainder is 0.75 or greater another full star is added
         - If remainder is between 0.25 and 0.75 a halv-star is added
         - The rest is represented by "empty stars" adding upp to 5
 
         ![Implementation of stars to visualize ranking](wireframes/stars.jpg)
-    - Providing possibility to do users own ranking of place. When user has
+    - Providing possibility to do **users own ranking of place**. When user has
     vote the list is interactively sorted and updated on the page.
     ![Implementation of voting](wireframes/pick.jpg)
-    - Possibility for user to send in his/her votes to be added to the list:
+    - Possibility for user to **send in his/her votes** to be added to the list:
         - When hover the submit button: background is changed to black and 
         font to yellow
     ![Implementation of submitting votes](wireframes/submit-votes.jpg)
-        - Modal with information if sending mail succeded or not.
+        - **Modal** with information if sending mail succeded or not.
 
         ![Implementation of modal](wireframes/modal.jpg)
 - **Form for wishing** new ski resorts on the site.
     - Input fields: 
-        - Name of resort user wish to add - mandatory
-        - The reason user wants to highlight to get resort added - voluntary
-        - Name of person sending in wish - mandatory
-        - Email address to person - mandatory and must contain a @.
-    - Submit button: when clicked the information of the form is sent by mail.
+        - **Name of resort** user wish to add - mandatory
+        - The **reason** user wants to highlight to get resort added - voluntary
+        - **Name of person** sending in wish - mandatory
+        - **Email address** to person - mandatory and must contain a @.
+    - **Submit button**: when clicked the information of the form is sent by mail.
         - When hover over the button: background is changed to black and font
         to yellow
-        - Modal informing user if sending went well or not. (implementation
+        - **Modal** informing user if sending went well or not. (implementation
         looking very similar to modal after submitting votes)
 ![Implementation of form for resort wishes](wireframes/form.jpg)
 - **Footer** with contacts and social media:
-    - Email address to get in touch with site owners
-    - Social media links as facebook, twitter, linkedIn, instagram and youtube.
+    - **Email address** to get in touch with site owners
+    - **Social media links** as facebook, twitter, linkedIn, instagram and youtube.
     - When hover over social media links icons are larger and background color
     is changed to Columbia Blue.
 ![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
 ### Interactive elements
+### Features left to Implement
+Adding a **server**:
+- to **store** the **rating** information and the user do not have to mail votes
+instead the **updating is done instantly to server** as soon as user cast one vote.
+- to **store and fetch** map resorts, with information, from
+
 <!--
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
  
