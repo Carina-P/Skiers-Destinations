@@ -294,10 +294,12 @@ was in place. Testing often  and after a small part of development, makes it is
 **use experience** in coming development.
 
 When all features was implemented the following tests was performed:
+- Went througt the **test cases**, for functional testing and testing of
+responsiveness, as described below
 - Validated by [W3S Markup validation service](https://validator.w3.org/)
 - Validated by [W3s CSS validation service](https://jigsaw.w3.org/css-validator/)
 - Validated by [JSHint](https://jshint.com/)
-- According to the **scenarios** as described below
+- It was tested on different browsers, as described below
 - The **deployed version** was tested
 <!--In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
@@ -316,10 +318,13 @@ In addition, you should mention in this section how your project looks and works
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
--->
-### Scenarios
-### Validation with W3S
+--> 
 ### Some of the bugs
+CORS! Some more bugs are described below under chapters of different testing
+#### Test cases
+#### Validation with W3S
+#### Validation with JSHint
+#### Different browsers
 CORS: There is a CORS-problem when fetching information from Weather Unlocked. 
 Code Institute support looked at the problem but could not understand how to 
 solve it. But they said I should use jQuery Ajax for my requests instead of 
@@ -385,14 +390,15 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Media
 The photos used in this site were obtained from:
-- [Can Stock](https://www.canstockphoto.se)
-- [Pixabay](https://pixabay.com/)
+- [Can Stock](https://www.canstockphoto.se) - used to make a logo
+- [Pixabay](https://pixabay.com/) - pictures in carousel and beside 
+rating table on devices with medium and larger viewports
 
 ### Acknowledgements
-I recived inspiration for this project from:
-- [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
+I recived inspiration for this project from: 
 - [dcode: How to use JSDoc -Basics & Introduction](https://www.youtube.com/watch?v=Nqv6UkTROak)
 - [Web Dev Simplified: Learn fetch API in 6 Minutes](https://www.youtube.com/watch?v=cuEtnrL9-H0)
+- [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
 - [MDN web docs: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
 <!--
