@@ -252,7 +252,8 @@ $("#mail-form").submit( () => {
         $("#mail-feedback").modal();
         $(".modal-title").html(`<strong>Error</strong>`);
         $(".modal-body").html(`<p>Unfortunately we could not send the mail.</p>
-                                    <p>Please try again!</p>`);
+                                    <p>Please contact the programmer!</p>`);
+        $("#mail-form").trigger("reset");
         $("#mail-sending").html(``);
         console.log(error);
     });

@@ -52,12 +52,14 @@ at favourite spots.
 - US_012: As a user I want to be able to **see how I graded each resort**. Thus I can compare my ranking between the resorts.
 - US_013: As a user I want to see the **resulting top-list** after I have casted my vote. If my vote affects the order of ski resorts I want to see it immediately. 
 - US-014: As a user I want to be able to **send in my ratings** to be added to the list. And I can contribute to others.
-- US_014: As a user I want to be able to **influence which ski resorts are shown** on the site. If I am interested in a particular ski resort that does not show on the page. 
+- US-014: As a user I want to be able to **influence which ski resorts are shown** on the site. If I am interested in a particular ski resort that does not show on the page. 
+- US-015: As a user I want to be **inspired** to go skiing. And in this way more interested and keen on finding out more about resorts.
 
 ## User requirements and Expectations
 
 ### Requirements
 - Navigate the website using **navbar**
+- **Carousel with photos** in beginning of page to inspire users. This is not something that is not something that is important for visual impaired user to be informed about.
 - **Markers** at ski resorts in the map.
 - Beside marker: find **short facts** in InfoWindow about resort. Thus user is able to **compare different resorts**.
 - When user **choose a resort** - **information**, as forecast and snow conditions, **about the resort** turns up besides the map.
@@ -101,14 +103,14 @@ and mobile. Original wireframe design:
 - **Recommendation**-section with:
     - **Table with 10-top** skiing resort sorted with the best in the top. 
     Providing possibility to do own ranking of place and **interactive update** 
-    of the list.
-    - **Reviews** of ski resorts
+    of the list. 
 - Section for **wishes** were you can **mail** a wish for a **ski resort** that 
     you want the site to show information about.
 - **Footer**-section with:
     - **contact and social media** information
 
-### Major changes compared to above wireframes and features
+### Major changes compared to above wireframes and potential feature
+- Added a **carousel with pictures** in top of page to inspire user and attract users.
 
 ## Design Choices
 ### Fonts
@@ -117,10 +119,8 @@ platforms, **clean** and **easy** to read. "Oswald is designed
 to be used freely across the internet by web browsers on desktop computers, 
 laptops and mobile devices." (quote from 
 [Google fonts](https://fonts.google.com/specimen/Oswald#standard-styles). 
-And as the alternative font: Open Sans.
-
-### Icons
-
+And as the alternative font: Open Sans. 
+ 
 ### Colors
 I want the colors to match a day in the skiing slope: White for **snow**, 
 light-blue for the **sky** and yellow for the **sun**. 
@@ -137,14 +137,15 @@ In order of importance:
 - **Header**, fixed at the top of viewport, with:
     - **logo**
     - **navbar**
+- **Carousel** with inspiring photos of skiing and/or Alps
 - **Map** with with markers on popular skiing resorts.
 - **Skiing-resort information** matching the marker user has **choosen in map**.
 - **Table with 10-top** skiing resort sorted with the best in the top. 
 Providing possibility to do users own ranking of place and interactive update 
-of the list.
-- **Reviews** of ski resorts
+of the list. 
 - **Form for wishing** new ski resorts on the site.
 - **Footer** with contacts and social media
+
 ### Responsive
 ### Interactive elements
 <!--
