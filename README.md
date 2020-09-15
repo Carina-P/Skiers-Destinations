@@ -285,22 +285,49 @@ was used.
     - From this API uptodate snow report and weather forecast for each resort is received.
 
 ## Testing
-When it has been feasible the test where automated. The rest was tested 
-manually. 
-The manually testing was performed **regularly** in a **iterative** manner 
-during the development of the site and then **thorough** after all features 
-was in place. Testing often  and after a small part of development, makes it is 
-**easier to find** and **fix bugs early** and it is also a way to 
-**use experience** in coming development.
+The testing has mainly been conducted manually. Some automated testing has been
+constructed and used. 
 
-When all features was implemented the following tests was performed:
+The TDD, testdriven development, process was followed. The development/
+implementation cycles have been very short and test cases have
+been developed/thought off before code was implemented. 
+Before new code was commited testing of all code developed earlier was
+tested again. And of course the automated tests were run repeatedly.
+
+When all features were implemented and tested the following tests were 
+performed:
 - Went througt the **test cases**, for functional testing and testing of
 responsiveness, as described below
-- Validated by [W3S Markup validation service](https://validator.w3.org/)
-- Validated by [W3s CSS validation service](https://jigsaw.w3.org/css-validator/)
-- Validated by [JSHint](https://jshint.com/)
-- It was tested on different browsers, as described below
+- HTML-code validated by [W3S Markup validation service](https://validator.w3.org/)
+- CSS-cod validated by [W3s CSS validation service](https://jigsaw.w3.org/css-validator/)
+- JavaScript-code validated by [JSHint](https://jshint.com/)
+- The site was tested on different browsers, as described below
 - The **deployed version** was tested
+
+### Manual testing
+The manually testing was performed **regularly** in an **iterative** manner 
+during the development of the site and then **thorough** after all features 
+was in place. 
+
+### Automated testing
+The tests were developed ahead of features. And obviously the 
+first tests failed all the time. Then features are implemented and
+automatically tested in an iterative process with small parts of code every
+time.
+
+The following automated tests have been developed:
+- The calculating of new averate rating when user casts av vote. The function
+is called calculateNewRating and belongs to the object: RatedResort.
+- Automated testing have been used on following functions to test what happens
+if they are given wrong conditions as eg. something is wrong with input 
+parameters (this was hard to test manually). The functions all belong to the 
+object: RatedResort:
+    - starsToHTML
+    - rowToHTML
+    - noVoteHTML
+
+
+
 <!--In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
 Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
@@ -319,9 +346,10 @@ You should also mention in this section any interesting bugs or problems you dis
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 --> 
+
 ### Some of the bugs
 CORS! Some more bugs are described below under chapters of different testing
-#### Test cases
+#### Test cases/Scenarios
 #### Validation with W3S
 #### Validation with JSHint
 #### Different browsers
