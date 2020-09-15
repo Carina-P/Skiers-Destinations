@@ -113,8 +113,11 @@ and mobile. Original wireframe design:
 - Added a **carousel with pictures** in top of page to inspire user and attract users.
 
 ## Design Choices
-Rounded edges is a theme that gives a "softer impression".
-The content belonging to one another is surrounded by a blue border.
+- Rounded edges is a theme that gives a "softer impression".
+- The content belonging to one another is surrounded by a blue border.
+- One page: when talking to younger users they preferred one page since
+using smaller devices as mobile phones you do not want to use clicks but 
+rather scrolling.
 
 ### Fonts
 I have choosen **Oswald**, because i find it very **useful** on different 
@@ -136,33 +139,53 @@ light-blue for the **sky** and yellow for the **sun**.
 
 ## Features
  
-- **Header**, fixed at the top of viewport, with:
-    - **logo**: When hover over it becomes larger
-    - **navbar**: When hover over links the font is bold
-    If smaller width of device links are put in "hamburger".
-- **Carousel** with inspiring photos of skiing and/or Alps
+- **Header**:
+    - navbar and logo fixed at the top of viewport:
+        - **logo**: When hover over it becomes larger
+        - **navbar**: When hover over links the font is bold
+        ![implementation of navbar](wireframes/navbar.jpg)
+        - If smaller width of device links are put in "hamburger".
+        ![Implementation of navbar, devices smaller width](wireframes/navbar-hamburger.jpg)
+    - The **heading** : 
+    - **Carousel** with inspiring photos of skiing and/or Alps
+    ![Implementation of heading with carousel](wireframes/heading.jpg)
 - **Map** with with markers on popular skiing resorts.
+![Implementation of map](wireframes/map.jpg)
 - **Skiing-resort information** matching the marker user has **choosen in map**:
     - **Short information** about resort, as altitudes, slopes and pists,
     **in InfoWindow** in the map beside resorts marker. This information stays
     on screen as long as user do not close it.
+    ![Implementation of infoWindows in map](wireframes/info-window.jpg)
     - **More information** as short information about resort, snow report and
     wheather forecast in **larger information box**. This information is
     changed every time user clicks on other resort. On devices with larger 
     width the information is shown beside the map. With smaller widths the
     information is shown below map.
+    ![Implementation of long resort information](wireframes/long-info.jpg)
 - **Table with 10-top** skiing resort sorted with the best ranked resort in the
     top and the resort with lowest ranking in bottom.
+    - On devices with larger width the information is shown i table.
+    ![Implementatin of rating list on larger viewports](wireframes/table.jpg)
+    - On smaller devices it is presented as "cards" that is sorted in ranking
+    order.
+    ![Implementation rating list on smaller viewports](wireframes/cards.jpg)
     - Ranking is visually presented with stars:
         - The rankings integer is represented by full stars
         - If remainder is 0.75 or greater another full star is added
         - If remainder is between 0.25 and 0.75 a halv-star is added
-        - The rest is represented by "empty stars" adding upp to 5 
+        - The rest is represented by "empty stars" adding upp to 5
+
+        ![Implementation of stars to visualize ranking](wireframes/stars.jpg)
     - Providing possibility to do users own ranking of place. When user has
     vote the list is interactively sorted and updated on the page.
+    ![Implementation of voting](wireframes/pick.jpg)
     - Possibility for user to send in his/her votes to be added to the list:
         - When hover the submit button: background is changed to black and 
         font to yellow
+    ![Implementation of submitting votes](wireframes/submit-votes.jpg)
+        - Modal with information if sending mail succeded or not.
+
+        ![Implementation of modal](wireframes/modal.jpg)
 - **Form for wishing** new ski resorts on the site.
     - Input fields: 
         - Name of resort user wish to add - mandatory
@@ -170,13 +193,17 @@ light-blue for the **sky** and yellow for the **sun**.
         - Name of person sending in wish - mandatory
         - Email address to person - mandatory and must contain a @.
     - Submit button: when clicked the information of the form is sent by mail.
-        - When hover voer the button: background is changed to black and font
+        - When hover over the button: background is changed to black and font
         to yellow
+        - Modal informing user if sending went well or not. (implementation
+        looking very similar to modal after submitting votes)
+![Implementation of form for resort wishes](wireframes/form.jpg)
 - **Footer** with contacts and social media:
     - Email address to get in touch with site owners
     - Social media links as facebook, twitter, linkedIn, instagram and youtube.
     - When hover over social media links icons are larger and background color
     is changed to Columbia Blue.
+![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
 ### Interactive elements
