@@ -92,7 +92,7 @@ and mobile. Original wireframe design:
 - [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
 
-### Potential feature
+### Potential features
 - **Header**, fixed at the top of viewport, with:
     - **logo**
     - **navbar**
@@ -109,10 +109,13 @@ and mobile. Original wireframe design:
 - **Footer**-section with:
     - **contact and social media** information
 
-### Major changes compared to above wireframes and potential feature
+### Major changes compared to above wireframes and potential features
 - Added a **carousel with pictures** in top of page to inspire user and attract users.
 
 ## Design Choices
+Rounded edges is a theme that gives a "softer impression".
+The content belonging to one another is surrounded by a blue border.
+
 ### Fonts
 I have choosen **Oswald**, because i find it very **useful** on different 
 platforms, **clean** and **easy** to read. "Oswald is designed 
@@ -127,24 +130,53 @@ light-blue for the **sky** and yellow for the **sun**.
 <img src="wireframes/colors-skiers-destinations.png" width="75%">
 
 - **Text** to contrast lighter backgrounds: **Raisin black** #262730
-- **Main background** and if background is dark: **White** #ffffff
+- **Main background**: **White** #ffffff
 - **Framing** as borders: **Columbia blue** #cae9ff
 - Details to **stick out** as buttons: **Sunglow** #fecf3e
 
 ## Features
-
-In order of importance:
+ 
 - **Header**, fixed at the top of viewport, with:
-    - **logo**
-    - **navbar**
+    - **logo**: When hover over it becomes larger
+    - **navbar**: When hover over links the font is bold
+    If smaller width of device links are put in "hamburger".
 - **Carousel** with inspiring photos of skiing and/or Alps
 - **Map** with with markers on popular skiing resorts.
-- **Skiing-resort information** matching the marker user has **choosen in map**.
-- **Table with 10-top** skiing resort sorted with the best in the top. 
-Providing possibility to do users own ranking of place and interactive update 
-of the list. 
+- **Skiing-resort information** matching the marker user has **choosen in map**:
+    - **Short information** about resort, as altitudes, slopes and pists,
+    **in InfoWindow** in the map beside resorts marker. This information stays
+    on screen as long as user do not close it.
+    - **More information** as short information about resort, snow report and
+    wheather forecast in **larger information box**. This information is
+    changed every time user clicks on other resort. On devices with larger 
+    width the information is shown beside the map. With smaller widths the
+    information is shown below map.
+- **Table with 10-top** skiing resort sorted with the best ranked resort in the
+    top and the resort with lowest ranking in bottom.
+    - Ranking is visually presented with stars:
+        - The rankings integer is represented by full stars
+        - If remainder is 0.75 or greater another full star is added
+        - If remainder is between 0.25 and 0.75 a halv-star is added
+        - The rest is represented by "empty stars" adding upp to 5 
+    - Providing possibility to do users own ranking of place. When user has
+    vote the list is interactively sorted and updated on the page.
+    - Possibility for user to send in his/her votes to be added to the list:
+        - When hover the submit button: background is changed to black and 
+        font to yellow
 - **Form for wishing** new ski resorts on the site.
-- **Footer** with contacts and social media
+    - Input fields: 
+        - Name of resort user wish to add - mandatory
+        - The reason user wants to highlight to get resort added - voluntary
+        - Name of person sending in wish - mandatory
+        - Email address to person - mandatory and must contain a @.
+    - Submit button: when clicked the information of the form is sent by mail.
+        - When hover voer the button: background is changed to black and font
+        to yellow
+- **Footer** with contacts and social media:
+    - Email address to get in touch with site owners
+    - Social media links as facebook, twitter, linkedIn, instagram and youtube.
+    - When hover over social media links icons are larger and background color
+    is changed to Columbia Blue.
 
 ### Responsive
 ### Interactive elements
