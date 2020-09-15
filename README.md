@@ -34,23 +34,25 @@ of resorts and **get uptodate information** about skiing conditions and weather
 at favourite spots.
  
 ### User stories 
-- US-001: As a user I want to know **where good skiing places**, in Europe, are situated in a **map**. In this way I know were in Europe the resort is situated.
-- US_002: As a user I want a **short description of a resort**. In this way I know if it is a resort that I am interested in.
-- US_003: As a user I want **uptodate information** about **snow conditions** at a resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
-- US_004: As a user I want **todays weather forecast** at resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
-- US_005: As a user I want to be able to **compare different ski resorts**. Things to compare:
+- US_001: As a user I want to be able to **navigate directly** to the map. If it is the map I am interested in.
+- US_002: As a user I want to be able to **navigate directly** to the rating list. So I can go directly to the rating list.
+- US_003: As a user I want to be able to **navigate directly** to contact form. So I can go directly to the form.
+- US-004: As a user I want to be able to **get back easily to the top** of the page.
+- US-005: As a user I want to know **where good skiing places**, in Europe, are situated in a **map**. In this way I know were in Europe the resort is situated.
+- US_006: As a user I want a **short description of a resort**. In this way I know if it is a resort that I am interested in.
+- US_007: As a user I want **uptodate information** about **snow conditions** at a resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
+- US_008: As a user I want **todays weather forecast** at resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
+- US_009: As a user I want to be able to **compare different ski resorts**. Things to compare:
     - **altitude** at top and at base
     - number of **slopes**
     - number of **lifts**
     These are thing interesting to know e.g. when you are deciding which resort you want to visit.
-- US_006: As a user I want to know which skiing places **other users rank as the best**. And I will get inspired on were I want to go or perhaps discover a new place I was not aware of.
-- US_007: As a user I want to be able to **cast my on vote** for a resort. And in this I will be able to contribute to other users descision process.
-- US_008: As a user I want to be able to **see how I graded each resort**. Thus I can compare my ranking between the resorts.
-- US_008: As a user I want to see the **resulting top-list** after I have casted my vote. If my vote affects the order of ski resorts I want to see it immediately. 
-- US_009: As a user I want to be able to **influence which ski resorts are shown** on the site. If I am interested in a particular ski resort that does not show on the page.
-- US_010: As a user I want to be able to **navigate directly** to the map. If it is the map I am interested in.
-- US_011: As a user I want to be able to **navigate directly** to the rating list. So I can go directly to the rating list.
-- US_012: As a user I want to be able to **navigate directly** to contact form. So I can go directly to the form.
+- US_010: As a user I want to know which skiing places **other users rank as the best**. And I will get inspired on were I want to go or perhaps discover a new place I was not aware of. I can also compare resorts ranking to a resort that I already know about.
+- US_011: As a user I want to be able to **cast my on vote** for a resort. And in this I will be able to contribute to other users descision process.
+- US_012: As a user I want to be able to **see how I graded each resort**. Thus I can compare my ranking between the resorts.
+- US_013: As a user I want to see the **resulting top-list** after I have casted my vote. If my vote affects the order of ski resorts I want to see it immediately. 
+- US-014: As a user I want to be able to **send in my ratings** to be added to the list. And I can contribute to others.
+- US_014: As a user I want to be able to **influence which ski resorts are shown** on the site. If I am interested in a particular ski resort that does not show on the page. 
 
 ## User requirements and Expectations
 
