@@ -42,7 +42,7 @@ describe ("RatedResort", function(){
             expect(ratedResort0.starsToHTML(9)).toEqual("Error");
         });
         it("should return Error if vote is not from 1 to 5", function(){
-            expect(ratedResort0.starsToHTML(0)).toEqual("Error");
+            expect(ratedResort0.starsToHTML(-1)).toEqual("Error");
         })
         it("should return Error if vote is undefined", function(){
             expect(ratedResort0.starsToHTML(undefined)).toEqual("Error");
