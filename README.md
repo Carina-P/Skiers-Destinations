@@ -213,7 +213,35 @@ light-blue for the **sky** and yellow for the **sun**.
 ![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
+The site is design to fit devices with screen width from 330px to 3800 px.
+The following features are designed differently for different devices:
+- Navbar: On screen widths smaller than 768px the navbar collapses into 
+"hamburger" menu.
+- Resort information beside or below map: On larger screens with width over 
+768px longer resort information is shown to the right of the map. On smaller
+devices the information is shown under the map.
+- Rating list: On devices with screen smaller than 768px every resort with 
+rating is shown in a "card-layout" ordered from highest ranked resort to
+lowest. On larger screens the information is presented in a table.
+- On very small devices (width less than 400px) the font size is 14px. 
+
 ### Interactive elements
+- The navbar and logo: to move around in the page
+- When clicking on markers in the map: Both short information and longer
+information, for the resort marker points to, appears. The short information
+in a infoWindow in the map and the longer information besides the map (if larger
+screens) or below map (if smaller screens).
+The longer information changes when user clicks at other marker. The shorter 
+information stays as long as the user chooses.
+- User can cast a vote and rate ski resort and then: 
+    - The grade casted is visualized as stars.
+    - A new average grading for resort is calculated.
+    - If the new average grading for resort affects the resorts place in
+    rating list - the rating list is immediately updated.
+- User can submit his/her votes by mail, for later adding to average rating 
+list.
+- User can submit a mail to wish adding of a ski resort to the page.
+
 ### Features left to Implement
 Adding a **server**:
 - to **store** the **rating** information and the user do not have to mail votes
@@ -236,13 +264,13 @@ In addition, you may also use this section to discuss plans for additional featu
 -->
 
 ## Technologies Used
-
+<!--
 In this section, you should mention all of the languages, frameworks, libraries, 
 and any other tools that you have used to construct this project. For each, 
 provide its name, a link to its official site and a short sentence of why it 
 was used.
-
-
+-->
+ 
 ### Languages used
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) 
     - The perfect language to build a static site.
@@ -299,7 +327,7 @@ performed:
 - Went througt the **test cases**, for functional testing and testing of
 responsiveness, as described below
 - HTML-code validated by [W3S Markup validation service](https://validator.w3.org/)
-- CSS-cod validated by [W3s CSS validation service](https://jigsaw.w3.org/css-validator/)
+- CSS-cod validated by [W3S CSS validation service](https://jigsaw.w3.org/css-validator/)
 - JavaScript-code validated by [JSHint](https://jshint.com/)
 - The site was tested on different browsers, as described below
 - The **deployed version** was tested
@@ -316,7 +344,7 @@ automatically tested in an iterative process with small parts of code every
 time.
 
 The following automated tests have been developed:
-- The calculating of new averate rating when user casts av vote. The function
+- The calculating of new average rating when user casts av vote. The function
 is called calculateNewRating and belongs to the object: RatedResort.
 - Automated testing have been used on following functions to test what happens
 if they are given wrong conditions as eg. something is wrong with input 
@@ -348,20 +376,39 @@ If this section grows too long, you may want to split it off into a separate fil
 --> 
 
 ### Some of the bugs
-CORS! Some more bugs are described below under chapters of different testing
+- Sometimes a CORS, Cross Origin Resource Sharing,-problem appears when
+fetching information from API: Weather Unlocked. The problem happens randomly
+to different resorts. When the problem occurs the user is informed which 
+information could not be fetched.
+- W3S validation of HTML-code gives a warning of empty heading:
+`<h4 class="modal-title" id="mail-answer"></h4>`
+Text is put in the heading from javaScript.
+- 
+
 #### Test cases/Scenarios
+Test cases are documented here: [Test cases]()
+
 #### Validation with W3S
-#### Validation with JSHint
+- HTML: Validated with no errors but got a warning, described above
+- CSS: Validated with no errors.
+
+#### Validation with JSHint 
+JavaScript validated with no errors. 
+- There is four undefined variables: google, $, MarkerClusterer and emailjs:
+These are all global variables from sources that is linked.
+- There is two unused variables:
+    - clusterOfMarkers: used when call to a constructor from googles API.
+    Must call constructor of MarkerClusterer to get cluster of markers in map.
+    -  initMap is a callback-function initiated from the HTML code.
+
 #### Different browsers
-CORS: There is a CORS-problem when fetching information from Weather Unlocked. 
-Code Institute support looked at the problem but could not understand how to 
-solve it. But they said I should use jQuery Ajax for my requests instead of 
-fetch, since it seems to be working better with the API and the problem appears 
-a little less frequently. And this is why I use fetch when fetching information 
-from local file and JQuery ajax when fetching information from Weahter Unlockeds 
-API. The bug appears in that way that you do not get any information for one or 
-more of the resorts (The InfoWindow in map is still showing but not the text 
-beside/under the map).
+The code is mainly tested with Chrome. But also Firefox and Safari.
+- According to [W3 Schools](https://www.w3schools.com/js/js_es6.asp) the 
+javascript code will probably not work well on browsers less than the 
+following versions: 
+    Chrome 58, Edge 14, Firefox 54, Safari 10 and Opera 55 
+And that is because I have used the following features from ECMAScriptS6: 
+    let, const, template literal syntax and arrow function
 
 ## Deployment 
 Skiers Destinations was developed on GitPod [GitPod](https://www.gitpod.io/), using git and GitHub to host the repository. The code was pushed
