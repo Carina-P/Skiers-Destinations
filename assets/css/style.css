@@ -15,12 +15,14 @@ h5{
     font-size: 1rem;
 } 
 .border-blue{
-    border: solid .3rem #cae9ff; 
-    border-radius: 1rem;
+    border: solid .3rem #cae9ff;
 }
 .rounded-corners{
     border-radius: 1rem; 
-}   
+}  
+.banner{
+    height: 6rem;
+}
 .bgr-white{
     background-color: #ffffff;
 }
@@ -55,10 +57,7 @@ h5{
 }
 .navbar-brand:hover, .navbar-toggler:hover{
     transform: scale(1.1);
-}
-.banner{
-    height: 6rem;
-}
+} 
 
 /* Map-section */
 #resorts {
@@ -82,7 +81,7 @@ h5{
     padding: .5rem;
 }
 
-/* 10 top-section */
+/* top-10 section */
 .yellow{
   color: #fecf3e;
 } 
