@@ -17,6 +17,13 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
     this.getLastVote = () => this.lastVote;
     this.getRating = () => this.rating;
     this.setLastVote = (vote) => {this.lastVote = vote;};
+    
+    /**
+     * Controls if user has casted av vote.
+     * 
+     * @returns {boolean} True if user has casted a vote
+     */
+    this.hasVoted = () => {return (this.lastVote > 0 && this.lastVote <= 5)};
 
     /**
      * Returns a string literal of HTML code that contains stars representing
@@ -88,7 +95,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
                 return "Error";
         }
 
-        let voteHTML = `<label for = ${id}>Pick grade!:</label>
+        let voteHTML = `<label for = ${id}>Pick grade:</label>
                     <select name = ${id} id=${id}>
                         <option value=0></option>`;
         for (let i = 5; i > 0; i--){
@@ -324,9 +331,21 @@ function RatedList(list){
     this.updateList = (event) => {
         this.list[event.data.index].calculateNewRating(
             parseInt(event.target.value)); 
-        this.toDocument(); 
-        location.href = "#recommend";
+        this.toDocument();
     }; 
+    /**
+     * Returns true if user has not casted any new vote for resort in the list
+     * 
+     * @returns {boolean} Indicates if votes are not casted
+     */
+    this.noVotesCasted = () => {
+        this.list.forEach((resort) => {
+            if (resort.hasVoted()){
+                return false;
+            }
+        })
+        return true;
+    };
 } 
 
 /**
@@ -349,41 +368,50 @@ function CurrentRatingList(){
 
     return list;
 }
+
  
 $(document).ready(ratedList.toDocument());
 $("#submit-rating-btn").click( () => { 
-    $("#submit-rating").html(`<img src="assets/css/loader.gif" alt="loading..."/>
-                            <span>sending mail...</span>`);
+    
+    if (ratedList.noVotesCasted()){
+        $("#mail-feedback").modal();
+        $(".modal-title").html(`<strong>No votes</strong>`);
+        $(".modal-body").html(`<p>You have not rated any resorts</p>`);
+    }
+    else {
+        $("#submit-rating").html(`<img src="assets/css/loader.gif" alt="loading..."/>
+                                <span>sending mail...</span>`);
 
-    let list = ratedList.getList();
-    let parameters = {
-        name0: list[0].getName(), vote0: list[0].getLastVote(),
-        name1: list[1].getName(), vote1: list[1].getLastVote(),
-        name2: list[2].getName(), vote2: list[2].getLastVote(),
-        name3: list[3].getName(), vote3: list[3].getLastVote(),
-        name4: list[4].getName(), vote4: list[4].getLastVote(),
-        name5: list[5].getName(), vote5: list[5].getLastVote(),
-        name6: list[6].getName(), vote6: list[6].getLastVote(),
-        name7: list[7].getName(), vote7: list[7].getLastVote(),
-        name8: list[8].getName(), vote8: list[8].getLastVote(),
-        name9: list[9].getName(), vote9: list[9].getLastVote()
-    };
-    emailjs.send("gmail","template_hc0lfh3", parameters)
-    .then(() => {
-        $("#mail-feedback").modal();
-        $(".modal-title").html(`<strong>Your email is sent</strong>`);
-        $(".modal-body").html(`<p>Thank you very much!</p>
-            <p>We will add your rating to the average as soon as possible.</p>`
+        let list = ratedList.getList();
+        let parameters = {
+            name0: list[0].getName(), vote0: list[0].getLastVote(),
+            name1: list[1].getName(), vote1: list[1].getLastVote(),
+            name2: list[2].getName(), vote2: list[2].getLastVote(),
+            name3: list[3].getName(), vote3: list[3].getLastVote(),
+            name4: list[4].getName(), vote4: list[4].getLastVote(),
+            name5: list[5].getName(), vote5: list[5].getLastVote(),
+            name6: list[6].getName(), vote6: list[6].getLastVote(),
+            name7: list[7].getName(), vote7: list[7].getLastVote(),
+            name8: list[8].getName(), vote8: list[8].getLastVote(),
+            name9: list[9].getName(), vote9: list[9].getLastVote()
+        };
+        emailjs.send("gmail","template_hc0lfh3", parameters)
+        .then(() => {
+            $("#mail-feedback").modal();
+            $(".modal-title").html(`<strong>Your email is sent</strong>`);
+            $(".modal-body").html(`<p>Thank you very much!</p>
+                <p>We will add your rating to the average as soon as possible.</p>`
+            );
+            $("#submit-rating").html(`Thank you for the votes! We will add them as 
+            soon as possible.`);
+        }, (error) => {
+            $("#mail-feedback").modal();
+            $(".modal-title").html(`<strong>Something is wrong</strong>`);
+            $(".modal-body").html(`<p>Unfortunately we could not send the mail.</p>`);
+            $("#submit-rating").html(``);
+            console.log("Error:", error)}
         );
-        $("#submit-rating").html(`Thank you for the votes! We will add them as 
-        soon as possible.`);
-    }, (error) => {
-        $("#mail-feedback").modal();
-        $(".modal-title").html(`<strong>Something is wrong</strong>`);
-        $(".modal-body").html(`<p>Unfortunately we could not send the mail.</p>`);
-        $("#submit-rating").html(``);
-        console.log("Error:", error)}
-    );
-    ratingSubmitted = true;
-    ratedList.toDocument();
+        ratingSubmitted = true;
+        ratedList.toDocument();
+    }
 })

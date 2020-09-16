@@ -3,6 +3,7 @@ describe ("RatedResort", function(){
     let ratedResort1 = new RatedResort("Val Thorens", 0, 0, 0);
     let ratedResort2 = new RatedResort("St Anton", 1, 1, 0);
     let ratedResort3 = new RatedResort("Val Thorens", 4, 3, 0);
+    let ratedResort4 = new RatedResort("Val Thorens", 4, 3, 4);
 
     describe("calculateNewRating function", function(){
         it("should return Error if vote is not a number", function(){
@@ -70,6 +71,16 @@ describe ("RatedResort", function(){
         });
         it("should return Error if smallViewport is undefined", function(){
             expect(ratedResort0.rowToHTML(1, undefined)).toEqual("Error");
+        });
+    });
+    describe("hasVoted function", function(){
+        it("should return false if lastVote is not in inteval 1-5", 
+        function(){
+            expect(ratedResort0.hasVoted()).toEqual(false);
+        });
+        it("should return true if lastVote is between in inteval 1-5", 
+        function(){
+            expect(ratedResort4.hasVoted()).toEqual(true);
         });
     });
 })
