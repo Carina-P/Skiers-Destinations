@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-collapse" href="#mail" 
-                            aria-label="Navigate to input form for ski resort wishes"
+                        aria-label="Navigate to input form for resort wishes"
                             >  Add ski resort  </a>
                     </li>
                 </ul>
@@ -91,30 +91,37 @@
         <div class="border-blue rounded-corners text-center m-2 p-1">
             <div>
                 <h2>Map with resorts</h2>
-                <p>Click on marker (and cluster) in map to get information about ski resort</p>
+                <p>Click on marker (and cluster) in map to get information
+                about ski resort</p>
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div id="map" class="col-12 col-md-8 rounded-corners"></div> 
+                    <div id="map" class="col-12 col-md-8 rounded-corners">
+                    </div> 
                     <div class="col-12 col-md-4 d-flex p-2">
-                        <div id="map-loading" class="text-center"><img src="assets/css/loader.gif" alt="loading..."/> 
+                        <div id="map-loading" class="text-center"><img 
+                        src="assets/css/loader.gif" alt="loading..."/> 
                                     <span>loading markers...</span>
                         </div>
                         <div id="resort-info" 
-                            class="align-self-center p-2 rounded-corners bgr-blue">
+                        class="align-self-center p-2 rounded-corners bgr-blue">
                             <h4><strong>Click</strong> on a <img 
                                 src="assets/images/yellow-marker48.gif" 
                                 alt="yellow marker"> or a <img 
-                                src="assets/images/m1.png" alt="cluster marker">
+                                src="assets/images/m1.png" 
+                                alt="cluster marker">
                                 in the map!</h4> 
-                            <p>And information about a Ski Resort will appear here and 
-                                also close to the marker.</p>
+                            <p>And information about a Ski Resort will appear
+                            here and also close to the marker.</p>
                             <h5><u>Symbols in the map:</u></h5>
                             <p><img src="assets/images/yellow-marker48.gif" 
-                                alt="yellow marker">: Marker for a ski resort.</p>
-                            <p><img src="assets/images/m1.png" alt="cluster marker">
-                                : Cluster of markers (may have different colors). Click
-                                on it until you see the markers.</p>
+                                alt="yellow marker">: Marker for a ski resort.
+                            </p>
+                            <p><img src="assets/images/m1.png" 
+                                alt="cluster marker">
+                                : Cluster of markers (may have different
+                                colors). Click on it until you see the markers.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -132,13 +139,12 @@
                 <h2 class="pt-2">Rating of Ski Resorts</h2>
                 <p>Cast your vote for resorts by choosing a grade to the right!
                 </p>
-                <p>When your are done voting: You can submit 
-                <strong>all</strong>
+                <p>When your are done voting: Submit <strong>all</strong>
                 your votes to us by clicking on yellow button at the bottom of
                 the list.</p>
-                <p><strong>Notice:</strong> If your vote affects the order in the list -
-                    the list is immediately updated as soon as you cast your
-                    vote.</p>
+                <p><strong>Notice:</strong> If your vote affects the order in
+                    the list - the list is immediately updated as soon as you
+                    cast your vote.</p>
                 <div id="top-ten" class="text-center"></div>
                 <div id="submit-rating" 
                     class="border-blue rounded-corners mt-5 p-3">
@@ -195,8 +201,9 @@
                     </div>
                     <div class="form-group"> 
                         <textarea class="form-control" rows="3" id="reason" 
-                        name="reason" 
-                        placeholder="Enter reason for adding resort"></textarea>
+                            name="reason" 
+                            placeholder="Enter reason for adding resort">
+                        </textarea>
                     </div>
                     <div class="form-group"> 
                         <input type="text" class="form-control" id="name" 
