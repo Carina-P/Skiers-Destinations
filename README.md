@@ -14,6 +14,48 @@ Edge 14|
 Firefox 54|
 Safari 10|
 Opera 55| 
+## Contents
+* [UX](#ux)
+    + [External users goal](#external-users-goal)
+    + [Site owners goal](#site-owners-goal)
+    + [User stories](#user-stories)
+  * [User requirements and Expectations](#user-requirements-and-expectations)
+    + [Requirements](#requirements)
+    + [Expectations](#expectations)
+  * [Wireframes](#wireframes)
+    + [Potential features](#potential-features)
+    + [Major changes compared to above wireframes and potential features](#major-changes-compared-to-above-wireframes-and-potential-features)
+  * [Design Choices](#design-choices)
+    + [Fonts](#fonts)
+    + [Colors](#colors)
+  * [Features](#features)
+    + [Responsive](#responsive)
+    + [Interactive elements](#interactive-elements)
+    + [Features left to Implement](#features-left-to-implement)
+    + [Existing Features](#existing-features)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Technologies Used](#technologies-used)
+    + [Languages used](#languages-used)
+    + [Frameworks, Libraries and Programs used](#frameworks--libraries-and-programs-used)
+    + [API (Application Programming Interfaces) used](#api--application-programming-interfaces--used)
+  * [Testing](#testing)
+    + [Manual testing](#manual-testing)
+    + [Automated testing](#automated-testing)
+      - [UX testing](#ux-testing)
+      - [Test cases/Scenarios](#test-cases-scenarios)
+      - [Validation with W3S](#validation-with-w3s)
+      - [Validation with JSHint](#validation-with-jshint)
+      - [Different browsers](#different-browsers)
+    + [Some of the bugs](#some-of-the-bugs)
+  * [Deployment](#deployment)
+    + [Forking the GitHub Repository](#forking-the-github-repository)
+    + [Making a local clone](#making-a-local-clone)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## UX
 <!--
@@ -332,7 +374,8 @@ constructed and used.
 The TDD, testdriven development, process was followed. The development/
 implementation cycles have been very short and test cases have
 been developed/thought off before code was implemented. Test cases are documented here:
-[test cases]()
+[Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf).
+
 Before new code was commited, testing of all code developed earlier was
 tested again. And of course the automated tests were run repeatedly.
 
@@ -388,7 +431,7 @@ You should also mention in this section any interesting bugs or problems you dis
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 -->  
-#### UX testing
+### UX testing
 UX testing was conducted by watching and interviewing users when they used the page. Examples of issues/discussions:
 - Wish for a header above map with resorts. (fixed)
 - User could submit/mail votes when no votes where casted. (fixed)
@@ -404,17 +447,17 @@ in rating list:
     without this feature.
     - The solution was to add a "notice" in head of list.
  
-#### Test cases/Scenarios
-Test cases with protocol for functional testing and test of responsiveness is documented here:
-[Test cases]()
+### Test cases/Scenarios
+26 test cases with protocol for functional testing and test of responsiveness is documented here:
+[Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf)
 Test of responsiveness was mainly performed with help of Chrome Developers Tool. But also with
 ipad and iPhone7.
 
-#### Validation with W3S
+### Validation with W3S
 - HTML: Validated with no errors but got a warning, described above
 - CSS: Validated with no errors.
 
-#### Validation with JSHint 
+### Validation with JSHint 
 JavaScript validated with no errors. 
 - There is four undefined variables: google, $, MarkerClusterer and emailjs:
 These are all global variables from sources that is linked.
@@ -423,7 +466,7 @@ These are all global variables from sources that is linked.
     Must call constructor of MarkerClusterer to get cluster of markers in map.
     -  initMap is a callback-function initiated from the HTML code.
 
-#### Different browsers
+### Different browsers
 The code is mainly tested with Chrome. But also Firefox and Safari.
 - According to [W3 Schools](https://www.w3schools.com/js/js_es6.asp) the 
 JavaScript code will probably not work well on browsers less than the 
