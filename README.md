@@ -6,7 +6,15 @@
 **inspiration** for their next ski trip, **compare** different ski resorts or just want 
 **updated information** about **skiing conditions** and/or **weather forecast** on a 
 particular resort.
- 
+
+**Browser requirements** (at least version):|
+---------------------------|
+Chrome 58|
+Edge 14|
+Firefox 54|
+Safari 10|
+Opera 55| 
+
 ## UX
 <!--
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
@@ -17,12 +25,16 @@ In particular, as part of this section we recommend that you provide a list of U
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 -->
 ### External users goal
-A place to **easily** find **information and up-to-date facts** about some of the
-**ski resorts in Europe**. The goal can be to find **inspiration** where to 
-go on next ski trip. And when user have decided where to go, **follow** how the
-**snow conditions develop** and see **weather forecast**.
+- **Easily**, by starting with clicking on markers in a **map**, find **information and up-to-date facts** about some of the
+**ski resorts in Europe**.
+- Find **inspiration** were to go by **comparing differents ski resorts** both with uptodate information but also by other users **rating of resorts**.
+- By using the site frequently the user can see how **snow conditions develop** over time.
+- Find **weather forecast**, which is good if you are at a resort or are going to a resort. 
 
 <!--
+User can easily compare different resorts, follow how snow conditions develop, see weather forecastscan find **inspiration** where to go on next ski trip by looking at uptodate facts about resorts
+seeing how other ski enthusiasts grade the resorts. 
+User can also **follow** how the **snow conditions develop** and see **weather forecast** for specific resort.
 This is the site where you can **compare resorts** 
 to each other, conveniently based on a map. You can find out which resorts 
 **others rate high** and you can also find updated snow reports and weather 
@@ -59,7 +71,7 @@ at favourite spots.
 
 ### Requirements
 - Navigate the website using **navbar**
-- **Carousel with photos** in beginning of page to inspire users. This is not something that is not something that is important for visual impaired user to be informed about.
+- **Carousel with photos** in beginning of page to inspire users.
 - **Markers** at ski resorts in the map.
 - Beside marker: find **short facts** in InfoWindow about resort. Thus user is able to **compare different resorts**.
 - When user **choose a resort** - **information**, as forecast and snow conditions, **about the resort** turns up besides the map.
@@ -68,9 +80,8 @@ place, ranking and grade.
 - **Grading is calculated** from users input.
 - **Grading is visualised** with the number of **stars** and if applicable "half-star".
 - The 10-top list should be **updated immediately** when user grade a resort.
-- The overall average grading for resorts should be saved over sessions.
 - It is possible for same user to **cast more votes if reloading** the page.
-- Possibility to **mail wishes** for other Ski Resorts to be shown on the site. The input should include name of ski resort, reason it should show in site, name of person who is mailing and persons mail address.
+- Possibility to **mail wishes** for other Ski Resorts to be shown on the site. The input should include name of ski resort, why resort is interesting (reason), name of person who is mailing and persons mail address.
 
 ### Expectations
 - Content is **visually satisfying and informative**
@@ -79,8 +90,8 @@ place, ranking and grade.
 - **Responsive design** fitting on mobile, tablet and desktop 
 - **Information** about a ski resort is immediately shown when user **has choosen a resort**.
 - **Short information** in map stays open until user choose to close the information.
-- **Information beside the map** is **updated** every time the user chooses a new resort.
-- **New grade is correctly calculated** after user graded a ski resort.
+- **Information beside/below the map** is **updated** every time the user chooses a new resort.
+- **New average grade is correctly calculated** after user graded a ski resort.
 - **Updating of 10-top-list** works after user grading.
 - **Form validation** works correctly
 
@@ -151,13 +162,15 @@ light-blue for the **sky** and yellow for the **sun**.
     ![Implementation of heading with carousel](wireframes/heading.jpg)
 - **Map** with with markers on popular skiing resorts.
 ![Implementation of map](wireframes/map.jpg)
+- Ski resort for the map with "static information as lat and long position" is for convenience, when adding more resorts, 
+saved in a file: [resorts.json](https://github.com/Carina-P/Skiers-Destinations/tree/master/assets/data), from which information is fetched into map. 
 - **Skiing-resort information** matching the marker user has **choosen in map**:
     - **Short information** about resort, as altitudes, slopes and pists,
     **in InfoWindow** in the map beside resorts marker. This information stays
     on screen as long as user do not close it.
     ![Implementation of infoWindows in map](wireframes/info-window.jpg)
     - **More information** as short information about resort, snow report and
-    wheather forecast in **larger information box**. This information is
+    wheather forecast in **larger information window**. This information is
     changed every time user clicks on other resort. On devices with larger 
     width the information is shown beside the map. With smaller widths the
     information is shown below map.
@@ -213,7 +226,7 @@ light-blue for the **sky** and yellow for the **sun**.
 ![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
-The site is design to fit devices with screen width from 330px to 3800 px.
+The site is design to fit devices with screen width from 360px to 3840 px.
 The following features are designed differently for different devices:
 - Navbar: On screen widths smaller than 768px the navbar collapses into 
 "hamburger" menu.
@@ -318,8 +331,9 @@ constructed and used.
 
 The TDD, testdriven development, process was followed. The development/
 implementation cycles have been very short and test cases have
-been developed/thought off before code was implemented. 
-Before new code was commited testing of all code developed earlier was
+been developed/thought off before code was implemented. Test cases are documented here:
+[test cases]()
+Before new code was commited, testing of all code developed earlier was
 tested again. And of course the automated tests were run repeatedly.
 
 When all features were implemented and tested the following tests were 
@@ -333,12 +347,11 @@ responsiveness, as described below
 - The **deployed version** was tested
 
 ### Manual testing
-The manually testing was performed **regularly** in an **iterative** manner 
-during the development of the site and then **thorough** after all features 
-was in place. 
+The manually testing was performed **regularly** in an **iterative** manner adding a small part of code every time. 
+Then **thorough** after all features were in place. 
 
 ### Automated testing
-The tests were developed ahead of features. And obviously the 
+The tests were developed ahead of implementing features. And obviously the 
 first tests failed all the time. Then features are implemented and
 automatically tested in an iterative process with small parts of code every
 time.
@@ -346,6 +359,7 @@ time.
 The following automated tests have been developed:
 - The calculating of new average rating when user casts av vote. The function
 is called calculateNewRating and belongs to the object: RatedResort.
+- Test that function hasVoted, belonging to Object: RatedResort, returns right value.
 - Automated testing have been used on following functions to test what happens
 if they are given wrong conditions as eg. something is wrong with input 
 parameters (this was hard to test manually). The functions all belong to the 
@@ -373,20 +387,28 @@ In addition, you should mention in this section how your project looks and works
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
---> 
-
-### Some of the bugs
-- Sometimes a CORS, Cross Origin Resource Sharing,-problem appears when
-fetching information from API: Weather Unlocked. The problem happens randomly
-to different resorts. When the problem occurs the user is informed which 
-information could not be fetched.
-- W3S validation of HTML-code gives a warning of empty heading:
-`<h4 class="modal-title" id="mail-answer"></h4>`
-Text is put in the heading from javaScript.
-- 
-
+-->  
+#### UX testing
+UX testing was conducted by watching and interviewing users when they used the page. Examples of issues/discussions:
+- Wish for a header above map with resorts. (fixed)
+- User could submit/mail votes when no votes where casted. (fixed)
+- Discussed if user should be able to submit several times instead of once. Decided that it is enough with once.
+- On smaller viewport widths initial instruction is presented under the map (in larger viewports to the right).
+    - Discussed with users if should move the initial instruction and also the longer information about resort to above the map instead.
+    - Users agreed they wanted longer information below map. They wanted to see the map first.
+    - The solution was to add a short instruction also above map.
+- Sometimes confusing that the list is updated as soon as user cast a vote. Especially if the resort moves up or down
+in rating list:
+    - Users still wanted the list to be updated at once.
+    - Did a trial where the "href was moved" to top of list after every time user casted a vote. The users thought it was better
+    without this feature.
+    - The solution was to add a "notice" in head of list.
+ 
 #### Test cases/Scenarios
-Test cases are documented here: [Test cases]()
+Test cases with protocol for functional testing and test of responsiveness is documented here:
+[Test cases]()
+Test of responsiveness was mainly performed with help of Chrome Developers Tool. But also with
+ipad and iPhone7.
 
 #### Validation with W3S
 - HTML: Validated with no errors but got a warning, described above
@@ -404,11 +426,34 @@ These are all global variables from sources that is linked.
 #### Different browsers
 The code is mainly tested with Chrome. But also Firefox and Safari.
 - According to [W3 Schools](https://www.w3schools.com/js/js_es6.asp) the 
-javascript code will probably not work well on browsers less than the 
-following versions: 
-    Chrome 58, Edge 14, Firefox 54, Safari 10 and Opera 55 
-And that is because I have used the following features from ECMAScriptS6: 
-    let, const, template literal syntax and arrow function
+JavaScript code will probably not work well on browsers less than the 
+following versions: Chrome 58, Edge 14, Firefox 54, Safari 10 and Opera 55 
+And that is because following features from ECMAScriptS6 is used: 
+- let
+- const
+- template literal syntax
+- arrow function
+
+### Some of the bugs
+**Example of solved bugs:**
+- Syncronosly creating markers to map that depended on asyncronos fetching of information is done first:
+Solved by using fetch.then and Promise.all. 
+- To calculate average rating number who has voted has to be known.
+- User could submit/email ratings when no votes where casted.
+
+**Remaining "bugs":**
+- Sometimes a **CORS**, Cross Origin Resource Sharing,-problem appears when
+**fetching information from API: Weather Unlocked**. The problem happens randomly
+to different resorts. When the problem occurs the **user is informed** which 
+information could not be fetched.
+- W3S validation of HTML-code gives a warning of **empty heading**:
+`<h4 class="modal-title" id="mail-answer"></h4>`
+Text is put in the heading **from JavaScript**.
+- Files under assets/images/weather/ is copied from [Weather Unlocked](http://www.weatherunlocked.com/).
+Forecast information is fetched from Weather Unlockeds API and this forecast refers to these files.
+File names should only contain lowercase letters but these file names starts with capital letter. The file names
+are not changed since they are referenced to in fetched information.
+- The site has issues with cookies in cross-site requests since SamSite attribute is not set.
 
 ## Deployment 
 Skiers Destinations was developed on GitPod [GitPod](https://www.gitpod.io/), using git and GitHub to host the repository. The code was pushed
