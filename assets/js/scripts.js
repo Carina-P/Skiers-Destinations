@@ -68,16 +68,17 @@ function ResortInMap(resort){
             let forecast = forecastReport.forecast;
             txt += ` ${forecast[1].date}:</h5> 
                 <div class = "flex-container justify-content-center">`; 
+            /* get information from element with index 1 to 3 from forecast */
             for (let i = 1; i < 4; i++){
                 txt += `<div class = "forecast">
                     ${forecast[i].time}<br>
-                    <img src="assets/images/weather/${forecast[i].upper.wx_icon}">
+                <img src="assets/images/weather/${forecast[i].upper.wx_icon}">
                     <br>${forecast[i].upper.temp_avg_c}&#8451<br>
                     ${forecast[i].upper.windspd_avg_ms}m/s
                         </div>`;
             }
         } 
-        txt+=  `</div>
+        txt += `</div>
             </div>
             <hr class="block-divider">
             <div>
@@ -96,7 +97,8 @@ function ResortInMap(resort){
                     ${snowReport.newsnow_cm}<br>
                     <small>Last snow:</small> ${snowReport.lastsnow}<br>
                     <small>Runs open:</small> ${snowReport.pctopen}%<br>
-                    <small>Snow report:</small> ${snowReport.conditions} </p></div>`;
+                    <small>Snow report:</small> ${snowReport.conditions} 
+                    </p></div>`;
         } 
         txt += `</div>
                 <div class="text-center"><a href=${this.homePage}
@@ -125,7 +127,8 @@ function ResortInMap(resort){
         marker.addListener("click", () => {
             infoWindow.open(map, marker);
             $("#resort-info").css("background-color","#ffffff");
-            $("#resort-info").html(this.addResortTxt(snowReport, forecastReport));
+            $("#resort-info").html(this.addResortTxt(snowReport, 
+                forecastReport));
         });
 
         return marker;
@@ -158,7 +161,7 @@ function fetchResortInfo(url){
  * @returns {Promise} snowreport
  */
 function fetchSnowInfo(resortId){
-    let snowReportURL = weatherFrontURL+`snowreport/${resortId}?`+
+    let snowReportURL = weatherFrontURL + `snowreport/${resortId}?` +
         weatherEndURL;
     return fetchResortInfo(snowReportURL);
 }
@@ -238,8 +241,9 @@ $(".js-collapse").on("click", function () {
 }); 
  
 $("#mail-form").submit( () => {
-    $("#mail-sending").html(`<img src="assets/css/loader.gif" alt="loading..."/>
-                            <span>sending mail...</span>`);
+    $("#mail-sending").html(`<img src="assets/css/loader.gif" 
+        alt="loading..."/>
+        <span>sending mail...</span>`);
     emailjs.sendForm("gmail","skiers_destinations", "#mail-form")
     .then( () => {
         $("#mail-feedback").modal();

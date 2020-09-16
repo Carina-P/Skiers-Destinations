@@ -1,6 +1,6 @@
 let ratedList = new RatedList(CurrentRatingList());
 
-let sizeViewport = window.matchMedia("(max-width: 767px)"); 
+let sizeViewport = window.matchMedia("(max-width: 767px)");
 sizeViewport.addListener(ratedList.toDocument);
 let ratingSubmitted = false;
 
@@ -60,23 +60,20 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         }
         else {
             fullStars = Math.floor(grade);
-        }
-
+        } 
         for (let i = 0; i < fullStars; i++){
             starsHTML += `<span class="fas fa-star yellow" aria-hidden="true">
             </span>`;
-        }
-
+        } 
         if ((remainder > 0.25) && (remainder < 0.75)){
             starsHTML +=`<span class="fas fa-star-half-alt yellow" 
             aria-hidden="true"></span>`;
             fullStars++;
-        }
-
+        } 
         for (let i = fullStars; i < 5; i++){
             starsHTML += `<span class="far fa-star yellow" aria-hidden="true">
             </span>`;
-        }
+        } 
 
         return starsHTML;
     };
@@ -103,9 +100,9 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
                         <option value=0></option>`;
         for (let i = 5; i > 0; i--){
             voteHTML += `<option value=${i}>${i}</option>`;
-        }
-
+        } 
         voteHTML += `</select>`;
+        
         return  voteHTML;
     };
 
@@ -153,7 +150,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
                         <td>${this.name}</td>
                         <td>`;
         }
-        rowHTML += this.starsToHTML(this.rating);
+        rowHTML += this.starsToHTML(this.rating); 
 
         if (smallViewport) {rowHTML += `<p>`;}
         else {rowHTML += `<span>`;}
@@ -169,8 +166,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         else {rowHTML += `</span>
                 </td>
                      <td>
-                        <div>`;}
-
+                        <div>`;} 
         if (this.lastVote === 0) {
             if (ratingSubmitted){
                 rowHTML += `No vote casted`;
@@ -187,8 +183,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
             rowHTML += `${this.lastVote}`;
             if (smallViewport){rowHTML += `</p>`;}
             else {rowHTML += `</span> `;}
-        }
-
+        } 
         if(smallViewport){rowHTML +=
                         `</div>
                     </div>`;}
@@ -348,6 +343,7 @@ function RatedList(list){
                 notVoted = false;
             }
         })
+
         return notVoted;
     };
 } 
@@ -376,15 +372,14 @@ function CurrentRatingList(){
  
 $(document).ready(ratedList.toDocument());
 $("#submit-rating-btn").click( () => { 
-    
     if (ratedList.noVotesCasted()){
         $("#mail-feedback").modal();
         $(".modal-title").html(`<strong>No votes</strong>`);
         $(".modal-body").html(`<p>You have not rated any resorts</p>`);
     }
     else {
-        $("#submit-rating").html(`<img src="assets/css/loader.gif" alt="loading..."/>
-                                <span>sending mail...</span>`);
+        $("#submit-rating").html(`<img src="assets/css/loader.gif" 
+            alt="loading..."/><span>sending mail...</span>`);
 
         let list = ratedList.getList();
         let parameters = {
@@ -404,14 +399,15 @@ $("#submit-rating-btn").click( () => {
             $("#mail-feedback").modal();
             $(".modal-title").html(`<strong>Your email is sent</strong>`);
             $(".modal-body").html(`<p>Thank you very much!</p>
-                <p>We will add your rating to the average as soon as possible.</p>`
-            );
+                <p>We will add your rating to the average as soon as possible.
+                </p>`);
             $("#submit-rating").html(`Thank you for the votes! We will add them as 
             soon as possible.`);
         }, (error) => {
             $("#mail-feedback").modal();
             $(".modal-title").html(`<strong>Something is wrong</strong>`);
-            $(".modal-body").html(`<p>Unfortunately we could not send the mail.</p>`);
+            $(".modal-body").html(`<p>Unfortunately we could not send the mail.
+                </p>`);
             $("#submit-rating").html(``);
             console.log("Error:", error)}
         );
