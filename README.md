@@ -15,45 +15,45 @@ Firefox 54|
 Safari 10|
 Opera 55| 
 ## Contents
-* [UX](#ux)
-    + [External users goal](#external-users-goal)
-    + [Site owners goal](#site-owners-goal)
-    + [User stories](#user-stories)
-  * [User requirements and Expectations](#user-requirements-and-expectations)
-    + [Requirements](#requirements)
-    + [Expectations](#expectations)
-  * [Wireframes](#wireframes)
-    + [Potential features](#potential-features)
-    + [Major changes compared to above wireframes and potential features](#major-changes-compared-to-above-wireframes-and-potential-features)
-  * [Design Choices](#design-choices)
-    + [Fonts](#fonts)
-    + [Colors](#colors)
-  * [Features](#features)
-    + [Responsive](#responsive)
-    + [Interactive elements](#interactive-elements)
-    + [Features left to Implement](#features-left-to-implement)
-    + [Existing Features](#existing-features)
-    + [Features Left to Implement](#features-left-to-implement)
-  * [Technologies Used](#technologies-used)
-    + [Languages used](#languages-used)
-    + [Frameworks, Libraries and Programs used](#frameworks--libraries-and-programs-used)
-    + [API (Application Programming Interfaces) used](#api--application-programming-interfaces--used)
-  * [Testing](#testing)
-    + [Manual testing](#manual-testing)
-    + [Automated testing](#automated-testing)
-      - [UX testing](#ux-testing)
-      - [Test cases/Scenarios](#test-cases-scenarios)
-      - [Validation with W3S](#validation-with-w3s)
-      - [Validation with JSHint](#validation-with-jshint)
-      - [Different browsers](#different-browsers)
-    + [Some of the bugs](#some-of-the-bugs)
-  * [Deployment](#deployment)
-    + [Forking the GitHub Repository](#forking-the-github-repository)
-    + [Making a local clone](#making-a-local-clone)
-  * [Credits](#credits)
-    + [Content](#content)
-    + [Media](#media)
-    + [Acknowledgements](#acknowledgements)
+- [UX](#ux)
+  * [External users goal](#external-users-goal)
+  * [Site owners goal](#site-owners-goal)
+  * [User stories](#user-stories)
+- [User requirements and Expectations](#user-requirements-and-expectations)
+  * [Requirements](#requirements)
+  * [Expectations](#expectations)
+- [Wireframes](#wireframes)
+  * [Potential features](#potential-features)
+  * [Major changes compared to above wireframes and potential features](#major-changes-compared-to-above-wireframes-and-potential-features)
+- [Design Choices](#design-choices)
+  * [Fonts](#fonts)
+  * [Colors](#colors)
+- [Features](#features)
+  * [Responsive](#responsive)
+  * [Interactive elements](#interactive-elements)
+  * [Features left to Implement](#features-left-to-implement)
+  * [Existing Features](#existing-features)
+  * [Features Left to Implement](#features-left-to-implement)
+- [Technologies Used](#technologies-used)
+  * [Languages used](#languages-used)
+  * [Frameworks, Libraries and Programs used](#frameworks--libraries-and-programs-used)
+  * [API (Application Programming Interfaces) used](#api--application-programming-interfaces--used)
+- [Testing](#testing)
+  * [Manual testing](#manual-testing)
+  * [Automated testing](#automated-testing)
+  * [Test cases/Scenarios](#test-cases-scenarios)
+  * [UX testing](#ux-testing)
+  * [Validation with W3S](#validation-with-w3s)
+  * [Validation with JSHint](#validation-with-jshint)
+  * [Different browsers](#different-browsers)
+  * [Some of the bugs](#some-of-the-bugs)
+- [Deployment](#deployment)
+  * [Forking the GitHub Repository](#forking-the-github-repository)
+  * [Making a local clone](#making-a-local-clone)
+- [Credits](#credits)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgements](#acknowledgements)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -139,8 +139,8 @@ place, ranking and grade.
 
 ## Wireframes
 I used [Balsamiq Wireframes](https://balsamiq.com/) to build rudimentary 
-wireframes for a basic understanding. I have made frames for desktop, tablet 
-and mobile. Original wireframe design:
+wireframes for a basic understanding. I have made frames for **desktop, tablet 
+and mobile**. Original wireframe design:
 - [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
 - [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
@@ -165,12 +165,12 @@ and mobile. Original wireframe design:
 ### Major changes compared to above wireframes and potential features
 - Added a **carousel with pictures** in top of page to inspire user and attract users.
 
-## Design Choices
-- Rounded edges is a theme that gives a "softer impression".
-- The content belonging to one another is surrounded by a blue border.
-- One page: when talking to younger users they preferred one page since
-using smaller devices as mobile phones you do not want to use clicks but 
+## Design Choices 
+- The **content belonging** to one another is surrounded by a **blue border**.
+- **One page**: when talking to younger users they preferred one page since
+using smaller devices as mobile phones you do not want to use to many clicks but 
 rather scrolling.
+- **Rounded edges** is a theme that gives a "softer impression".
 
 ### Fonts
 I have choosen **Oswald**, because i find it very **useful** on different 
@@ -178,7 +178,7 @@ platforms, **clean** and **easy** to read. "Oswald is designed
 to be used freely across the internet by web browsers on desktop computers, 
 laptops and mobile devices." (quote from 
 [Google fonts](https://fonts.google.com/specimen/Oswald#standard-styles). 
-And as the alternative font: Open Sans. 
+And as the **alternative font: Open Sans**. 
  
 ### Colors
 I want the colors to match a day in the skiing slope: White for **snow**, 
@@ -191,7 +191,6 @@ light-blue for the **sky** and yellow for the **sun**.
 - Details to **stick out** as buttons: **Sunglow** #fecf3e
 
 ## Features
- 
 - **Header**:
     - navbar and logo fixed at the top of viewport:
         - **logo**: When hover over it becomes larger
@@ -217,12 +216,12 @@ saved in a file: [resorts.json](https://github.com/Carina-P/Skiers-Destinations/
     width the information is shown beside the map. With smaller widths the
     information is shown below map.
     ![Implementation of long resort information](wireframes/long-info.jpg)
-    - **File with javaScript** for implementing the rating part of page: 
+    - **File with javaScript** for implementing the **rating list-section** of page: 
     assets/js/rating.js - Since it is a lot of code it is easier
     to find specific code and probably easier to add code by keeping the code
-    for implementing rating in seperate file. Instead of putting the code 
+    for implementing rating in **separate file**. Instead of putting the code 
     togehter with rest of javaScript implementation (assets/js/scripts.js).
-    This is to the cost of longer loading with two js-files compared to only 
+    This is to the cost of the time spent loading with two js-files compared to only 
     one file.
 - **Table with 10-top** skiing resort sorted with the **best ranked resort in the
     top and the resort with lowest ranking in bottom**.
@@ -268,34 +267,33 @@ saved in a file: [resorts.json](https://github.com/Carina-P/Skiers-Destinations/
 ![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
-The site is design to fit devices with screen width from 360px to 3840 px.
+The site is design to fit devices with screen width from **360px to 3840 px**.
 The following features are designed differently for different devices:
-- Navbar: On screen widths smaller than 768px the navbar collapses into 
+- **Navbar**: On screen widths **smaller** than 768px the navbar **collapses** into 
 "hamburger" menu.
-- Resort information beside or below map: On larger screens with width over 
-768px longer resort information is shown to the right of the map. On smaller
-devices the information is shown under the map.
-- Rating list: On devices with screen smaller than 768px every resort with 
-rating is shown in a "card-layout" ordered from highest ranked resort to
-lowest. On larger screens the information is presented in a table.
-- On very small devices (width less than 400px) the font size is 14px. 
+- **Resort information beside or below map**: On **larger** screens with width over 
+768px longer resort information is shown **to the right of the map**. On **smaller**
+devices the information is shown **below the map**.
+- **Rating list**: On devices with screen **smaller** than 768px every resort with 
+rating is shown in a **"card-layout"** ordered from highest ranked resort to
+lowest. On **larger** screens the information is presented in a **table**.
+- On **very small devices** (width less than 400px) the **font size is 14px**. 
 
 ### Interactive elements
-- The navbar and logo: to move around in the page
-- When clicking on markers in the map: Both short information and longer
-information, for the resort marker points to, appears. The short information
-in a infoWindow in the map and the longer information besides the map (if larger
-screens) or below map (if smaller screens).
-The longer information changes when user clicks at other marker. The shorter 
-information stays as long as the user chooses.
-- User can cast a vote and rate ski resort and then: 
-    - The grade casted is visualized as stars.
-    - A new average grading for resort is calculated.
+- The **navbar and logo**: to move around in the page
+- When **clicking on marker** for a resort in the map: Both short resort information and longer
+resort information appears. The short information in a **infoWindow in the map** and the longer information **besides the map** 
+(if larger screens) or **below map** (if smaller screens).
+The **longer information changes** when user clicks at other marker. The **shorter 
+information stays** as long as the **user chooses**.
+- User can **cast a vot**e and rate ski resort and then: 
+    - The grade casted is **visualized as stars**.
+    - A **new average grading** for resort is **calculated**.
     - If the new average grading for resort affects the resorts place in
-    rating list - the rating list is immediately updated.
-- User can submit his/her votes by mail, for later adding to average rating 
+    rating list - the **rating list is immediately updated**.
+- User can **submit** his/her **votes by mail** by clicking on button, for later adding to average rating 
 list.
-- User can submit a mail to wish adding of a ski resort to the page.
+- User can **submit a mail** to wish **adding of a ski resort** to the page.
 
 ### Features left to Implement
 Adding a **server**:
@@ -368,25 +366,24 @@ was used.
     - From this API uptodate snow report and weather forecast for each resort is received.
 
 ## Testing
-The testing has mainly been conducted manually. Some automated testing has been
-constructed and used. 
+The testing has **mainly** been conducted **manually**. **Some automated testing** is developed. 
 
-The TDD, testdriven development, process was followed. The development/
-implementation cycles have been very short and test cases have
-been developed/thought off before code was implemented. Test cases are documented here:
-[Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf).
+The TDD, **TestDriven Development**, process was followed. The development/
+implementation **cycles** have been **very short** and **test cases** have
+been developed/thought off **before code** was implemented. Test cases are documented here:
+**[Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf).**
 
-Before new code was commited, testing of all code developed earlier was
-tested again. And of course the automated tests were run repeatedly.
+**Before** new code was **commited**, testing of all code developed earlier was
+**tested again**. And of course the **automated tests** were run **repeatedly**.
 
-When all features were implemented and tested the following tests were 
+When **all features were implemented** and tested the following tests were 
 performed:
-- Went througt the **test cases**, for functional testing and testing of
-responsiveness, as described below
-- HTML-code validated by [W3S Markup validation service](https://validator.w3.org/)
-- CSS-cod validated by [W3S CSS validation service](https://jigsaw.w3.org/css-validator/)
-- JavaScript-code validated by [JSHint](https://jshint.com/)
-- The site was tested on different browsers, as described below
+- Went througt the **test cases**, for **functional testing and testing of
+responsiveness**, as described below
+- **HTML-code validated** by [W3S Markup validation service](https://validator.w3.org/)
+- **CSS-cod validated** by [W3S CSS validation service](https://jigsaw.w3.org/css-validator/)
+- **JavaScript-code validated** by [JSHint](https://jshint.com/)
+- The site was tested on **different browsers**, as described below
 - The **deployed version** was tested
 
 ### Manual testing
@@ -395,16 +392,16 @@ Then **thorough** after all features were in place.
 
 ### Automated testing
 The tests were developed ahead of implementing features. And obviously the 
-first tests failed all the time. Then features are implemented and
-automatically tested in an iterative process with small parts of code every
+**first tests failed all the time**. Then features are implemented and
+automatically tested in an **iterative process** with small parts of code every
 time.
 
 The following automated tests have been developed:
-- The calculating of new average rating when user casts av vote. The function
+- The **calculation of new average rating** when user casts av vote. The function
 is called calculateNewRating and belongs to the object: RatedResort.
-- Test that function hasVoted, belonging to Object: RatedResort, returns right value.
+- Test that function **hasVoted**, belonging to Object: RatedResort, returns right value.
 - Automated testing have been used on following functions to test what happens
-if they are given wrong conditions as eg. something is wrong with input 
+if they are **given wrong conditions** as eg. something is wrong with input 
 parameters (this was hard to test manually). The functions all belong to the 
 object: RatedResort:
     - starsToHTML
@@ -430,48 +427,48 @@ In addition, you should mention in this section how your project looks and works
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
--->  
-### UX testing
-UX testing was conducted by watching and interviewing users when they used the page. Examples of issues/discussions:
-- Wish for a header above map with resorts. (fixed)
-- User could submit/mail votes when no votes where casted. (fixed)
-- Discussed if user should be able to submit several times instead of once. Decided that it is enough with once.
-- On smaller viewport widths initial instruction is presented under the map (in larger viewports to the right).
-    - Discussed with users if should move the initial instruction and also the longer information about resort to above the map instead.
-    - Users agreed they wanted longer information below map. They wanted to see the map first.
-    - The solution was to add a short instruction also above map.
-- Sometimes confusing that the list is updated as soon as user cast a vote. Especially if the resort moves up or down
-in rating list:
-    - Users still wanted the list to be updated at once.
-    - Did a trial where the "href was moved" to top of list after every time user casted a vote. The users thought it was better
-    without this feature.
-    - The solution was to add a "notice" in head of list.
- 
+-->
 ### Test cases/Scenarios
 26 test cases with protocol for functional testing and test of responsiveness is documented here:
 [Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf)
 Test of responsiveness was mainly performed with help of Chrome Developers Tool. But also with
 ipad and iPhone7.
 
+### UX testing
+UX testing was conducted by **watching and interviewing users** when they used the page. Examples of issues/discussions:
+- Wish for a **header above map** with resorts. (fixed)
+- User could **submit/mail votes** when **no votes** where **casted**. (fixed)
+- Discussed if user should be able to **submit rating list several times** instead of once. Decided that it is enough with once.
+- On **smaller** viewport widths initial instruction is presented **under the map** (in larger viewports to the right).
+    - Discussed with users if should **move** the initial instruction and also the longer information about resort **to above the map** instead.
+    - Users wanted **longer information below map**. They wanted to see the map first.
+    - The solution was to **add a short instruction also above map**.
+- Sometimes **confusing** that the list is **updated as soon as user cast a vote**. Especially if the resort moves up or down
+in rating list:
+    - Users still **wanted the list to be updated at once**.
+    - Did a trial where the "href was moved" to top of list after every time user casted a vote. The users thought it was better
+    without this feature.
+    - The solution was to **add a "notice" above list**.
+ 
 ### Validation with W3S
-- HTML: Validated with no errors but got a warning, described above
-- CSS: Validated with no errors.
+- **HTML**: Validated with **no errors** but got a warning, described below
+- **CSS**: Validated with **no errors**.
 
 ### Validation with JSHint 
-JavaScript validated with no errors. 
-- There is four undefined variables: google, $, MarkerClusterer and emailjs:
-These are all global variables from sources that is linked.
-- There is two unused variables:
-    - clusterOfMarkers: used when call to a constructor from googles API.
+**JavaScript** validated with **no errors**. 
+- There is **four undefined variables**: google, $, MarkerClusterer and emailjs:
+These are all **global variables** from sources that is **linked to the site**.
+- There is **two unused variables**:
+    - clusterOfMarkers: used when call to a **constructor** from googles API.
     Must call constructor of MarkerClusterer to get cluster of markers in map.
-    -  initMap is a callback-function initiated from the HTML code.
+    -  initMap is a **callback-function** initiated from the HTML code.
 
 ### Different browsers
-The code is mainly tested with Chrome. But also Firefox and Safari.
+The code is **mainly tested with Chrome**. But also **Firefox and Safari**.
 - According to [W3 Schools](https://www.w3schools.com/js/js_es6.asp) the 
 JavaScript code will probably not work well on browsers less than the 
-following versions: Chrome 58, Edge 14, Firefox 54, Safari 10 and Opera 55 
-And that is because following features from ECMAScriptS6 is used: 
+following versions: **Chrome 58, Edge 14, Firefox 54, Safari 10 and Opera 55** 
+And that is because following features from **ECMAScriptS6** is used: 
 - let
 - const
 - template literal syntax
@@ -479,10 +476,10 @@ And that is because following features from ECMAScriptS6 is used:
 
 ### Some of the bugs
 **Example of solved bugs:**
-- Syncronosly creating markers to map that depended on asyncronos fetching of information is done first:
+- **Syncronosly** creating markers to map that depended on **asyncronosly fetching** of information is done first:
 Solved by using fetch.then and Promise.all. 
-- To calculate average rating number who has voted has to be known.
-- User could submit/email ratings when no votes where casted.
+- To be able to **calculate average rating** the **number of persons** that has voted has to be known.
+- User **could submit/email ratings** when **no votes** where casted.
 
 **Remaining "bugs":**
 - Sometimes a **CORS**, Cross Origin Resource Sharing,-problem appears when
@@ -493,13 +490,13 @@ information could not be fetched.
 `<h4 class="modal-title" id="mail-answer"></h4>`
 Text is put in the heading **from JavaScript**.
 - Files under assets/images/weather/ is copied from [Weather Unlocked](http://www.weatherunlocked.com/).
-Forecast information is fetched from Weather Unlockeds API and this forecast refers to these files.
-File names should only contain lowercase letters but these file names starts with capital letter. The file names
-are not changed since they are referenced to in fetched information.
-- The site has issues with cookies in cross-site requests since SamSite attribute is not set.
+**Forecast information** is fetched from Weather Unlockeds API and this forecast **refers to** these **files**.
+File names should only contain lowercase letters but **these file names starts with capital letter**. The file names
+are not changed since they are referenced to from fetched information.
+- The site has **issues with cookies** in cross-site requests since SamSite attribute is not set.
 
 ## Deployment 
-Skiers Destinations was developed on GitPod [GitPod](https://www.gitpod.io/), using git and GitHub to host the repository. The code was pushed
+Skiers Destinations was developed on **GitPod** [GitPod](https://www.gitpod.io/), using **git** and **GitHub** to host the repository. The code was pushed
 to GitHub Pages.
  
 When deploying Skiers Destinations using GitHub Pages the following steps were made:
