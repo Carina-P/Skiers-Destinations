@@ -63,16 +63,19 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
         }
 
         for (let i = 0; i < fullStars; i++){
-            starsHTML += `<span class="fas fa-star yellow"></span>`;
+            starsHTML += `<span class="fas fa-star yellow" aria-hidden="true">
+            </span>`;
         }
 
         if ((remainder > 0.25) && (remainder < 0.75)){
-            starsHTML +=`<span class="fas fa-star-half-alt yellow"></span>`;
+            starsHTML +=`<span class="fas fa-star-half-alt yellow" 
+            aria-hidden="true"></span>`;
             fullStars++;
         }
 
         for (let i = fullStars; i < 5; i++){
-            starsHTML += `<span class="far fa-star yellow"></span>`;
+            starsHTML += `<span class="far fa-star yellow" aria-hidden="true">
+            </span>`;
         }
 
         return starsHTML;
@@ -263,8 +266,8 @@ function RatedList(list){
                 </div>`;
             }
             else{
-                toHTML += `<div id="index${i}" class="border-blue pt-2 mb-2">
-                </div>`;
+                toHTML += `<div id="index${i}" 
+                class="border-blue rounded-corners pt-2 mb-2"> </div>`;
             }
         }
 
