@@ -334,17 +334,18 @@ function RatedList(list){
         this.toDocument();
     }; 
     /**
-     * Returns true if user has not casted any new vote for resort in the list
+     * Returns true if user has not casted new vote for any resort in the list
      * 
      * @returns {boolean} Indicates if votes are not casted
      */
     this.noVotesCasted = () => {
+        let notVoted = true;
         this.list.forEach((resort) => {
             if (resort.hasVoted()){
-                return false;
+                notVoted = false;
             }
         })
-        return true;
+        return notVoted;
     };
 } 
 
