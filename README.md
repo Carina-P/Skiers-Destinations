@@ -77,8 +77,11 @@ list.
 - US_003: As a user I want to be able to **navigate directly** to contact form.
 - US-004: As a user I want to be able to **get back easily to the top** of the
 page.
+![implementation of navbar](wireframes/navbar.jpg)
+![Implementation of navbar, devices smaller width](wireframes/navbar-hamburger.jpg)
 - US-005: As a user I want to know **where good skiing places**, in Europe, are
 situated in a **map**. In this way I know were in Europe the resort is situated.
+![Implementation of map](wireframes/map.jpg)
 - US_006: As a user I want a **short description of a resort**. In this way I
 know if it is a resort that I am interested in.
 - US_007: As a user I want **uptodate information** about **snow conditions**
@@ -89,6 +92,7 @@ the future.
 - US_008: As a user I want **todays weather forecast** at resort. This is
 interesting to know if I am at the place or on my way to the place and want to
 know what to expect.
+![Implementation of short info, snow report and forecast information](wireframes/long-info.jpg) 
 - US_009: As a user I want to be able to **compare different ski resorts**.
 Things to compare:
     - **altitude** at top and at base
@@ -96,24 +100,33 @@ Things to compare:
     - number of **lifts**
     These are thing interesting to know e.g. when you are deciding which resort
     you want to visit.
+![Implementation of infoWindows in map](wireframes/info-window.jpg)
 - US_010: As a user I want to know which skiing places **other users rank as
 the best**. And I will get inspired which resort to go to and perhaps discover
 a new place I was not aware of. I can also compare a specific resorts ranking
 to a resort that I already know about.
+![Implementatin of rating list on larger viewports](wireframes/table.jpg)
+![Implementation rating list on smaller viewports](wireframes/cards.jpg)
 - US_011: As a user I want to be able to **cast my on vote** for a resort. And
 thus contribute to other users descision process.
+
+![Implementation of voting](wireframes/pick.jpg)
 - US_012: As a user I want to be able to **see how I graded each resort**. Thus
 I can compare my ranking between the resorts.
 - US_013: As a user I want to see the **resulting top-list** after I have
 casted my vote. If my vote affects the order of ski resorts I want to see it
 immediately. 
+![Implementation of list after voting](wireframes/after-rating.jpg)
 - US-014: As a user I want to be able to **send in my ratings** to be added to
 the list.
+![Implementation of submitting votes](wireframes/submit-votes.jpg)
 - US-014: As a user I want to be able to **influence which ski resorts are
 shown** on the site. If I am interested in a particular ski resort that does
 not show on the page. 
+![Implementation of form for resort wishes](wireframes/form.jpg)
 - US-015: As a user I want to be **inspired** to go skiing. And in this way
 more interested and keen on finding out more about resorts.
+![Implementation of heading with carousel](wireframes/heading.jpg)
 
 ## User requirements and Expectations
 
@@ -289,7 +302,7 @@ compared to **loading** of one file.
 ![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
-The site is design to fit devices with screen width from **360px to 3840 px**.
+The site is design to fit devices with screen width from **320px to 3840 px**.
 The following features are designed differently for different devices:
 - **Navbar**: On screen widths **smaller** than 768px the navbar **collapses**
 into "hamburger" menu.
