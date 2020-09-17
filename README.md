@@ -67,11 +67,11 @@ In particular, as part of this section we recommend that you provide a list of U
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 -->
 ### External users goal
-- **Easily**, by starting with clicking on markers in a **map**, find **information and up-to-date facts** about some of the
+- **Easily**, by starting with clicking on marker in a **map**, find **information and up-to-date facts** about some of the
 **ski resorts in Europe**.
 - Find **inspiration** were to go by **comparing differents ski resorts** both with uptodate information but also by other users **rating of resorts**.
-- By using the site frequently the user can see how **snow conditions develop** over time.
-- Find **weather forecast**, which is good if you are at a resort or are going to a resort. 
+- See how **snow conditions develop** over time by using the site frequently.
+- Find the **weather forecast** for a resort. 
 
 <!--
 User can easily compare different resorts, follow how snow conditions develop, see weather forecastscan find **inspiration** where to go on next ski trip by looking at uptodate facts about resorts
@@ -88,24 +88,24 @@ of resorts and **get uptodate information** about skiing conditions and weather
 at favourite spots.
  
 ### User stories 
-- US_001: As a user I want to be able to **navigate directly** to the map. If it is the map I am interested in.
-- US_002: As a user I want to be able to **navigate directly** to the rating list. So I can go directly to the rating list.
-- US_003: As a user I want to be able to **navigate directly** to contact form. So I can go directly to the form.
+- US_001: As a user I want to be able to **navigate directly** to the map.
+- US_002: As a user I want to be able to **navigate directly** to the rating list.
+- US_003: As a user I want to be able to **navigate directly** to contact form.
 - US-004: As a user I want to be able to **get back easily to the top** of the page.
 - US-005: As a user I want to know **where good skiing places**, in Europe, are situated in a **map**. In this way I know were in Europe the resort is situated.
 - US_006: As a user I want a **short description of a resort**. In this way I know if it is a resort that I am interested in.
 - US_007: As a user I want **uptodate information** about **snow conditions** at a resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
-- US_008: As a user I want **todays weather forecast** at resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect. If I am not going to the place it is interesting to follow and compare to other resorts. Deciding were I am going in the future.
+- US_008: As a user I want **todays weather forecast** at resort. This is interesting to know if I am at the place or on my way to the place and want to know what to expect.
 - US_009: As a user I want to be able to **compare different ski resorts**. Things to compare:
     - **altitude** at top and at base
     - number of **slopes**
     - number of **lifts**
     These are thing interesting to know e.g. when you are deciding which resort you want to visit.
-- US_010: As a user I want to know which skiing places **other users rank as the best**. And I will get inspired on were I want to go or perhaps discover a new place I was not aware of. I can also compare resorts ranking to a resort that I already know about.
-- US_011: As a user I want to be able to **cast my on vote** for a resort. And in this I will be able to contribute to other users descision process.
+- US_010: As a user I want to know which skiing places **other users rank as the best**. And I will get inspired which resort to go to and perhaps discover a new place I was not aware of. I can also compare a specific resorts ranking to a resort that I already know about.
+- US_011: As a user I want to be able to **cast my on vote** for a resort. And thus contribute to other users descision process.
 - US_012: As a user I want to be able to **see how I graded each resort**. Thus I can compare my ranking between the resorts.
 - US_013: As a user I want to see the **resulting top-list** after I have casted my vote. If my vote affects the order of ski resorts I want to see it immediately. 
-- US-014: As a user I want to be able to **send in my ratings** to be added to the list. And I can contribute to others.
+- US-014: As a user I want to be able to **send in my ratings** to be added to the list.
 - US-014: As a user I want to be able to **influence which ski resorts are shown** on the site. If I am interested in a particular ski resort that does not show on the page. 
 - US-015: As a user I want to be **inspired** to go skiing. And in this way more interested and keen on finding out more about resorts.
 
@@ -115,15 +115,14 @@ at favourite spots.
 - Navigate the website using **navbar**
 - **Carousel with photos** in beginning of page to inspire users.
 - **Markers** at ski resorts in the map.
-- Beside marker: find **short facts** in InfoWindow about resort. Thus user is able to **compare different resorts**.
-- When user **choose a resort** - **information**, as forecast and snow conditions, **about the resort** turns up besides the map.
-- An **updated list** of the 10 most popular ski-resorts with name of the 
-place, ranking and grade. 
-- **Grading is calculated** from users input.
-- **Grading is visualised** with the number of **stars** and if applicable "half-star".
+- Beside marker: find **short facts** in InfoWindow about resgort. Thus user is able to **compare different resorts**.
+- When user **choose a resort** - **information**, as forecast and snow conditions, **about the resort** is shown close to the map.
+- An **updated list** of the **10 most popular ski resorts** with name of the place and its ranking. 
+- **Overall average grading is calculated** from users input.
+- **Grading is visualized** with the number of **stars** and if applicable "half-star".
 - The 10-top list should be **updated immediately** when user grade a resort.
 - It is possible for same user to **cast more votes if reloading** the page.
-- Possibility to **mail wishes** for other Ski Resorts to be shown on the site. The input should include name of ski resort, why resort is interesting (reason), name of person who is mailing and persons mail address.
+- Possibility to **mail wish** for other Ski Resort to be shown on the site. The input should include name of ski **resort**, why resort is interesting (**reason**), **name** of person who is mailing and persons **mail address**.
 
 ### Expectations
 - Content is **visually satisfying and informative**
@@ -131,7 +130,7 @@ place, ranking and grade.
 - **Links and buttons** work as espected
 - **Responsive design** fitting on mobile, tablet and desktop 
 - **Information** about a ski resort is immediately shown when user **has choosen a resort**.
-- **Short information** in map stays open until user choose to close the information.
+- **Short information** in map stays open until user chooses to close the information.
 - **Information beside/below the map** is **updated** every time the user chooses a new resort.
 - **New average grade is correctly calculated** after user graded a ski resort.
 - **Updating of 10-top-list** works after user grading.
