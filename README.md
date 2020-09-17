@@ -169,7 +169,7 @@ chooses a new resort.
 wireframes for a basic understanding. Wireframes were made for **desktop,
 tablet and mobile:**
 - [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
-- [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
+- [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
 
 ### Potential features

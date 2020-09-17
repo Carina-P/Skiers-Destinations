@@ -82,6 +82,9 @@ h5{
 }
 
 /* top-10 section */
+select{
+    border: solid 0.1rem #262730; 
+}
 .yellow{
   color: #fecf3e;
 } 
