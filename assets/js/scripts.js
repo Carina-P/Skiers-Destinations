@@ -59,9 +59,6 @@ function ResortInMap(resort){
             <p>At the moment our provider of information can not
             give us weather information for ${this.name}.</p>
             <p>Sometimes it helps to reload the page!</p>
-            <p> Notice that usually is information
-            for other resorts in place. Check by clicking on other resorts
-            marker.</p>
             </div>`;
         }
         else {
@@ -87,10 +84,7 @@ function ResortInMap(resort){
         if (snowReport === undefined){
             txt += `<p>At the moment our provider of information can not
             give us the snow report for ${this.name}.</p>
-            <p>Sometimes it helps to reload the page!</p>
-            <p> Notice that usually is information
-            for other resorts in place. Check by clicking on other resorts
-            marker.</p>`;
+            <p>Sometimes it helps to reload the page!</p>`;
         }
         else {
             txt += `<div class="text-center"><p><small>New snow:</small>
@@ -150,7 +144,8 @@ function fetchResortInfo(url){
             }
             return res.json();
         })
-        .catch( (error) => console.log("Error!", error));
+        .catch( (error) => 
+            console.log("Error when fetching information!", error));
 }
 
 /**
@@ -217,7 +212,8 @@ function putResortMarkersInMap(){
         const clustersOfMarkers =
             new MarkerClusterer(map, resortsInfo.map(getMarker),
             {imagePath: "assets/images/m"});})
-    .catch( error => {console.error("Error:", error);});
+    .catch( error => {console.log("Error when fetching information:", error);}
+    );
 }
 
 /**
