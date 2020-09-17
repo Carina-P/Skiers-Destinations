@@ -506,12 +506,18 @@ Promise.all.
 - To be able to **calculate average rating** the **number of persons** that has
 voted has to be known.
 - User **could submit/email ratings** when **no votes** where casted.
+- Placeholder of textarea in "wish-resort"-form did not show. It was due to
+spaces and linebreak between end of closing tag for textarea> and beginning of
+closing tag for </textarea.
+Found solution at 
+[Stackoverflow](https://stackoverflow.com/questions/10186913/html5-textarea-placeholder-not-appearing).
 
 **Remaining "bugs":**
 - Sometimes a **CORS**, Cross Origin Resource Sharing,-problem appears when
 **fetching information from API: Weather Unlocked**. The problem happens
 randomly to different resorts. When the problem occurs the **user is informed**
 which information could not be fetched.
+![Information to user when fetch of forecast is failing](wireframes/fetch-error.jpg)
 - Files under assets/images/weather/ is copied from 
 [Weather Unlocked](http://www.weatherunlocked.com/). **Forecast information**
 is fetched from Weather Unlockeds API and this forecast **refers to** these
