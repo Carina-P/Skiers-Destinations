@@ -137,9 +137,9 @@ at favourite spots.
 - **Form validation** works correctly
 
 ## Wireframes
-I used [Balsamiq Wireframes](https://balsamiq.com/) to build rudimentary 
-wireframes for a basic understanding. I have made frames for **desktop, tablet 
-and mobile**. Original wireframe design:
+[Balsamiq Wireframes](https://balsamiq.com/) was used to build rudimentary 
+wireframes for a basic understanding. Wireframes were made for desktop, tablet 
+and mobile:
 - [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
 - [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
