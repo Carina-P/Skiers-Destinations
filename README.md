@@ -422,7 +422,13 @@ object: RatedResort:
     - starsToHTML
     - rowToHTML
     - noVoteHTML
- 
+
+**To run tests:**
+- Follow this link 
+[Spec Runner](https://github.com/Carina-P/Skiers-Destinations/blob/master/testing/spec-runner.html)
+- Start GitPod: Click on green button "GitPod"
+- Open "Preview to the Side" in GitPod (icon in top right corner)  
+
 ### Test cases/Scenarios
 26 test cases with protocol for functional testing and test of responsiveness
 is documented here:
