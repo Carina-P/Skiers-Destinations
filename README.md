@@ -458,9 +458,8 @@ vote**. Especially if the resort moves up or down in rating list:
     - The solution was to **add a "notice" above list**.
  
 ### Validation with W3S
-- **HTML**: Validated with **no errors** but got a warning, described under
-"Some of the bugs"
-- **CSS**: Validated with **no errors**.
+- **HTML**: Validated with **no errors** or warnings.
+- **CSS**: Validated with **no errors** or warnings.
 
 ### Validation with JSHint 
 **JavaScript** validated with **no errors**. 
@@ -497,9 +496,6 @@ voted has to be known.
 **fetching information from API: Weather Unlocked**. The problem happens
 randomly to different resorts. When the problem occurs the **user is informed**
 which information could not be fetched.
-- W3S validation of HTML-code gives a warning of **empty heading**:
-`<h4 class="modal-title" id="mail-answer"></h4>`
-Text is put in the heading **from JavaScript**.
 - Files under assets/images/weather/ is copied from 
 [Weather Unlocked](http://www.weatherunlocked.com/). **Forecast information**
 is fetched from Weather Unlockeds API and this forecast **refers to** these
@@ -573,6 +569,7 @@ I recived inspiration for this project from:
 - [Web Dev Simplified: Learn fetch API in 6 Minutes](https://www.youtube.com/watch?v=cuEtnrL9-H0)
 - [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
 - [MDN web docs: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+- [Stackoverflow: Which heading to use in modals](https://stackoverflow.com/questions/60504268/which-header-should-we-choose-for-modal-dialogs)
 
 Thanks to my mentor [Simen Daehlien](https://www.github.com/eventyret) who introduced fetch and gave me above youtube-links.
 <!--
