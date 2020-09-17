@@ -497,8 +497,11 @@ And that is because following features from **ECMAScriptS6** is used:
 
 ### Some of the bugs
 **Example of solved bugs:**
-- **Syncronosly** creating markers to map that depended on **asyncronosly
-fetching** of information, is done first: Solved by using fetch.then and
+- **Synchronously** creating clusters and markers with information, is
+depended on **asynchronously fetching** of information, is done first. For each
+resort fetched asynchronously both snowreport information and then weather 
+forecast must be fetched asynchronously. Important that everything is fetched
+in right order otherwise it does not work. Solved by using fetch.then and 
 Promise.all. 
 - To be able to **calculate average rating** the **number of persons** that has
 voted has to be known.
