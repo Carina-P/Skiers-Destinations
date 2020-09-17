@@ -138,8 +138,8 @@ at favourite spots.
 
 ## Wireframes
 [Balsamiq Wireframes](https://balsamiq.com/) was used to build rudimentary 
-wireframes for a basic understanding. Wireframes were made for desktop, tablet 
-and mobile:
+wireframes for a basic understanding. Wireframes were made for **desktop, tablet 
+and mobile:**
 - [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
 - [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wirefram-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
@@ -149,7 +149,7 @@ and mobile:
     - **logo**
     - **navbar**
 - **Information**-section with:
-    - **Map** with markers on skiing resorts.
+    - **Map** with markers at skiing resorts.
     - **Skiing-resort information** matching the label user has 
         **choosen in map**.
 - **Recommendation**-section with:
@@ -165,14 +165,14 @@ and mobile:
 - Added a **carousel with pictures** in top of page to inspire user and attract users.
 
 ## Design Choices 
-- The **content belonging** to one another is surrounded by a **blue border**.
+- **Content belonging** to one another is surrounded by a **blue border**.
 - **One page**: when talking to younger users they preferred one page since
 using smaller devices as mobile phones you do not want to use to many clicks but 
 rather scrolling.
 - **Rounded edges** is a theme that gives a "softer impression".
 
 ### Fonts
-I have choosen **Oswald**, because i find it very **useful** on different 
+**Oswald** is choosen, because it is found **useful** on different 
 platforms, **clean** and **easy** to read. "Oswald is designed 
 to be used freely across the internet by web browsers on desktop computers, 
 laptops and mobile devices." (quote from 
@@ -192,39 +192,33 @@ light-blue for the **sky** and yellow for the **sun**.
 ## Features
 - **Header**:
     - navbar and logo fixed at the top of viewport:
-        - **logo**: When hover over it becomes larger
-        - **navbar**: When hover over links the font is bold
+        - **logo**: When hover over, it becomes larger
+        - **navbar**: When hover over links, the font is bold
         ![implementation of navbar](wireframes/navbar.jpg)
-        - If smaller width of device links are put in "hamburger".
+        - If smaller width of device links are collapsed to a "hamburger" menu.
         ![Implementation of navbar, devices smaller width](wireframes/navbar-hamburger.jpg)
     - The **heading** : 
     - **Carousel** with inspiring photos of skiing and/or Alps
+
     ![Implementation of heading with carousel](wireframes/heading.jpg)
-- **Map** with with markers on popular skiing resorts.
+- **Map** with markers on popular skiing resorts.
 ![Implementation of map](wireframes/map.jpg)
-- Ski resort for the map with "static information as lat and long position" is for convenience, when adding more resorts, 
-saved in a file: [resorts.json](https://github.com/Carina-P/Skiers-Destinations/tree/master/assets/data), from which information is fetched into map. 
-- **Skiing-resort information** matching the marker user has **choosen in map**:
+- Ski resort information, shown in connection with the map, eg. "static information as lat and long position", is for convenience, when adding more resorts, 
+saved in a file: [resorts.json](https://github.com/Carina-P/Skiers-Destinations/tree/master/assets/data). Information is fetched from this file when page is loaded. 
+- **Skiing-resort information** matching the resort user has **choosen in map**:
     - **Short information** about resort, as altitudes, slopes and pists,
-    **in InfoWindow** in the map beside resorts marker. This information stays
-    on screen as long as user do not close it.
+    **in InfoWindow** beside resorts marker. This information stays
+    on screen as long as user does not close the window.
     ![Implementation of infoWindows in map](wireframes/info-window.jpg)
-    - **More information** as short information about resort, snow report and
-    wheather forecast in **larger information window**. This information is
-    changed every time user clicks on other resort. On devices with larger 
-    width the information is shown beside the map. With smaller widths the
+    - **More information** as information about the resort, snow report,
+    wheather forecast and a link, to page with more information, is shown in **larger information window**. 
+    This information is changed every time user clicks on other resort. 
+    On devices with larger width the information is shown beside the map. With smaller widths the
     information is shown below map.
-    ![Implementation of long resort information](wireframes/long-info.jpg)
-    - **File with javaScript** for implementing the **rating list-section** of page: 
-    assets/js/rating.js - Since it is a lot of code it is easier
-    to find specific code and probably easier to add code by keeping the code
-    for implementing rating in **separate file**. Instead of putting the code 
-    togehter with rest of javaScript implementation (assets/js/scripts.js).
-    This is to the cost of the time spent loading with two js-files compared to only 
-    one file.
-- **Table with 10-top** skiing resort sorted with the **best ranked resort in the
+    ![Implementation of long resort information](wireframes/long-info.jpg) 
+- **Table with top-10** skiing resorts, sorted with the **best ranked resort in the
     top and the resort with lowest ranking in bottom**.
-    - On devices with **larger width** the information is shown i **table**.
+    - On devices with **larger width** the information is shown in a **table**.
     ![Implementatin of rating list on larger viewports](wireframes/table.jpg)
     - On **smaller devices** it is presented as **"cards"** that also is sorted
     in ranking order.
@@ -236,22 +230,26 @@ saved in a file: [resorts.json](https://github.com/Carina-P/Skiers-Destinations/
         - The rest is represented by "empty stars" adding upp to 5
 
         ![Implementation of stars to visualize ranking](wireframes/stars.jpg)
-    - Providing possibility to do **users own ranking of place**. When user has
-    vote the list is interactively sorted and updated on the page.
+    - Possibility for user to do his/her **own ranking of a place**. When user has
+    voted the list is interactively sorted and updated on the page.
+    
     ![Implementation of voting](wireframes/pick.jpg)
-    - Possibility for user to **send in his/her votes** to be added to the list:
-        - When hover the submit button: background is changed to black and 
-        font to yellow
+    - Possibility for user to **send in his/her votes** to be added to the list: 
     ![Implementation of submitting votes](wireframes/submit-votes.jpg)
-        - **Modal** with information if sending mail succeded or not.
+        - **Modal** that informats who the submitting went: succceded or not.
 
         ![Implementation of modal](wireframes/modal.jpg)
+- **File with javaScript** for implementing the **rating list-section** of page: 
+    assets/js/rating.js - The code is stored in **separate file** to make it easier
+    to find specific code and easier to add new code in the future. The rest of the JavaScript code 
+    stored in assets/js/scripts.js. Negative effect is that loading time is a little longer with two 
+    javascript-files compared to loading of one file.
 - **Form for wishing** new ski resorts on the site.
     - Input fields: 
         - **Name of resort** user wish to add - mandatory
         - The **reason** user wants to highlight to get resort added - voluntary
         - **Name of person** sending in wish - mandatory
-        - **Email address** to person - mandatory and must contain a @.
+        - **Email address** to person - mandatory and must contain an "@".
     - **Submit button**: when clicked the information of the form is sent by mail.
         - When hover over the button: background is changed to black and font
         to yellow
@@ -296,9 +294,9 @@ list.
 
 ### Features left to Implement
 Adding a **server**:
-- to **store** the **rating** information and the user do not have to mail votes
+- to **store** the **rating** information and then the user do not have to mail votes,
 instead the **updating is done instantly to server** as soon as user cast one vote.
-- to **store and fetch** map resorts, with information, from
+- to **store and fetch** map resorts from
 
 <!--
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
@@ -365,7 +363,7 @@ was used.
     - From this API uptodate snow report and weather forecast for each resort is received.
 
 ## Testing
-The testing has **mainly** been conducted **manually**. **Some automated testing** is developed. 
+The testing has **mainly** been conducted **manually**. **Some automated testing** was also developed. 
 
 The TDD, **TestDriven Development**, process was followed. The development/
 implementation **cycles** have been **very short** and **test cases** have
@@ -430,7 +428,7 @@ If this section grows too long, you may want to split it off into a separate fil
 ### Test cases/Scenarios
 26 test cases with protocol for functional testing and test of responsiveness is documented here:
 [Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf)
-Test of responsiveness was mainly performed with help of Chrome Developers Tool. But also with
+Test of responsiveness was mainly performed with help of Chrome Developers Tool on a large scrren. But also with
 ipad and iPhone7.
 
 ### UX testing
@@ -450,7 +448,7 @@ in rating list:
     - The solution was to **add a "notice" above list**.
  
 ### Validation with W3S
-- **HTML**: Validated with **no errors** but got a warning, described below
+- **HTML**: Validated with **no errors** but got a warning, described under "Some of the bugs"
 - **CSS**: Validated with **no errors**.
 
 ### Validation with JSHint 
@@ -475,7 +473,7 @@ And that is because following features from **ECMAScriptS6** is used:
 
 ### Some of the bugs
 **Example of solved bugs:**
-- **Syncronosly** creating markers to map that depended on **asyncronosly fetching** of information is done first:
+- **Syncronosly** creating markers to map that depended on **asyncronosly fetching** of information, is done first:
 Solved by using fetch.then and Promise.all. 
 - To be able to **calculate average rating** the **number of persons** that has voted has to be known.
 - User **could submit/email ratings** when **no votes** where casted.
@@ -560,6 +558,7 @@ I recived inspiration for this project from:
 - [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
 - [MDN web docs: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
+Thanks to my mentor who introduced fetch and gave me above youtube-links.
 <!--
 - I received inspiration for this project from X
 -->
