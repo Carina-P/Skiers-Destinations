@@ -456,13 +456,14 @@ the page. Examples of issues/discussions:
 - User could **submit/mail votes** when **no votes** where **casted**. (fixed)
 - Discussed if user should be able to **submit rating list several times**
 instead of once. Decided that it is enough with once.
-- On **smaller** viewport widths initial instruction is presented **under the
+- On **smaller** viewport widths, initial instruction is presented **under the
 map** (in larger viewports to the right).
     - Discussed with users if should **move** the initial instruction and also
     the longer information about resort **to above the map** instead.
     - Users wanted **longer information below map**. They wanted to see the map
     first.
-    - The solution was to **add a short instruction also above map**.
+    - The solution was to **add a shorter version of user instruction above 
+    map** for smaller screens.
 - Sometimes **confusing** that the list is **updated as soon as user cast a
 vote**. Especially if the resort moves up or down in rating list:
     - Users still **wanted the list to be updated at once**.

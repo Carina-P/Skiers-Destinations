@@ -229,7 +229,26 @@ function initMap(){
     putResortMarkersInMap();
     $("#map-loading").html(``);
 } 
- 
+
+/**
+ * If it is a small viewport extra user information is added above map.
+ */
+function addUserInfo(){
+    let smallViewport = sizeViewport.matches;
+
+    if (smallViewport){
+        $("#user-markerinfo").html(`<p>Click on marker (and cluster) in the map
+        to get information about ski resort. Information will appear both
+        in the map and <strong>below</strong> the map.</p>`)
+    } 
+    else {
+        $("#user-markerinfo").html(``);
+    }
+}
+
+/* sizeViewport is global variable declared in rating.js */
+sizeViewport.addListener(addUserInfo);
+
 $(document).ready(emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo")); 
  
 $(".js-collapse").on("click", function () { 
