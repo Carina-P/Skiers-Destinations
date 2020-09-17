@@ -47,7 +47,7 @@ function ResortInMap(resort){
     */
     this.addResortTxt = (snowReport, forecastReport) => {
         let txt =
-            `<h2 class = "text-center">${this.name}</h2>
+            `<h3 class = "text-center">${this.name}</h3>
             <p>${this.info}</p>
             <hr class="block-divider">
             <div>
@@ -235,7 +235,6 @@ function initMap(){
  */
 function addUserInfo(){
     let smallViewport = sizeViewport.matches;
-
     if (smallViewport){
         $("#user-markerinfo").html(`<p>Click on marker (and cluster) in the map
         to get information about ski resort. Information will appear both
@@ -249,7 +248,10 @@ function addUserInfo(){
 /* sizeViewport is global variable declared in rating.js */
 sizeViewport.addListener(addUserInfo);
 
-$(document).ready(emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo")); 
+$(document).ready(() => {
+    emailjs.init("user_cnNZR4MUEsDbHZ4M6sFAo");
+    addUserInfo();
+}); 
  
 $(".js-collapse").on("click", function () { 
   $(".navbar-collapse").collapse("hide");
