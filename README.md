@@ -92,14 +92,16 @@ the future.
 - US_008: As a user I want **todays weather forecast** at resort. This is
 interesting to know if I am at the place or on my way to the place and want to
 know what to expect.
+
 ![Implementation of short info, snow report and forecast information](wireframes/long-info.jpg) 
 - US_009: As a user I want to be able to **compare different ski resorts**.
 Things to compare:
     - **altitude** at top and at base
     - number of **slopes**
     - number of **lifts**
-    These are thing interesting to know e.g. when you are deciding which resort
-    you want to visit.
+
+    These things are interesting to know e.g. when you are deciding which
+    resort you want to visit.
 ![Implementation of infoWindows in map](wireframes/info-window.jpg)
 - US_010: As a user I want to know which skiing places **other users rank as
 the best**. And I will get inspired which resort to go to and perhaps discover
@@ -107,14 +109,14 @@ a new place I was not aware of. I can also compare a specific resorts ranking
 to a resort that I already know about.
 ![Implementatin of rating list on larger viewports](wireframes/table.jpg)
 ![Implementation rating list on smaller viewports](wireframes/cards.jpg)
-- US_011: As a user I want to be able to **cast my on vote** for a resort. And
+- US_011: As a user I want to be able to **cast my own vote** for a resort. And
 thus contribute to other users descision process.
 
 ![Implementation of voting](wireframes/pick.jpg)
 - US_012: As a user I want to be able to **see how I graded each resort**. Thus
 I can compare my ranking between the resorts.
 - US_013: As a user I want to see the **resulting top-list** after I have
-casted my vote. If my vote affects the order of ski resorts I want to see it
+casted my vote. If my vote affects the order of ski resorts, I want to see it
 immediately. 
 ![Implementation of list after voting](wireframes/after-rating.jpg)
 - US-014: As a user I want to be able to **send in my ratings** to be added to
@@ -134,10 +136,10 @@ more interested and keen on finding out more about resorts.
 - Navigate the website using **navbar**
 - **Carousel with photos** in beginning of page to inspire users.
 - **Markers** at ski resorts in the map.
-- Beside marker: find **short facts** in InfoWindow about resgort. Thus user is
+- Beside marker: find **short facts** in InfoWindow about resort. Thus user is
 able to **compare different resorts**.
 - When user **choose a resort** - **information**, as forecast and snow
-conditions, **about the resort** is shown close to the map.
+conditions, **for the resort** is shown close to the map.
 - An **updated list** of the **10 most popular ski resorts** with name of the
 place and its ranking. 
 - **Overall average grading is calculated** from users input.
@@ -270,15 +272,15 @@ the top and the resort with lowest ranking in bottom**.
     - Possibility for user to **send in his/her votes** to be added to the
     list: 
     ![Implementation of submitting votes](wireframes/submit-votes.jpg)
-        - **Modal** that informats who the submitting went: succceded or not.
+        - **Modal** that informats how the submitting went: succceded or not.
 
         ![Implementation of modal](wireframes/modal.jpg)
 - **File with javaScript** for implementing the **rating list-section** of
 page: assets/js/rating.js - The code is stored in **separate file** to making
 it easier to find specific code and easier to add new code in the future. The
 rest of the JavaScript code stored in assets/js/scripts.js. Negative effect is
-that loading time is a little **longer time** with two javascript-files
-compared to **loading** of one file.
+that the loading takes a little **longer time** with two javascript-files
+compared to **loading** one file.
 - **Form for wishing** new ski resorts on the site.
     - Input fields: 
         - **Name of resort** user wish to add - mandatory
@@ -286,11 +288,11 @@ compared to **loading** of one file.
         voluntary
         - **Name of person** sending in wish - mandatory
         - **Email address** to person - mandatory and must contain an "@".
-    - **Submit button**: when clicked the information of the form is sent by
+    - **Submit button**: when clicked, the information of the form is sent by
     mail.
         - When hover over the button: background is changed to black and font
         to yellow
-        - **Modal** informing user if sending went well or not. (implementation
+        - **Modal**: informing user if sending went well or not. (implementation
         looking very similar to modal after submitting votes)
 ![Implementation of form for resort wishes](wireframes/form.jpg)
 - **Footer** with contacts and social media:
@@ -335,7 +337,7 @@ later adding to average rating list.
 Adding a **server**:
 - to **store** the **rating** information and then the user do not have to mail
 votes, instead the **updating is done instantly to server** as soon as user
-cast one vote. ¨
+cast one vote.
 - to **store and fetch** map resorts from 
   
 ## Technologies Used 
@@ -391,7 +393,7 @@ testing** was also developed.
 
 The TDD, **TestDriven Development**, process was followed. The development/
 implementation **cycles** have been **very short** and **test cases** have
-been developed/thought off **before code** was implemented. Test cases are
+been developed/thought off, **before code** was implemented. 28 test cases are
 documented here:
 **[Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf).**
 
@@ -443,7 +445,7 @@ object: RatedResort:
 - Open "Preview to the Side" in GitPod (icon in top right corner)  
 
 ### Test cases/Scenarios
-26 test cases with protocol for functional testing and test of responsiveness
+28 test cases with protocol for functional testing and test of responsiveness
 is documented here:
 [Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf)
 Test of responsiveness was mainly performed with help of Chrome Developers Tool
@@ -452,7 +454,7 @@ on a large scrren. But also with iPad mini and iPhone7.
 ### UX testing
 UX testing was conducted by **watching and interviewing users** when they used
 the page. Examples of issues/discussions:
-- Wish for a **header above map** with resorts. (fixed)
+- Wish for a **heading above map** with resorts. (fixed)
 - User could **submit/mail votes** when **no votes** where **casted**. (fixed)
 - Discussed if user should be able to **submit rating list several times**
 instead of once. Decided that it is enough with once.
@@ -498,7 +500,7 @@ And that is because following features from **ECMAScriptS6** is used:
 
 ### Some of the bugs
 **Example of solved bugs:**
-- **Synchronously** creating clusters and markers with information, is
+- **Synchronously** creating clusters and markers, in map, with information, is
 depended on **asynchronously fetching** of information, is done first. For each
 resort fetched asynchronously both snowreport information and then weather 
 forecast must be fetched asynchronously. Important that everything is fetched
@@ -519,12 +521,11 @@ Found solution at
 randomly to different resorts. When the problem occurs the **user is informed**
 which information could not be fetched.
 ![Information to user when fetch of forecast is failing](wireframes/fetch-error.jpg)
-- Files under assets/images/weather/ is copied from 
-[Weather Unlocked](http://www.weatherunlocked.com/). **Forecast information**
-is fetched from Weather Unlockeds API and this forecast **refers to** these
-**files**. File names should only contain lowercase letters but **these file
-names starts with capital letter**. The file names are not changed since they
-are referenced to from fetched information.
+- Files under assets/images/weather/ has a capital letter. These files are
+copied from [Weather Unlocked](http://www.weatherunlocked.com/) and the files 
+are referred to in **forecast information** fetched from Weather Unlockeds API.
+The file names are not changed since information fetched referres to them with
+capital letter.
 - The site has **issues with cookies** in cross-site requests since SamSite
 attribute is not set.
 
@@ -599,4 +600,5 @@ I recived inspiration for this project from:
 - [Stackoverflow: Which heading to use in modals](https://stackoverflow.com/questions/60504268/which-header-should-we-choose-for-modal-dialogs)
 
 Thanks to my mentor [Simen Daehlien](https://www.github.com/eventyret) who
-introduced me to Fetch and gave me above youtube-links.
+has given me many good tips as Fetch, Arrow Function and also above youtube
+links.
