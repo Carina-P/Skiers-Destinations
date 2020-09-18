@@ -588,13 +588,12 @@ rating table on devices with medium and larger viewports
 
 ### Acknowledgements
 I recived inspiration for this project from: 
+- Above all: [w3.schools.com](https://www.w3schools.com/)
 - [dcode: How to use JSDoc -Basics & Introduction](https://www.youtube.com/watch?v=Nqv6UkTROak)
 - [Web Dev Simplified: Learn fetch API in 6 Minutes](https://www.youtube.com/watch?v=cuEtnrL9-H0)
 - [Jake Archibald: Introduction to JavaScript Promises](https://web.dev/promises/) 
 - [MDN web docs: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 - [Stackoverflow: Which heading to use in modals](https://stackoverflow.com/questions/60504268/which-header-should-we-choose-for-modal-dialogs)
 
-Thanks to my mentor [Simen Daehlien](https://www.github.com/eventyret) who introduced fetch and gave me above youtube-links.
-<!--
-- I received inspiration for this project from X
--->
+Thanks to my mentor [Simen Daehlien](https://www.github.com/eventyret) who
+introduced me to Fetch and gave me above youtube-links.
