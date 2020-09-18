@@ -302,7 +302,7 @@ compared to **loading** of one file.
 ![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
-The site is design to fit devices with screen width from **320px to 3840 px**.
+The site is design to fit devices with screen width from **320px** and larger.
 The following features are designed differently for different devices:
 - **Navbar**: On screen widths **smaller** than 768px the navbar **collapses**
 into "hamburger" menu.
@@ -447,7 +447,7 @@ object: RatedResort:
 is documented here:
 [Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf)
 Test of responsiveness was mainly performed with help of Chrome Developers Tool
-on a large scrren. But also with ipad and iPhone7.
+on a large scrren. But also with iPad mini and iPhone7.
 
 ### UX testing
 UX testing was conducted by **watching and interviewing users** when they used
