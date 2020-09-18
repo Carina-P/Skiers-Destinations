@@ -582,9 +582,12 @@ button.
 
 ### Media
 The photos used in this site were obtained from:
-- [Can Stock](https://www.canstockphoto.se) - used to make a logo
-- [Pixabay](https://pixabay.com/) - pictures in carousel and beside 
+- [Can Stock](https://www.canstockphoto.se): used to make a logo
+- [Pixabay](https://pixabay.com/): pictures in carousel and beside 
 rating table on devices with medium and larger viewports
+- [Google Maps Platform](https://developers.google.com/maps/documentation/javascript/marker-clustering):
+The pictures of marker clusterer (![markers clusterer](assets/images/m1.png))
+- [Icons DB](https://www.iconsdb.com/): The yellow map marker
 
 ### Acknowledgements
 I recived inspiration for this project from: 
