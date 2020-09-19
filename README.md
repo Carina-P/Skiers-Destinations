@@ -2,7 +2,7 @@
 ![Logo](assets/images/logo-skiers-destinations.png)      
 [Visit the live **Skiers Destinations** here](https://carina-p.github.io/Skiers-Destinations/)
 
-**UpToDate information about Ski Resorts** for downhill skiers who want 
+**Up-To-Date information about Ski Resorts** for downhill skiers who want 
 **inspiration** for their next ski trip, **compare** different ski resorts or
 just want **updated information** about **skiing conditions** and/or **weather
 forecast** on a particular resort.
@@ -59,15 +59,18 @@ Opera 55|
 
 ## UX 
 ### External users goal
-- **Easily**, by starting with clicking on marker in a **map**, find **information
-and up-to-date facts** about some of the **ski resorts in Europe**.
-- Find **inspiration** were to go by **comparing differents ski resorts** both
-with uptodate information but also by other users **rating of resorts**.
+- Based on a map **easily** find **information** and **up-to-date facts** about
+the best **ski resorts in Europe**.
+- Find **inspiration** were to go on ski holiday by **comparing differents ski
+resorts** when it comes to:
+    - up-to-date **information** and facts 
+    - other users **rating of resorts**.
 - See how **snow conditions develop** over time by using the site frequently.
 - Find the **weather forecast** for a resort.  
+
 ### Site owners goal
 To **share information** with other ski lovers, get inspired by their rating
-of resorts and **get uptodate information** about skiing conditions and weather
+of resorts and **get up-to-date information** about skiing conditions and weather
 at favourite spots.
  
 ### User stories 
@@ -77,23 +80,26 @@ list.
 - US_003: As a user I want to be able to **navigate directly** to contact form.
 - US-004: As a user I want to be able to **get back easily to the top** of the
 page.
-![implementation of navbar](wireframes/navbar.jpg)
-![Implementation of navbar, devices smaller width](wireframes/navbar-hamburger.jpg)
+
+![implementation of navbar](wireframes/navbar.jpg) 
+
 - US-005: As a user I want to know **where good skiing places**, in Europe, are
 situated in a **map**. In this way I know were in Europe the resort is situated.
+
 ![Implementation of map](wireframes/map.jpg)
+
 - US_006: As a user I want a **short description of a resort**. In this way I
-know if it is a resort that I am interested in.
-- US_007: As a user I want **uptodate information** about **snow conditions**
-at a resort. This is interesting to know if I am at the place or on my way to
-the place and want to know what to expect. If I am not going to the place it is
-interesting to follow and compare to other resorts. Deciding were I am going in
-the future.
-- US_008: As a user I want **todays weather forecast** at resort. This is
-interesting to know if I am at the place or on my way to the place and want to
-know what to expect.
+can find out if I am more interested in a resort.
+- US_007: As a user I want **up-to-date information** about **snow conditions**
+at a resort. This is interesting to know if I am at the resort or on my way to
+the resort. If I am not going to the place it is interesting to follow 
+the development of snow conditions and/or compare to other resorts.
+- US_008: As a user I want **todays weather forecast** at a resort.
+This is interesting to know if I am at the place or on my way to the place and
+want to know what to expect.
 
 ![Implementation of short info, snow report and forecast information](wireframes/long-info.jpg) 
+
 - US_009: As a user I want to be able to **compare different ski resorts**.
 Things to compare:
     - **altitude** at top and at base
@@ -102,44 +108,55 @@ Things to compare:
 
     These things are interesting to know e.g. when you are deciding which
     resort you want to visit.
+
 ![Implementation of infoWindows in map](wireframes/info-window.jpg)
+
 - US_010: As a user I want to know which skiing places **other users rank as
 the best**. And I will get inspired which resort to go to and perhaps discover
-a new place I was not aware of. I can also compare a specific resorts ranking
+a new resort I was not aware of. I can also compare a specific resorts ranking
 to a resort that I already know about.
+
 ![Implementatin of rating list on larger viewports](wireframes/table.jpg)
 ![Implementation rating list on smaller viewports](wireframes/cards.jpg)
+
 - US_011: As a user I want to be able to **cast my own vote** for a resort. And
-thus contribute to other users descision process.
+thus contribute to other users descision processes.
 
 ![Implementation of voting](wireframes/pick.jpg)
+
 - US_012: As a user I want to be able to **see how I graded each resort**. Thus
 I can compare my ranking between the resorts.
 - US_013: As a user I want to see the **resulting top-list** after I have
 casted my vote. If my vote affects the order of ski resorts, I want to see it
 immediately. 
+
 ![Implementation of list after voting](wireframes/after-rating.jpg)
-- US-014: As a user I want to be able to **send in my ratings** to be added to
+
+- US-014: As a user I want to be able to **submit my ratings** to be added to
 the list.
+
 ![Implementation of submitting votes](wireframes/submit-votes.jpg)
-- US-014: As a user I want to be able to **influence which ski resorts are
+
+- US-015: As a user I want to be able to **influence which ski resorts are
 shown** on the site. If I am interested in a particular ski resort that does
 not show on the page. 
+
 ![Implementation of form for resort wishes](wireframes/form.jpg)
-- US-015: As a user I want to be **inspired** to go skiing. And in this way
-more interested and keen on finding out more about resorts.
+
+- US-016: As a user I want to be **inspired** to go skiing. And in this way
+I will be more interested and keen on finding out more about resorts.
+
 ![Implementation of heading with carousel](wireframes/heading.jpg)
 
-## User requirements and Expectations
-
+## User requirements and Expectations 
 ### Requirements
 - Navigate the website using **navbar**
 - **Carousel with photos** in beginning of page to inspire users.
 - **Markers** at ski resorts in the map.
 - Beside marker: find **short facts** in InfoWindow about resort. Thus user is
 able to **compare different resorts**.
-- When user **choose a resort** - **information**, as forecast and snow
-conditions, **for the resort** is shown close to the map.
+- When user **choose a resort**: **information**, as forecast and snow
+conditions, **for the resort** are shown close to the map.
 - An **updated list** of the **10 most popular ski resorts** with name of the
 place and its ranking. 
 - **Overall average grading is calculated** from users input.
@@ -153,15 +170,15 @@ The input should include name of ski **resort**, why resort is interesting
 
 ### Expectations
 - Content is **visually satisfying and informative**
-- **Easily understandable navigation** take user to correct place
+- **Easily understandable navigation** taking user to the correct place
 - **Links and buttons** work as espected
 - **Responsive design** fitting on mobile, tablet and desktop 
 - **Information** about a ski resort is immediately shown when user **has
-choosen a resort**.
-- **Short information** in map stays open until user chooses to close the
+selected a resort**.
+- **Short information** in map stays open until user selects to close the
 information.
 - **Information beside/below the map** is **updated** every time the user
-chooses a new resort.
+selects a new resort.
 - **New average grade is correctly calculated** after user graded a ski resort.
 - **Updating of 10-top-list** works after user grading.
 - **Form validation** works correctly
@@ -179,19 +196,19 @@ tablet and mobile:**
 users.
 
 ## Design Choices 
-- **Content belonging** to one another is surrounded by a **blue border**.
-- **One page**: when talking to younger users they preferred one page since
-using smaller devices as mobile phones you do not want to use to many clicks
-but rather scrolling.
+- **Contents belonging** to one another are surrounded by a **blue border**.
+- Younger user preferred the site to be **one page**: they did not want to many
+clicks, rather scroll, on smaller devices as mobile phones.
 - **Rounded edges** is a theme that gives a "softer impression".
 
 ### Fonts
-**Oswald** is choosen, because it is found **useful** on different 
+**Oswald** is chosen, because it is found **useful** on different 
 platforms, **clean** and **easy** to read. "Oswald is designed 
 to be used freely across the internet by web browsers on desktop computers, 
 laptops and mobile devices." (quote from 
 [Google fonts](https://fonts.google.com/specimen/Oswald#standard-styles). 
-And as the **alternative font: Open Sans**. 
+
+The **alternative** font is **Open Sans**. 
  
 ### Colors
 I want the colors to match a day in the skiing slope: White for **snow**, 
@@ -208,63 +225,83 @@ light-blue for the **sky** and yellow for the **sun**.
     - navbar and logo fixed at the top of viewport:
         - **logo**: When hover over, it becomes larger
         - **navbar**: When hover over links, the font is bold
-        ![implementation of navbar](wireframes/navbar.jpg)
-        - If smaller width of device links are collapsed to a "hamburger" menu.
-![Implementation of navbar, devices smaller width](wireframes/navbar-hamburger.jpg)
-    - The **heading** : 
-    - **Carousel** with inspiring photos of skiing and/or Alps
 
-    ![Implementation of heading with carousel](wireframes/heading.jpg)
+        ![implementation of navbar](wireframes/navbar.jpg)
+        
+        - If smaller width of device links are collapsed to a "hamburger" menu.
+
+        ![Implementation of navbar, devices smaller width](wireframes/navbar-hamburger.jpg)
+
+    - **Heading**: explanatory title
+    - **Carousel** with inspiring photos of skiing and/or Alps
+    
+    ![Implementation of heading with carousel](wireframes/heading.jpg) 
+ 
 - **Map** with markers on popular skiing resorts.
+ 
 ![Implementation of map](wireframes/map.jpg)
+
 - Ski resort information, shown in connection with the map, eg. "static
 information as lat and long position", is for convenience, when adding more
 resorts, saved in a file: 
 [resorts.json](https://github.com/Carina-P/Skiers-Destinations/tree/master/assets/data).
 Information is fetched from this file when page is loaded. 
-- **Skiing-resort information** matching the resort user has **choosen in map**:
+- **Skiing-resort information** matching the resort user has **chosen in map**:
     - **Short information** about resort, as altitudes, slopes and pists,
     **in InfoWindow** beside resorts marker. This information stays
-    on screen as long as user does not close the window.
+    on screen as long as a user does not close the window.
+
     ![Implementation of infoWindows in map](wireframes/info-window.jpg)
-    - **More information** as information about the resort, snow report,
-    wheather forecast and a link, to page with more information, is shown in
-    **larger information window**. This information is changed every time user
-    clicks on other resort. On devices with larger width the information is
-    shown beside the map. With smaller widths the information is shown below
-    map.
+    
+    - **More information**, as information about the resort, snow report,
+    wheather forecast and a link to page with more information, are shown in
+    a **larger information window**. This information is changed every time
+    user clicks on other resort. On devices with larger width the information
+    is shown beside the map. With smaller widths the information is shown below
+    the map.
+
     ![Implementation of long resort information](wireframes/long-info.jpg) 
+
 - **Table with top-10** skiing resorts, sorted with the **best ranked resort in
 the top and the resort with lowest ranking in bottom**.
-    - On devices with **larger width** the information is shown in a **table**.
+    - On devices with **larger width** the information is shown in a **table**
+    
     ![Implementatin of rating list on larger viewports](wireframes/table.jpg)
-    - On **smaller devices** it is presented as **"cards"** that also is sorted
-    in ranking order.
+    
+    - On **smaller devices** it is presented as **"cards"** that also are
+    sorted in ranking order.
+
     ![Implementation rating list on smaller viewports](wireframes/cards.jpg)
+    
     - Ranking is **visualized with stars**:
         - The rankings integer is represented by full stars
         - If remainder is 0.75 or greater another full star is added
         - If remainder is between 0.25 and 0.75 a halv-star is added
         - The rest is represented by "empty stars" adding upp to 5
 
-        ![Implementation of stars to visualize ranking](wireframes/stars.jpg)
+    ![Implementation of stars to visualize ranking](wireframes/stars.jpg)
+    
     - Possibility for user to do his/her **own ranking of a place**. When user
-    has voted the list is interactively sorted and updated on the page.
+    has voted, the list is interactively sorted and updated on the page.
     
     ![Implementation of voting](wireframes/pick.jpg)
-    - Possibility for user to **send in his/her votes** to be added to the
+    
+    - Possibility for user to **submit his/her votes** to be added to the
     list: 
-    ![Implementation of submitting votes](wireframes/submit-votes.jpg)
-        - **Modal** that informats how the submitting went: succceded or not.
+ 
+    ![Implementation of submitting votes](wireframes/submit-votes.jpg) 
+
+        - **Modal** that informs how the submitting went.
 
         ![Implementation of modal](wireframes/modal.jpg)
+
 - **File with javaScript** for implementing the **rating list-section** of
-page: assets/js/rating.js - The code is stored in **separate file** to making
-it easier to find specific code and easier to add new code in the future. The
-rest of the JavaScript code stored in assets/js/scripts.js. Negative effect is
-that the loading takes a little **longer time** with two javascript-files
-compared to **loading** one file.
-- **Form for wishing** new ski resorts on the site.
+page: assets/js/rating.js - The code is stored in **separate file** to make
+it easier to find specific parts of the code and easier to add new code in the
+future. The rest of the JavaScript code is stored in assets/js/scripts.js.
+A negative effect is that the loading takes a little **longer** with two
+javascript-files compared to **loading** one file.
+- **Input-form to suggest** new ski resorts on the site.
     - Input fields: 
         - **Name of resort** user wish to add - mandatory
         - The **reason** user wants to highlight to get resort added - 
@@ -272,18 +309,21 @@ compared to **loading** one file.
         - **Name of person** sending in wish - mandatory
         - **Email address** to person - mandatory and must contain an "@".
     - **Submit button**: when clicked, the information of the form is sent by
-    mail.
+    email.
         - When hover over the button: background is changed to black and font
         to yellow
         - **Modal**: informing user if sending went well or not. (implementation
         looking very similar to modal after submitting votes)
+
 ![Implementation of form for resort wishes](wireframes/form.jpg)
-- **Footer** with contacts and social media:
+
+- **Footer** with email contact information and social media:
     - **Email address** to get in touch with site owners
     - **Social media links** as facebook, twitter, linkedIn, instagram and
     youtube.
     - When hover over social media links icons are larger and background color
     is changed to Columbia Blue.
+
 ![Implementation of footer](wireframes/footer.jpg)
 
 ### Responsive
@@ -302,14 +342,14 @@ to lowest. On **larger** screens the information is presented in a **table**.
 ### Interactive elements
 - The **navbar and logo**: to move around in the page
 - When **clicking on marker** for a resort in the map: Both short resort
-information and longer resort information appears. The short information in a
-**infoWindow in the map** and the longer information **besides the map** 
-(if larger screens) or **below map** (if smaller screens).
-The **longer information changes** when user clicks at other marker. The
+information and longer resort information appears. The short information is
+located in a **infoWindow in the map** and the longer information **besides
+the map**(if larger screens) or **below map** (if smaller screens).
+The **longer information changes** when user clicks on other marker. The
 **shorter information stays** as long as the **user chooses**.
 - User can **cast a vot**e and rate ski resort and then: 
     - The grade casted is **visualized as stars**.
-    - A **new average grading** for resort is **calculated**.
+    - A **new average grading** for the resort is **calculated**.
     - If the new average grading for resort affects the resorts place in
     rating list - the **rating list is immediately updated**.
 - User can **submit** his/her **votes by mail** by clicking on button, for
@@ -318,10 +358,10 @@ later adding to average rating list.
 
 ### Features left to Implement
 Adding a **server**:
-- to **store** the **rating** information and then the user do not have to mail
-votes, instead the **updating is done instantly to server** as soon as user
-cast one vote.
-- to **store and fetch** map resorts from 
+- to **store** the **rating** information in order for the user not having to
+email the votes. Instead the **updating is done instantly to server** as soon
+as user cast a vote.
+- to **store and fetch** the resorts in the map from 
   
 ## Technologies Used 
 ### Languages used
@@ -367,7 +407,7 @@ cast one vote.
     - Provides the map and possibility to create markers and cluster of
     markers.
 - [Wheater Unlocked](http://www.weatherunlocked.com/)
-    - From this API uptodate snow report and weather forecast for each resort
+    - From this API up-to-date snow report and weather forecast for each resort
     is received.
 
 ## Testing
@@ -432,7 +472,7 @@ object: RatedResort:
 is documented here:
 [Test cases](https://github.com/Carina-P/Skiers-Destinations/tree/master/testing/test-cases/test-cases.pdf)
 Test of responsiveness was mainly performed with help of Chrome Developers Tool
-on a large scrren. But also with iPad mini and iPhone7.
+on a large scrren. But also with iPad mini and iPhone8.
 
 ### UX testing
 UX testing was conducted by **watching and interviewing users** when they used
@@ -462,10 +502,10 @@ vote**. Especially if the resort moves up or down in rating list:
 
 ### Validation with JSHint 
 **JavaScript** validated with **no errors**. 
-- There is **four undefined variables**: google, $, MarkerClusterer and
-emailjs: These are all **global variables** from sources that is **linked to
+- There are **four undefined variables**: google, $, MarkerClusterer and
+emailjs: These are all **global variables** from sources that are **linked to
 the site**.
-- There is **two unused variables**:
+- There are **two unused variables**:
     - clusterOfMarkers: used when call to a **constructor** from googles API.
     Must call constructor of MarkerClusterer to get cluster of markers in map.
     -  initMap is a **callback-function** initiated from the HTML code.
@@ -474,8 +514,8 @@ the site**.
 The code is **mainly tested with Chrome**. But also **Firefox and Safari**.
 - According to [W3 Schools](https://www.w3schools.com/js/js_es6.asp) the 
 JavaScript code will probably not work well on browsers less than the 
-following versions: **Chrome 58, Edge 14, Firefox 54, Safari 10 and Opera 55** 
-And that is because following features from **ECMAScriptS6** is used: 
+following versions: **Chrome 58, Edge 14, Firefox 54, Safari 10 and Opera 55**. 
+That are because following features from **ECMAScriptS6** is used: 
 - let
 - const
 - template literal syntax
@@ -483,15 +523,15 @@ And that is because following features from **ECMAScriptS6** is used:
 
 ### Some of the bugs
 **Example of solved bugs:**
-- **Synchronously** creating clusters and markers, in map, with information, is
-depended on **asynchronously fetching** of information, is done first. For each
-resort fetched asynchronously both snowreport information and then weather 
-forecast must be fetched asynchronously. Important that everything is fetched
-in right order otherwise it does not work. Solved by using fetch.then and 
-Promise.all. 
-- To be able to **calculate average rating** the **number of persons** that has
-voted has to be known.
-- User **could submit/email ratings** when **no votes** where casted.
+- Problem with **synchronously** creating clusters and markers, in the map,
+using information that needs to be **asynchronously fetched** first. 
+For each resort fetched asynchronously both snowreport information and then
+weather forecast must be fetched asynchronously from different resourses. And 
+it is important to know that each fetch is done before next one starts.
+This was solved by using fetch.then and Promise.all. 
+- To be able to **calculate average rating** the **number of persons** that
+have voted has to be known.
+- User **could submit/email ratings** when **no votes** were casted.
 - Placeholder of textarea in "wish-resort"-form did not show. It was due to
 spaces and linebreak between end of closing tag for textarea> and beginning of
 closing tag for </textarea.
@@ -501,15 +541,17 @@ Found solution at
 **Remaining "bugs":**
 - Sometimes a **CORS**, Cross Origin Resource Sharing,-problem appears when
 **fetching information from API: Weather Unlocked**. The problem happens
-randomly to different resorts. When the problem occurs the **user is informed**
-which information could not be fetched.
+randomly to different resorts. When the problem occurs, the **user is
+informed** which information that could not be fetched.
+
 ![Information to user when fetch of forecast is failing](wireframes/fetch-error.jpg)
-- Files under assets/images/weather/ has a capital letter. These files are
+
+- Files under assets/images/weather/ have capital letters. These files are
 copied from [Weather Unlocked](http://www.weatherunlocked.com/) and the files 
 are referred to in **forecast information** fetched from Weather Unlockeds API.
 The file names are not changed since information fetched referres to them with
-capital letter.
-- The site has **issues with cookies** in cross-site requests since SamSite
+the capital letters.
+- The site has **issues with cookies** in cross-site requests, since SamSite
 attribute is not set.
 
 ## Deployment 
@@ -570,11 +612,11 @@ The photos used in this site were obtained from:
 - [Pixabay](https://pixabay.com/): pictures in carousel and beside 
 rating table on devices with medium and larger viewports
 - [Google Maps Platform](https://developers.google.com/maps/documentation/javascript/marker-clustering):
-The pictures of marker clusterer (![markers clusterer](assets/images/m1.png))
-- [Icons DB](https://www.iconsdb.com/): The yellow map marker
+The pictures of marker clusterer: ![markers clusterer](assets/images/m1.png)
+- [Icons DB](https://www.iconsdb.com/): The yellow map marker: ![yellow map marker](assets/images/yellow-marker48.gif)
 
 ### Acknowledgements
-I recived inspiration for this project from: 
+I received inspiration for this project from: 
 - Above all: [w3.schools.com](https://www.w3schools.com/)
 - [dcode: How to use JSDoc -Basics & Introduction](https://www.youtube.com/watch?v=Nqv6UkTROak)
 - [Web Dev Simplified: Learn fetch API in 6 Minutes](https://www.youtube.com/watch?v=cuEtnrL9-H0)
