@@ -14,26 +14,24 @@ Edge 14|
 Firefox 54|
 Safari 10|
 Opera 55| 
+|
 ## Contents
 - [UX](#ux)
   * [External users goal](#external-users-goal)
   * [Site owners goal](#site-owners-goal)
   * [User stories](#user-stories)
-- [User requirements and Expectations](#user-requirements-and-expectations)
-  * [Requirements](#requirements)
-  * [Expectations](#expectations)
-- [Wireframes](#wireframes)
-  * [Potential features](#potential-features)
-  * [Major changes compared to above wireframes and potential features](#major-changes-compared-to-above-wireframes-and-potential-features)
-- [Design Choices](#design-choices)
-  * [Fonts](#fonts)
-  * [Colors](#colors)
+  * [User requirements and Expectations](#user-requirements-and-expectations)
+    + [Requirements](#requirements)
+    + [Expectations](#expectations)
+  * [Wireframes](#wireframes)
+  * [Major changes compared to above wireframes](#major-changes-compared-to-above-wireframes)
+  * [Design Choices](#design-choices)
+    + [Fonts](#fonts)
+    + [Colors](#colors)
 - [Features](#features)
   * [Responsive](#responsive)
   * [Interactive elements](#interactive-elements)
-  * [Features left to Implement](#features-left-to-implement)
-  * [Existing Features](#existing-features)
-  * [Features Left to Implement](#features-left-to-implement)
+  * [Features left to Implement](#features-left-to-implement) 
 - [Technologies Used](#technologies-used)
   * [Languages used](#languages-used)
   * [Frameworks, Libraries and Programs used](#frameworks--libraries-and-programs-used)
@@ -48,6 +46,7 @@ Opera 55|
   * [Different browsers](#different-browsers)
   * [Some of the bugs](#some-of-the-bugs)
 - [Deployment](#deployment)
+  * [Deploying the site](#deploying-the-site)
   * [Forking the GitHub Repository](#forking-the-github-repository)
   * [Making a local clone](#making-a-local-clone)
 - [Credits](#credits)
@@ -56,6 +55,7 @@ Opera 55|
   * [Acknowledgements](#acknowledgements)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## UX 
 ### External users goal
@@ -148,8 +148,8 @@ I will be more interested and keen on finding out more about resorts.
 
 ![Implementation of heading with carousel](wireframes/heading.jpg)
 
-## User requirements and Expectations 
-### Requirements
+### User requirements and Expectations 
+#### Requirements
 - Navigate the website using **navbar**
 - **Carousel with photos** in beginning of page to inspire users.
 - **Markers** at ski resorts in the map.
@@ -168,7 +168,7 @@ place and its ranking.
 The input should include name of ski **resort**, why resort is interesting 
 (**reason**), **name** of person who is mailing and persons **mail address**.
 
-### Expectations
+#### Expectations
 - Content is **visually satisfying and informative**
 - **Easily understandable navigation** taking user to the correct place
 - **Links and buttons** work as espected
@@ -183,7 +183,7 @@ selects a new resort.
 - **Updating of 10-top-list** works after user grading.
 - **Form validation** works correctly
 
-## Wireframes
+### Wireframes
 [Balsamiq Wireframes](https://balsamiq.com/) was used to build rudimentary 
 wireframes for a basic understanding. Wireframes were made for **desktop,
 tablet and mobile:**
@@ -191,17 +191,17 @@ tablet and mobile:**
 - [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
  
-### Major changes compared to above wireframes and potential features
+### Major changes compared to above wireframes
 - Added a **carousel with pictures** in top of page to inspire user and attract
 users.
 
-## Design Choices 
+### Design Choices 
 - **Contents belonging** to one another are surrounded by a **blue border**.
 - Younger user preferred the site to be **one page**: they did not want to many
 clicks, rather scroll, on smaller devices as mobile phones.
 - **Rounded edges** is a theme that gives a "softer impression".
 
-### Fonts
+#### Fonts
 **Oswald** is chosen, because it is found **useful** on different 
 platforms, **clean** and **easy** to read. "Oswald is designed 
 to be used freely across the internet by web browsers on desktop computers, 
@@ -210,7 +210,7 @@ laptops and mobile devices." (quote from
 
 The **alternative** font is **Open Sans**. 
  
-### Colors
+#### Colors
 I want the colors to match a day in the skiing slope: White for **snow**, 
 light-blue for the **sky** and yellow for the **sun**. 
 <img src="wireframes/colors-skiers-destinations.png" width="75%">
@@ -559,6 +559,7 @@ Skiers Destinations was developed on **GitPod**
 [GitPod](https://www.gitpod.io/), using **git** and **GitHub** to host the
 repository. The code was pushed to GitHub Pages.
  
+### Deploying the site
 When deploying Skiers Destinations using GitHub Pages the following steps were
 made:
 * Opened up **[GitHub](https://github.com/** in the browser and signed in. 
