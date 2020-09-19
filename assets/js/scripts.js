@@ -238,7 +238,7 @@ function addUserInfo(){
     if (smallViewport){
         $("#user-markerinfo").html(`<p>Click on marker (and cluster) in the map
         to get information about ski resort. Information will appear both
-        in the map and <strong>below</strong> the map.</p>`)
+        in the map and <strong>below</strong> the map.</p>`);
     } 
     else {
         $("#user-markerinfo").html(``);
