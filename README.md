@@ -173,24 +173,7 @@ tablet and mobile:**
 - [Wireframe for Desktop](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-desktop.pdf)
 - [Wireframe for Tablet](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-tablet.pdf)
 - [Wireframe for Mobile](https://github.com/Carina-P/Skiers-Destinations/blob/master/wireframes/wireframe-mobile.pdf)
-
-### Potential features
-- **Header**, fixed at the top of viewport, with:
-    - **logo**
-    - **navbar**
-- **Information**-section with:
-    - **Map** with markers at skiing resorts.
-    - **Skiing-resort information** matching the label user has 
-        **choosen in map**.
-- **Recommendation**-section with:
-    - **Table with 10-top** skiing resort sorted with the best in the top. 
-    Providing possibility to do own ranking of place and **interactive update** 
-    of the list. 
-- Section for **wishes** were you can **mail** a wish for a **ski resort** that 
-    you want the site to show information about.
-- **Footer**-section with:
-    - **contact and social media** information
-
+ 
 ### Major changes compared to above wireframes and potential features
 - Added a **carousel with pictures** in top of page to inspire user and attract
 users.
