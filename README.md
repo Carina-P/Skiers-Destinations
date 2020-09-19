@@ -502,9 +502,12 @@ vote**. Especially if the resort moves up or down in rating list:
 
 ### Validation with JSHint 
 **JavaScript** validated with **no errors**. 
-- There are **four undefined variables**: google, $, MarkerClusterer and
-emailjs: These are all **global variables** from sources that are **linked to
-the site**.
+- There are **five undefined variables** (if you validate the both local
+js-files separatly): 
+    - google, $, MarkerClusterer and emailjs -These are all 
+    **global variables** from sources that are **linked to the site**.
+    - sizeViewport: The variable is **declared in rating.js** and used
+    also in scripts.js. Both files are implemented locally.
 - There are **two unused variables**:
     - clusterOfMarkers: used when call to a **constructor** from googles API.
     Must call constructor of MarkerClusterer to get cluster of markers in map.
