@@ -138,7 +138,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
             rowHTML += `
                 <div class="row">
                     <div class ="col-12">
-                        <h4>Nr ${rowIndex+1}: ${this.name}</h4>
+                        <h4>No ${rowIndex+1}: ${this.name}</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -280,7 +280,7 @@ function RatedList(list){
                 <caption>Top-10 Ski Resorts</caption>
                 <thead class="bgr-blue">
                     <tr>
-                        <th>Nr</th>
+                        <th>No</th>
                         <th>Resort</th>
                         <th>Rating average</th>
                         <th>Your rating</th>
