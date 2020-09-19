@@ -23,7 +23,7 @@ function RatedResort( name, rating, nrOfVotes, lastVote){
      * 
      * @returns {boolean} True if user has casted a vote
      */
-    this.hasVoted = () => {return (this.lastVote > 0 && this.lastVote <= 5)};
+    this.hasVoted = () => {return (this.lastVote > 0 && this.lastVote <= 5);};
 
     /**
      * Returns a string literal of HTML code that contains stars representing
@@ -342,7 +342,7 @@ function RatedList(list){
             if (resort.hasVoted()){
                 notVoted = false;
             }
-        })
+        });
 
         return notVoted;
     };
@@ -409,9 +409,9 @@ $("#submit-rating-btn").click( () => {
             $(".modal-body").html(`<p>Unfortunately we could not send the mail.
                 </p>`);
             $("#submit-rating").html(``);
-            console.log("Error:", error)}
+            console.log("Error:", error);}
         );
         ratingSubmitted = true;
         ratedList.toDocument();
     }
-})
+});
