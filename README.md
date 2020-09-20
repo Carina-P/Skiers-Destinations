@@ -331,6 +331,8 @@ The site is design to fit devices with screen width from **320px** and larger.
 The following features are designed differently for different devices:
 - **Navbar**: On screen widths **smaller** than 768px the navbar **collapses**
 into "hamburger" menu.
+- On smaller devices (smaller than 768px) **user instruction** is added **above
+the map**.
 - **Resort information beside or below map**: On **larger** screens with width
 over 768px longer resort information is shown **to the right of the map**. On
 **smaller** devices the information is shown **below the map**.
@@ -347,7 +349,7 @@ located in a **infoWindow in the map** and the longer information **besides
 the map**(if larger screens) or **below map** (if smaller screens).
 The **longer information changes** when user clicks on other marker. The
 **shorter information stays** as long as the **user chooses**.
-- User can **cast a vot**e and rate ski resort and then: 
+- User can **cast a vote** and rate ski resort and then: 
     - The grade casted is **visualized as stars**.
     - A **new average grading** for the resort is **calculated**.
     - If the new average grading for resort affects the resorts place in
